@@ -1,0 +1,21 @@
+{
+  "name": "pagedip",
+  "version": "1.0.0",
+  "description": "Pagedip Code Challenge",
+  "main": "index.js",
+  "author": "jon.sakas@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "react": "16.5.2",
+    "react-dom": "16.5.2"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-loader": "8.0.4",
+    "babel-preset-react": "6.24.1",
+    "eslint": "5.6.1",
+    "jest": "23.6.0",
+    "webpack": "4.20.2",
+    "webpack-cli": "3.1.2"
+  }
+}
