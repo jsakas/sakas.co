@@ -5,6 +5,7 @@ html, body {
   color: #666;
   padding: 0;
   margin: 0;
+  background: #000;
 }
 
 *,
@@ -16,11 +17,29 @@ html, body {
 .Home {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 
-  h1 {
-    font-weight: lighter;
+  &__galaxy {
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__intro {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    h1 {
+      font-weight: lighter;
+      color: #fff;
+    }
   }
 }
