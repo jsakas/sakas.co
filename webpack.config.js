@@ -11,5 +11,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Jon Sakas',
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+        }
+      }
+    ]
+  }
 };
