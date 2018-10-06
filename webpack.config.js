@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+
 
 module.exports = {
   mode: 'development',
@@ -10,7 +12,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Jon Sakas',
-    })
+    }),
+    new ExtractCssChunks(),
   ],
   module: {
     rules: [
@@ -20,6 +23,13 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          ExtractCssChunks.loader,
+          'css-loader'
+        ]
       }
     ]
   }
