@@ -5,7 +5,7 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
   },

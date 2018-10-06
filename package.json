@@ -2,7 +2,7 @@
   "name": "pagedip",
   "version": "1.0.0",
   "description": "Pagedip Code Challenge",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "jon.sakas@gmail.com",
   "license": "MIT",
   "dependencies": {
