@@ -19,8 +19,6 @@ const initializeGalazy = () => {
   let PARTICLES = [];
   let WINW, WINH;
 
-  const r = (v) => Math.random() * v;
-
   const updateCanvasSize = () => {
     WINW = window.innerWidth;
     WINH = window.innerHeight;

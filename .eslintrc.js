@@ -1,3 +1,5 @@
+const package = require('./package.json');
+
 module.exports = {
     "env": {
         "browser": true,
@@ -5,7 +7,15 @@ module.exports = {
         "es6": true,
         "node": true,
     },
-    "extends": "eslint:recommended",
+    "settings": {
+        "react": {
+            "version": package.dependencies.react,
+        },
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
