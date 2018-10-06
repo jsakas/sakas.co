@@ -28,7 +28,8 @@ module.exports = {
         test: /\.scss$/,
         use: [
           ExtractCssChunks.loader,
-          'css-loader'
+          'css-loader',
+          'sass-loader',
         ]
       }
     ]
