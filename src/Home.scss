@@ -34,12 +34,13 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
 
-    h1 {
+    h1, p {
       font-weight: lighter;
-      color: #fff;
+      color: #f1f1f1;
     }
   }
 }

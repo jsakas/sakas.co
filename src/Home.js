@@ -12,7 +12,9 @@ export default class Home extends Component {
           <Galaxy />
         </div>
         <div className="Home__intro">
-          <h1>Hello, World</h1>
+          <h1>Greetings</h1>
+          <p>You have reached the home page of Jon Sakas.</p>
+          <p>A human from Denver, CO, USA, Earth.</p>
         </div>
       </div>
     );
