@@ -15,7 +15,7 @@ const initializeGalazy = () => {
   const canvas = document.getElementById('Galaxy');
   const context = canvas.getContext('2d');
 
-  let MAX_PARTICLES = 10000;
+  let MAX_PARTICLES = 5000;
 
   let PARTICLE_MAX_SIZE = 5;
   let PARTICLES = [];
@@ -52,7 +52,7 @@ const initializeGalazy = () => {
     particle.blue = 177,
     particle.radius = Math.sqrt(
       Math.pow(particle.startX, 2) + Math.pow(particle.startY, 2)
-    ) + 200;
+    ) + 100;
 
     return particle;
   };
@@ -72,6 +72,7 @@ const initializeGalazy = () => {
       const color = `rgba(${p.red}, ${p.green}, ${p.blue}, ${1 - p.size / p.maxSize})`;
       p.size += p.growthSpeed;
       p.offset += p.movementSpeed;
+      p.radius += 1;
 
       context.beginPath();
       context.arc(
