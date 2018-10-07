@@ -9,13 +9,15 @@ export default class Galaxy extends Component {
   }
 }
 
+const r = Math.random;
+
 const initializeGalazy = () => {
   const canvas = document.getElementById('Galaxy');
   const context = canvas.getContext('2d');
 
-  let MAX_PARTICLES = 3000;
+  let MAX_PARTICLES = 10000;
 
-  let PARTICLE_MAX_SIZE = 2;
+  let PARTICLE_MAX_SIZE = 5;
   let PARTICLES = [];
   let WINW, WINH;
 
@@ -37,23 +39,20 @@ const initializeGalazy = () => {
   updateCanvasSize();
 
   const particlesFactory = () => {
-    const particle = {
-      startX: Math.random() * (WINW * 2) - WINW,
-      startY: Math.random() * (WINH * 2) - WINH,
-      offset: Math.random() * (Math.PI * 2),
-      radius: Math.random() * WINW,
-      size: 0,
-      movementSpeed: (Math.random() + 0.1) / 1000,
-      growthSpeed: Math.random() / 10,
-      maxSize: Math.random() * PARTICLE_MAX_SIZE,
-      red: 255,
-      green: 255,
-      blue: 177,
-    };
-
+    const particle = {};
+    particle.startX = (r() * (WINW * 2) - WINW) * .25,
+    particle.startY = (r() * (WINH * 2) - WINH) * .25,
+    particle.offset = r() * (Math.PI * 2),
+    particle.size = 0,
+    particle.movementSpeed = (r() + 0.1) / 500,
+    particle.growthSpeed = r() / 10,
+    particle.maxSize = r() * PARTICLE_MAX_SIZE,
+    particle.red = r() * 177,
+    particle.green = r() * 177,
+    particle.blue = 177,
     particle.radius = Math.sqrt(
       Math.pow(particle.startX, 2) + Math.pow(particle.startY, 2)
-    );
+    ) + 200;
 
     return particle;
   };
