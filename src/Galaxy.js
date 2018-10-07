@@ -44,7 +44,7 @@ const initializeGalazy = () => {
     particle.startY = (r() * (WINH * 2) - WINH) * .25,
     particle.offset = r() * (Math.PI * 2),
     particle.size = 0,
-    particle.movementSpeed = (r() + 0.1) / 500,
+    particle.movementSpeed = (r() + 0.1) / 250,
     particle.growthSpeed = r() / 10,
     particle.maxSize = r() * PARTICLE_MAX_SIZE,
     particle.red = r() * 177,
