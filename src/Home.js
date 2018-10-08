@@ -69,6 +69,10 @@ export default class Home extends Component {
           )}
 
         </div>
+        <div className="Home__navigate">
+          <div className="Home__navigate-circle"></div>
+          <div className="Home__navigate-pulse"></div>
+        </div>
       </div>
     );
   }
