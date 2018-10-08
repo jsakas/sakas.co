@@ -16,7 +16,6 @@ const initializeGalazy = () => {
   const context = canvas.getContext('2d');
 
   let MAX_PARTICLES = 5000;
-
   let PARTICLE_MAX_SIZE = 5;
   let PARTICLES = [];
   let WINW, WINH;
@@ -40,8 +39,8 @@ const initializeGalazy = () => {
 
   const particlesFactory = () => {
     const particle = {};
-    particle.startX = (r() * (WINW * 2) - WINW) * .25,
-    particle.startY = (r() * (WINH * 2) - WINH) * .25,
+    particle.startX = (r() * (WINW * 2) - WINW) * .1,
+    particle.startY = (r() * (WINH * 2) - WINH) * .1,
     particle.offset = r() * (Math.PI * 2),
     particle.size = 0,
     particle.movementSpeed = (r() + 0.1) / 250,

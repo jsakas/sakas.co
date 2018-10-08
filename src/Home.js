@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TransitionGroup, Transition } from 'react-transition-group';
 import Galaxy from './Galaxy';
 import Typer from './Typer';
 
@@ -28,21 +29,45 @@ export default class Home extends Component {
           <Galaxy />
         </div>
         <div className="Home__intro">
-          <h1>
-            <Typer text="Greetings" onComplete={this.onTyperComplete('phase1')} />
-          </h1>
           
+          <Transition timeout={0} in={true} appear={true}>
+            {(state) => {
+              return (
+                <h1 className={`fade-in fade-in--${state}`}>
+                  <Typer text="Greetings" onComplete={this.onTyperComplete('phase1')} />
+                </h1>
+                )
+              }
+            }  
+          </Transition>
+
+
           {this.state.phase1 && (
-            <p>
-              <Typer text="You have reached the home page of Jon Sakas" onComplete={this.onTyperComplete('phase2')} />
-            </p>
+          <Transition timeout={0} in={true} appear={true}>
+            {(state) => {
+              return (
+                <p className={`fade-in fade-in--${state}`}>
+                  <Typer text="You have reached the home page of Jon Sakas" onComplete={this.onTyperComplete('phase2')} />
+                </p>
+                )
+              }
+            }  
+          </Transition>
           )}
 
           {this.state.phase2 && (
-            <p>
-              <Typer text="A human from Denver, Colorado, USA, Earth, Milky Way." onComplete={this.onTyperComplete('phase3')} />
-            </p>
+          <Transition timeout={0} in={true} appear={true}>
+            {(state) => {
+              return (
+                <p className={`fade-in fade-in--${state}`}>
+                  <Typer text="A human from Denver, Colorado, USA, Earth" onComplete={this.onTyperComplete('phase3')} />
+                </p>
+                )
+              }
+            }  
+          </Transition>
           )}
+
         </div>
       </div>
     );

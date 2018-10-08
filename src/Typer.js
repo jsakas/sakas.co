@@ -10,7 +10,7 @@ export default class Typer extends Component {
         return {
           target: i,
           count: 0,
-          max: 15, // Math.floor(Math.random() * 50),
+          max: Math.floor(Math.random() * 50),
           current: String.fromCharCode(Math.floor(Math.random() * 25) + 97)
         }
       })
