@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { TransitionGroup, Transition } from 'react-transition-group';
+import { Transition } from 'react-transition-group';
 import Galaxy from './Galaxy';
 import Typer from './Typer';
 
 import './Home.scss';
 
-
 export default class Home extends Component {
+  static displayNamme = 'Home';
+
   constructor(props) {
     super(props);
-
+    
     this.state = {
       phase1: false,
       phase2: false,
@@ -69,7 +70,7 @@ export default class Home extends Component {
           )}
 
         </div>
-        <div className="Home__navigate">
+        <div className="Home__navigate" onClick={() => this.props.history.push('/about')}>
           <div className="Home__navigate-circle"></div>
           <div className="Home__navigate-pulse"></div>
         </div>
@@ -77,3 +78,4 @@ export default class Home extends Component {
     );
   }
 }
+

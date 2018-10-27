@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 
 export default class Galaxy extends Component {
   componentDidMount(){
-    initializeGalazy();
+    this.raf = startGalaxy();
   }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+  }
+
   render() {
     return (<canvas className="Galaxy" id="Galaxy"></canvas>);
   }
@@ -11,11 +16,11 @@ export default class Galaxy extends Component {
 
 const r = Math.random;
 
-const initializeGalazy = () => {
+const startGalaxy = () => {
   const canvas = document.getElementById('Galaxy');
   const context = canvas.getContext('2d');
 
-  let MAX_PARTICLES = 5000;
+  let MAX_PARTICLES = 1000;
   let PARTICLE_MAX_SIZE = 5;
   let PARTICLES = [];
   let WINW, WINH;
@@ -90,8 +95,8 @@ const initializeGalazy = () => {
 
   const update = () => {
     draw();
-    requestAnimationFrame(update);
+    return requestAnimationFrame(update);
   };
 
-  update();
+  return update();
 };

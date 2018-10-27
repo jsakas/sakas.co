@@ -24,7 +24,7 @@ export default class Typer extends Component {
         this.props.onComplete();
       }
       this.iterate();
-    }, 10);
+    }, this.props.speed);
   }
 
   iterate = () => {
@@ -60,5 +60,6 @@ export default class Typer extends Component {
 
 Typer.defaultProps = {
   text: '',
+  speed: 100,
   onComplete: () => {},
 };

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700');
+
+html, body {
+  font-family: 'IBM Plex Mono', sans-serif;
+  color: #666;
+  padding: 0;
+  margin: 0;
+  background: #000;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.fade-in {
+  transition: opacity 5s, height 1s;
+  opacity: 0;
+  height: 0;
+
+  &--entered {
+    opacity: 1;
+    height: 50px;
+  }
+}
+
+.page-transition {
+  overflow: scroll;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  transition: all 1s;
+
+  &--enter-active {
+    opacity: 1;
+    transition: all 1s;
+  }
+  
+  &--exit-active {
+    opacity: 0;
+    transition: all 1s;
+  }
+}
