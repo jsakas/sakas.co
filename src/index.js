@@ -5,8 +5,8 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import './index.scss';
 
-import Home from './Home';
-import About from './About';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
 
 const container = document.createElement('div');
 document.body.appendChild(container);

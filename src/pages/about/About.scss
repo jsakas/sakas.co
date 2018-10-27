@@ -1,4 +1,4 @@
-@import './styles/variables';
+@import '~styles/variables';
 
 .About {
   width: 100vw;
@@ -13,7 +13,7 @@
   &__avatar {
     width: 8rem;
     height: 8rem;
-    background-image: url('./images/avatar.jpg');
+    background-image: url('~images/avatar.jpg');
     background-size: contain;
     border-radius: 50%;
     overflow: hidden;
