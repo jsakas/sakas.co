@@ -1,8 +1,63 @@
+@import './styles/variables';
+
 .About {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f5f5;
+  background: $color-background;
+  font-family: 'Raleway', sans-serif;
+  flex-direction: column;
+
+  &__avatar {
+    width: 8rem;
+    height: 8rem;
+    background-image: url('./images/avatar.jpg');
+    background-size: contain;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      margin: .5rem;
+    }
+  }
+
+  &__headline {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+      
+    h1 {
+      color: $color-primary;
+      font-size: 2.5rem;
+      margin: .2rem 0;
+    }
+
+    ul {
+      margin: .2rem 0;
+      padding: 0;
+    }
+    
+    li {
+      font-size: 1.5rem;
+      margin: .2rem 0;
+      padding: 0;
+      list-style-type: none;
+    }
+  }
+
+  p {
+    text-align: center;
+    width: 100%;
+    max-width: 30rem;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700|Roboto:300,400,500,700|Raleway:300,400,500,600,700,800,900');
+@import './styles/variables.scss';
 
 html, body {
   font-family: 'IBM Plex Mono', sans-serif;
@@ -12,6 +13,10 @@ html, body {
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+a {
+  color: $color-primary;
 }
 
 .fade-in {

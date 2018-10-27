@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
-
+import avatar from './images/avatar.jpg';
 import './About.scss';
 
 export default class About extends Component {
   render() {
     return (
       <div className="About">
-        <span onClick={() => this.props.history.push('/')}>Go Home</span>
+        <div className="About__intro">
+          <span className="About__avatar"></span>
+          <span className="About__headline">
+            <h1>I&apos;m Jon</h1>
+            <ul>
+              <li>Developer</li>
+              <li>Designer</li>
+              <li>Musician</li>
+            </ul>
+          </span>
+        </div>
+        <p>
+          Jon Sakas is a Creative Technologist from Denver, CO. Currently working 
+          as the Engineering Manager at <a href="https://www.beatport.com" target="_blank">Beatport</a>, 
+          he is passionate about building a more musicial web.
+        </p>
       </div>
     );
   }
