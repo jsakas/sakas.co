@@ -3,9 +3,7 @@
 
 .Resume {
   &__body {
-    @include animate-once(resume-enter, 1s);
-    background: rgba(#fff, .9);
-    color: #111;
+    // @include animate-once(resume-enter, 1s);
     margin: 0 auto;
     max-width: 60rem;
     padding: 1rem;
@@ -13,13 +11,23 @@
     font-weight: 300;
     font-size: 1em;
     overflow: scroll;
+    border: 1px solid rgba($color-secondary, .3);
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2 {
+      color: rgba(#fff, .8);
       font-family: 'Raleway', sans-serif;
-      color: #111;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
-    @media print {      
+    h3, h4, h5, h6 {
+      color: rgba($color-primary, .8);
+      font-family: 'Raleway', sans-serif;
+    }
+
+    @media print {    
+      background: rgba(#fff, .9);
+      color: #111;  
       padding: 0;
       border: 0;
       max-width: 100%;
@@ -49,6 +57,6 @@
   
   100% {
     opacity: 0;
-    transform: scale(.9);
+    transform: scale(.95);
   }
 }

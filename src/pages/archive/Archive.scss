@@ -7,7 +7,7 @@
   // -webkit-mask-size: 100vw 100vh;
   
   &__body {
-    @include animate-once(resume-enter, 1s);
+    // @include animate-once(resume-enter, 1s);
     color: $color-text;
     margin: 0 auto;
     max-width: 40rem;

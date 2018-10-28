@@ -13,8 +13,6 @@ import Menu from 'components/menu/Menu';
 import Pulse from 'components/pulse/Pulse';
 import Triangles from 'components/Triangles';
 
-import AudioUtil from '@utils/Audio';
-
 import './App.scss';
 
 const ROUTES = {
@@ -29,7 +27,7 @@ const ROUTES = {
     showTitle: false,
   },
   experiments: {
-    path: '/experiments',
+    path: '/experiments/:e?',
     component: Experiments,
     title: 'Experiments',
     showTitle: true,
@@ -54,6 +52,8 @@ const ROUTES = {
   }
 };
 
+const getBaseRoute = location => location.pathname.split('/').filter(i => i)[0];
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -74,66 +74,68 @@ class App extends React.Component {
           <Triangles />
         </div>
         <Router history={history}>
-          <Route render={({ location }) => (
-            <TransitionGroup component={(null)}>
+          <Route key={getBaseRoute(history.location)} render={({ location }) => {
+            return (
+              <TransitionGroup component={(null)}>
 
-              <Transition key={'logo'} timeout={1000}>
-                {(state) => {
-                  return (
-                    <div className={`logo logo-transition logo-transition--${state}`}>
+                <Transition key={'logo'} timeout={1000}>
+                  {(state) => {
+                    return (
+                      <div className={`logo logo-transition logo-transition--${state}`}>
                       jon.sakas
-                    </div>
-                  );
-                }}
-              </Transition>
+                      </div>
+                    );
+                  }}
+                </Transition>
 
 
-              <Transition key={`${location.key}--title`} timeout={1000}>
-                {(state) => {
-                  return (
-                    <div className={`title title-transition title-transition--${state}`}>
-                      <Switch location={location}>
-                        {Object.keys(ROUTES).filter(route => ROUTES[route].showTitle).map((route) => {
-                          let title = ROUTES[route].title;
-                          return (
-                            <Route 
-                              exact
-                              key={location}
-                              path={ROUTES[route].path} 
-                              render={() => <h1>{title}</h1>}
-                            />
-                          );
-                        })}
-                      </Switch>
-                    </div>
-                  );
-                }}
-              </Transition>
+                <Transition key={`${getBaseRoute(history.location)}--title`} timeout={1000}>
+                  {(state) => {
+                    return (
+                      <div className={`title title-transition title-transition--${state}`}>
+                        <Switch location={location}>
+                          {Object.keys(ROUTES).filter(route => ROUTES[route].showTitle).map((route) => {
+                            let title = ROUTES[route].title;
+                            return (
+                              <Route 
+                                exact
+                                key={location}
+                                path={ROUTES[route].path} 
+                                render={() => <h1>{title}</h1>}
+                              />
+                            );
+                          })}
+                        </Switch>
+                      </div>
+                    );
+                  }}
+                </Transition>
 
-              <Transition key={`${location.key}--page`} timeout={1000}>
-                {(state) => {
-                  return (
-                    <div className={`page page-transition page-transition--${state}`}>
-                      <Switch location={location}>
-                        {Object.keys(ROUTES).map((route) => {
-                          let Component = ROUTES[route].component;
-                          return (
-                            <Route 
-                              exact
-                              key={location}
-                              path={ROUTES[route].path} 
-                              render={() => <Component />}
-                            />
-                          );
-                        })}
-                      </Switch>
-                    </div>
-                  );
-                }}
-              </Transition>
+                <Transition key={`${getBaseRoute(history.location)}--page`} timeout={1000}>
+                  {(state) => {
+                    return (
+                      <div className={`page page-transition page-transition--${state}`}>
+                        <Switch location={location}>
+                          {Object.keys(ROUTES).map((route) => {
+                            let Component = ROUTES[route].component;
+                            return (
+                              <Route 
+                                exact
+                                key={location}
+                                path={ROUTES[route].path} 
+                                component={Component}
+                              />
+                            );
+                          })}
+                        </Switch>
+                      </div>
+                    );
+                  }}
+                </Transition>
 
-            </TransitionGroup>)
-          } />
+              </TransitionGroup>
+            );
+          }} />
         </Router>
         <div className="App__menu-toggle">
           <Pulse onClick={this.toggleMenu} />

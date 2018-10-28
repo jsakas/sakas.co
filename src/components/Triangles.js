@@ -33,9 +33,6 @@ const startGalaxy = () => {
     WINW = window.innerWidth;
     WINH = window.innerHeight;
 
-    // WINW = 500;
-    // WINH = 500;
-
     if (WINW > WINH) {
       WINH = WINW;
     } else {
@@ -67,7 +64,7 @@ const startGalaxy = () => {
     particle.p2dir = true;
     particle.p3dir = false;
     particle.size = 0;
-    particle.movementSpeed = (r() + 0.1) / 1000;
+    particle.movementSpeed = (r() + 0.1) / 2000;
     particle.growthSpeed = r() / 10;
     particle.maxSize = r() * PARTICLE_MAX_SIZE;
     particle.red = r() * 177;

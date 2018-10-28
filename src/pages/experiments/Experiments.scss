@@ -30,3 +30,44 @@
     border: 1px solid rgba($color-secondary, 1);
   }
 }
+
+.ExperimentView {
+  position: relative; 
+
+  h2 {
+    font-weight: 300;
+    color: $color-tertiary;
+  }
+
+  &__back {
+    background: rgba($color-tertiary, .3);
+    transition: background .2s;
+    color: #fff;
+    border-radius: 2rem;
+    padding: .1rem 1rem;
+    position: relative;
+    right: 0;
+    margin-top: .5rem;
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-size: .7rem;
+
+    &:hover {
+      background: rgba($color-tertiary, .5);
+    }
+  }
+}
+
+iframe {
+  border: 0;
+  background: #fff;
+  border-radius: 2rem;
+  width: 100vw;
+  height: 100vw;
+  max-width: 70vw;
+  max-height: 60vh;
+}
