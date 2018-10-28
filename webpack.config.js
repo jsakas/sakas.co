@@ -22,6 +22,7 @@ module.exports = {
       'pages': path.resolve(__dirname, 'src', 'pages'),
       'styles': path.resolve(__dirname, 'src', 'styles'),
       '@history': path.resolve(__dirname, 'src', 'history'),
+      '@docs': path.resolve(__dirname, 'docs'),
     },
   },
   module: {
@@ -32,6 +33,13 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.md$/,
+        use: [
+          'babel-loader',
+          'markdown-to-react-loader',
+        ],
       },
       {
         test: /\.scss$/,

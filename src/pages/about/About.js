@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Triangles from 'components/Triangles';
 
 import './About.scss';
 
@@ -7,9 +6,6 @@ export default class About extends Component {
   render() {
     return (
       <div className="About">
-        <div className="About__canvas">
-          <Triangles />
-        </div>
         <div className="About__content">
           <div className="About__intro">
             <span className="About__avatar"></span>

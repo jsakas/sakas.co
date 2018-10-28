@@ -3,7 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import history from '@history';
 
-import Home from 'pages/home/Home';
+// import Home from 'pages/home/Home';
 import About from 'pages/about/About';
 import Experiments from 'pages/experiments/Experiments';
 import Resume from 'pages/resume/Resume';
@@ -11,16 +11,17 @@ import Archive from 'pages/archive/Archive';
 import Audio from 'pages/audio/Audio';
 import Menu from 'components/menu/Menu';
 import Pulse from 'components/pulse/Pulse';
+import Triangles from 'components/Triangles';
 
 import './App.scss';
 
 const ROUTES = {
-  home: {
-    path: '/',
-    component: Home,
-  },
+  // home: {
+  //   path: '/',
+  //   component: Home,
+  // },
   about: {
-    path: '/about',
+    path: '/',
     component: About,
   },
   experiments: {
@@ -57,6 +58,9 @@ class App extends React.Component {
   render() {
     return (
       <Fragment>
+        <div className="App__canvas">
+          <Triangles />
+        </div>
         <Router history={history}>
           <Route render={({ location }) => (
             <TransitionGroup component={(null)}>

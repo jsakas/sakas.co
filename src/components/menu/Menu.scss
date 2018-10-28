@@ -5,7 +5,7 @@
   bottom: 0;
   width: 100vw;
   height: 3rem;
-  
+  // background: $color-background;
   color: $color-text;
   z-index: 20;
   transition: all .2s;
@@ -13,6 +13,10 @@
 
   &--closed {
     bottom: -3rem;
+  }
+
+  @media print {
+    display: none;
   }
 }
 

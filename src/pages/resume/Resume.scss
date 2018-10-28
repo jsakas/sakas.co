@@ -1,0 +1,23 @@
+@import '~styles/variables';
+
+.Resume {
+  &__body {
+    background: rgba(#fff, .9);
+    color: #111;
+    margin: 0 auto;
+    max-width: 60rem;
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Raleway', sans-serif;
+    }
+
+    @media print {
+      padding: 0;
+      border: 0;
+    }
+  }
+}

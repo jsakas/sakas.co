@@ -26,6 +26,17 @@ a {
     left: 50%;
     transform: translate(-50%, 0);
   }
+
+  &__canvas {
+    z-index: 0;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 .fade-in {
@@ -48,7 +59,7 @@ a {
   height: 100vh;
 
   &--padded {
-    padding: 1rem 2rem;
+    padding: 2rem 2rem 4rem 2rem;
   }
 }
 

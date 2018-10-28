@@ -5,10 +5,10 @@ import './Menu.scss';
 
 const MENU_ITEMS = [
   {
+  //   onClick: () => history.push('/'),
+  //   title: 'Home',
+  // }, {
     onClick: () => history.push('/'),
-    title: 'Home',
-  }, {
-    onClick: () => history.push('/about'),
     title: 'About',
   }, {
     onClick: () => history.push('/experiments'),
