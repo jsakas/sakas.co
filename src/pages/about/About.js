@@ -18,11 +18,13 @@ export default class About extends Component {
               </ul>
             </span>
           </div>
-          <p>
+          <div className="About__body">
+            <p>
             Jon Sakas is a Creative Technologist from Denver, CO. He is currently working 
             as the Engineering Manager at <a href="https://www.beatport.com" rel="noopener noreferrer" target="_blank">Beatport</a>.
             He is passionate about building a more musicial web.
-          </p>
+            </p>
+          </div>
         </div>
       </div>
     );
