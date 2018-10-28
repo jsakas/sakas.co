@@ -19,6 +19,15 @@ a {
   color: $color-primary;
 }
 
+.App {
+  &__menu-toggle {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
 .fade-in {
   transition: opacity 5s, height 1s;
   opacity: 0;
@@ -37,6 +46,10 @@ a {
   left: 0;
   width: 100vw;
   height: 100vh;
+
+  &--padded {
+    padding: 1rem 2rem;
+  }
 }
 
 .page-transition {

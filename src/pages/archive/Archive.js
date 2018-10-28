@@ -1,7 +1,13 @@
 import React from 'react';
 
+import './Archive.scss';
+
 const Archive = () => {
-  return (<h1>Archive</h1>);
+  return (
+    <div className="Archive page page--padded">
+      <h1>Archive</h1>
+    </div>
+  );
 };
 
 export default Archive;

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-transition-group';
-import { withRouter } from 'react-router';
 import Galaxy from 'components/Galaxy';
 import Typer from 'components/Typer';
-import Pulse from 'components/pulse/Pulse';
 
 import './Home.scss';
 
-@withRouter
 class Home extends Component {
   static displayNamme = 'Home';
 
@@ -72,9 +69,6 @@ class Home extends Component {
             </Transition>
           )}
 
-        </div>
-        <div className="Home__navigate">
-          <Pulse onClick={() => this.props.history.push('/about')} />
         </div>
       </div>
     );

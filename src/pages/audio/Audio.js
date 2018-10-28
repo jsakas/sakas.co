@@ -1,7 +1,13 @@
 import React from 'react';
 
+import './Audio.scss';
+
 const Audio = () => {
-  return (<h1>Audio</h1>);
+  return (
+    <div className="Audio page page--padded">
+      <h1>Audio</h1>
+    </div>
+  );
 };
 
 export default Audio;

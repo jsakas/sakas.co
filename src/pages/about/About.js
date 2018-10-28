@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Triangles from 'components/Triangles';
-import Pulse from 'components/pulse/Pulse';
+
 import './About.scss';
 
 export default class About extends Component {
@@ -27,9 +27,6 @@ export default class About extends Component {
             as the Engineering Manager at <a href="https://www.beatport.com" rel="noopener noreferrer" target="_blank">Beatport</a>.
             He is passionate about building a more musicial web.
           </p>
-        </div>
-        <div className="About__navigate">
-          <Pulse onClick={this.props.toggleMenu} />
         </div>
       </div>
     );

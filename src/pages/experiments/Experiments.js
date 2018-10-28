@@ -1,7 +1,13 @@
 import React from 'react';
 
+import './Experiments.scss';
+
 const Experiments = () => {
-  return (<h1>Experiments</h1>);
+  return (
+    <div className="Experiments page page--padded">
+      <h1>Experiments</h1>
+    </div>
+  );
 };
 
 export default Experiments;
