@@ -21,6 +21,7 @@ module.exports = {
       'images': path.resolve(__dirname, 'src', 'images'),
       'pages': path.resolve(__dirname, 'src', 'pages'),
       'styles': path.resolve(__dirname, 'src', 'styles'),
+      '@history': path.resolve(__dirname, 'src', 'history'),
     },
   },
   module: {

@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import history from '@history';
 
 import './Menu.scss';
 
 const MENU_ITEMS = [
   {
-    onClick: () => {},
+    onClick: () => history.push('/experiments'),
     title: 'Experiments',
   },{
-    onClick: () => {},
+    onClick: () => history.push('/resume'),
     title: 'Resume',
   },{
-    onClick: () => {},
+    onClick: () => history.push('/archive'),
     title: 'Archive',
   },{
-    onClick: () => {},
+    onClick: () => history.push('/audio'),
     title: 'Audio',
   }
 ];
@@ -29,7 +30,7 @@ const MenuItem = ({ onClick, title }) => {
 MenuItem.defaultProps = {
   onClick: () => null,
   title: '',
-}
+};
 
 export default class Menu extends Component {
   render() {
@@ -40,7 +41,7 @@ export default class Menu extends Component {
 
     return (
       <div className={className}>
-        {MENU_ITEMS.map((props, i) => <MenuItem key={if} {...props} />)}
+        {MENU_ITEMS.map((props, i) => <MenuItem key={i} {...props} />)}
       </div>
     );
   }

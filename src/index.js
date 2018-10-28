@@ -1,12 +1,17 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Router, Route, Switch } from 'react-router-dom';
+import { TransitionGroup, Transition } from 'react-transition-group';
+import history from '@history';
 
 import './index.scss';
 
 // import Home from 'pages/home/Home';
 import About from 'pages/about/About';
+import Experiments from 'pages/experiments/Experiments';
+import Resume from 'pages/resume/Resume';
+import Archive from 'pages/archive/Archive';
+import Audio from 'pages/audio/Audio';
 import Menu from 'components/menu/Menu';
 
 const container = document.createElement('div');
@@ -20,6 +25,22 @@ const ROUTES = {
   about: {
     path: '/',
     component: About,
+  },
+  experiments: {
+    path: '/experiments',
+    component: Experiments,
+  },
+  resume: {
+    path: '/resume',
+    component: Resume,
+  },
+  archive: {
+    path: '/archive',
+    component: Archive,
+  },
+  audio: {
+    path: '/audio',
+    component: Audio,
   }
 };
 
@@ -39,29 +60,34 @@ class App extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="page">
-          <BrowserRouter>
-            <Route render={({ location }) => (
-              <TransitionGroup component={null}>
-                <CSSTransition key={location.key} classNames="page-transition page-transition-" timeout={1000}>
-                  <Switch location={location}>
-                    {Object.keys(ROUTES).map((route) => {
-                      let Component = ROUTES[route].component;
-                      return (
-                        <Route 
-                          exact
-                          key={location}
-                          path={ROUTES[route].path} 
-                          render={() => <Component toggleMenu={this.toggleMenu} />}
-                        />
-                      );
-                    })}
-                  </Switch>
-                </CSSTransition>
-              </TransitionGroup>)
-            } />
-          </BrowserRouter>
-        </div>
+        <Router history={history}>
+          <Route render={({ location }) => (
+            <TransitionGroup component={(null)}>
+              <Transition key={location.key} timeout={1000}>
+                {(state) => {
+                  return (
+                    <div className={`page page-transition page-transition--${state}`}>
+                      <Switch location={location}>
+                        {Object.keys(ROUTES).map((route) => {
+                          let Component = ROUTES[route].component;
+                          return (
+                            <Route 
+                              exact
+                              key={location}
+                              path={ROUTES[route].path} 
+                              render={() => <Component toggleMenu={this.toggleMenu} />}
+                            />
+                          );
+                        })}
+                      </Switch>
+                    </div>
+                  );
+                }}
+
+              </Transition>
+            </TransitionGroup>)
+          } />
+        </Router>
         <Menu open={this.state.menuOpen} />
       </Fragment>
     );
