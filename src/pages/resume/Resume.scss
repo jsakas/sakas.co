@@ -1,7 +1,9 @@
 @import '~styles/variables';
+@import '~styles/mixins';
 
 .Resume {
   &__body {
+    @include animate-once(resume-enter, 1s);
     background: rgba(#fff, .9);
     color: #111;
     margin: 0 auto;
@@ -13,11 +15,37 @@
 
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Raleway', sans-serif;
+      color: #111;
     }
 
     @media print {
       padding: 0;
       border: 0;
     }
+  }
+}
+
+@keyframes resume-enter {
+  0% {
+    opacity: 0;
+    transform: scale(.9);
+  }
+  
+  100% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+@keyframes resume-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  100% {
+    opacity: 0;
+    transform: scale(.9);
   }
 }

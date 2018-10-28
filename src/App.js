@@ -23,22 +23,32 @@ const ROUTES = {
   about: {
     path: '/',
     component: About,
+    title: 'About',
+    showTitle: false,
   },
   experiments: {
     path: '/experiments',
     component: Experiments,
+    title: 'Experiments',
+    showTitle: true,
   },
   resume: {
     path: '/resume',
     component: Resume,
+    title: 'Resume',
+    showTitle: true,
   },
   archive: {
     path: '/archive',
     component: Archive,
+    title: 'Archive',
+    showTitle: true,
   },
   audio: {
     path: '/audio',
     component: Audio,
+    title: 'Audio',
+    showTitle: true,
   }
 };
 
@@ -64,7 +74,41 @@ class App extends React.Component {
         <Router history={history}>
           <Route render={({ location }) => (
             <TransitionGroup component={(null)}>
-              <Transition key={location.key} timeout={1000}>
+
+              <Transition key={'logo'} timeout={1000}>
+                {(state) => {
+                  return (
+                    <div className={`logo logo-transition logo-transition--${state}`}>
+                      jon.sakas
+                    </div>
+                  );
+                }}
+              </Transition>
+
+
+              <Transition key={`${location.key}--title`} timeout={1000}>
+                {(state) => {
+                  return (
+                    <div className={`title title-transition title-transition--${state}`}>
+                      <Switch location={location}>
+                        {Object.keys(ROUTES).filter(route => ROUTES[route].showTitle).map((route) => {
+                          let title = ROUTES[route].title;
+                          return (
+                            <Route 
+                              exact
+                              key={location}
+                              path={ROUTES[route].path} 
+                              render={() => <h1>{title}</h1>}
+                            />
+                          );
+                        })}
+                      </Switch>
+                    </div>
+                  );
+                }}
+              </Transition>
+
+              <Transition key={`${location.key}--page`} timeout={1000}>
                 {(state) => {
                   return (
                     <div className={`page page-transition page-transition--${state}`}>
@@ -84,8 +128,8 @@ class App extends React.Component {
                     </div>
                   );
                 }}
-
               </Transition>
+
             </TransitionGroup>)
           } />
         </Router>

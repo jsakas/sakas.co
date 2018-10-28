@@ -5,7 +5,6 @@ import './Archive.scss';
 const Archive = () => {
   return (
     <div className="Archive page page--padded">
-      <h1>Archive</h1>
     </div>
   );
 };

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700|Roboto:300,400,500,700|Raleway:300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700|Raleway:300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 @import '~styles/variables.scss';
 
 html, body {
@@ -17,6 +18,13 @@ html, body {
 
 a {
   color: $color-primary;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .App {
@@ -50,6 +58,45 @@ a {
   }
 }
 
+.logo {
+  position: absolute;
+  z-index: 30;
+  left: 2rem;
+  top: 3rem;
+
+}
+
+.title {
+  position: absolute;
+  top: 4rem;
+  padding-left: 2rem;
+  z-index: 30;
+  
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    font-size: 1.4rem;
+  }
+}
+
+.title-transition {
+  &--entering {
+    animation: title-enter;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  &--exiting {
+    animation: title-exit;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}
+
 .page {
   overflow: scroll;
   position: absolute;
@@ -64,7 +111,7 @@ a {
 }
 
 .page-transition {
-  overflow: visible;
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -74,29 +121,45 @@ a {
 
   
   &--entering {
-    animation: enter;
+    animation: page-enter;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-  }
-
-  &--entered {
-    opacity: 1;
   }
   
   &--exiting {
-    animation: exit;
+    animation: page-exit;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
+}
 
-  &--exited {
+@keyframes page-enter {
+  0% {
     opacity: 0;
+    // left: -50px;
+  }
+  
+  100% {
+    opacity: 1;
+    left: 0px;
   }
 }
 
-@keyframes enter {
+@keyframes page-exit {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  
+  100% {
+    opacity: 0;
+    // left: 50px;
+  }
+}
+
+@keyframes title-enter {
   0% {
     opacity: 0;
     left: -50px;
@@ -108,7 +171,32 @@ a {
   }
 }
 
-@keyframes exit {
+@keyframes title-exit {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  
+  100% {
+    opacity: 0;
+    left: 50px;
+  }
+}
+
+
+@keyframes logo-enter {
+  0% {
+    opacity: 0;
+    left: -50px;
+  }
+  
+  100% {
+    opacity: 1;
+    left: 0px;
+  }
+}
+
+@keyframes logo-exit {
   0% {
     opacity: 1;
     left: 0;

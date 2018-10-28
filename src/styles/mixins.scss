@@ -1,0 +1,8 @@
+
+
+@mixin animate-once($name, $time) {
+  animation-name: $name;
+  animation-duration: $time;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
