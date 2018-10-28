@@ -1,6 +1,7 @@
 const package = require('./package.json');
 
 module.exports = {
+    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "commonjs": true,
@@ -43,5 +44,6 @@ module.exports = {
             "error",
             "always"
         ],
+        "react/prop-types": "off"
     },
 };

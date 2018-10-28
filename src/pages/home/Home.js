@@ -21,7 +21,7 @@ export default class Home extends Component {
   onTyperComplete = (phase) => () => {
     this.setState({
       [phase]: true,
-    })
+    });
   }
 
   render() {
@@ -38,36 +38,36 @@ export default class Home extends Component {
                 <h1 className={`fade-in fade-in--${state}`}>
                   <Typer text="Greetings" onComplete={this.onTyperComplete('phase1')} />
                 </h1>
-                )
-              }
+              );
+            }
             }  
           </Transition>
 
 
           {this.state.phase1 && (
-          <Transition timeout={0} in={true} appear={true}>
-            {(state) => {
-              return (
-                <p className={`fade-in fade-in--${state}`}>
-                  <Typer text="You have reached the home page of Jon Sakas" onComplete={this.onTyperComplete('phase2')} />
-                </p>
-                )
+            <Transition timeout={0} in={true} appear={true}>
+              {(state) => {
+                return (
+                  <p className={`fade-in fade-in--${state}`}>
+                    <Typer text="You have reached the home page of Jon Sakas" onComplete={this.onTyperComplete('phase2')} />
+                  </p>
+                );
               }
-            }  
-          </Transition>
+              }  
+            </Transition>
           )}
 
           {this.state.phase2 && (
-          <Transition timeout={0} in={true} appear={true}>
-            {(state) => {
-              return (
-                <p className={`fade-in fade-in--${state}`}>
-                  <Typer text="A human from Denver, Colorado, USA, Earth" onComplete={this.onTyperComplete('phase3')} />
-                </p>
-                )
+            <Transition timeout={0} in={true} appear={true}>
+              {(state) => {
+                return (
+                  <p className={`fade-in fade-in--${state}`}>
+                    <Typer text="A human from Denver, Colorado, USA, Earth" onComplete={this.onTyperComplete('phase3')} />
+                  </p>
+                );
               }
-            }  
-          </Transition>
+              }  
+            </Transition>
           )}
 
         </div>

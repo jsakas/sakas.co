@@ -12,7 +12,7 @@ export default class Typer extends Component {
           count: 0,
           max: Math.floor(Math.random() * 50),
           current: String.fromCharCode(Math.floor(Math.random() * 25) + 97)
-        }
+        };
       })
     };
   }
@@ -45,8 +45,8 @@ export default class Typer extends Component {
 
           return i;
         }),
-      }
-    })
+      };
+    });
   }
 
   render() {
