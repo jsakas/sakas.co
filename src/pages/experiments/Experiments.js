@@ -65,7 +65,7 @@ class ExperimentView extends Component {
             )}
             <div className="ExperimentView__button" onClick={() => {
               playClick();
-              history.push('/experiments');
+              history.push('/code');
             }}>Back</div>
           </div>
         </div>
@@ -88,7 +88,7 @@ class Experiment extends Component {
         onMouseOver={playBlip}
         onClick={() => {
           playClick();
-          history.push(`/experiments${this.props.path}`);
+          history.push(`/code${this.props.path}`);
         }}
       >
         {this.props.title}
@@ -105,7 +105,7 @@ class Experiments extends Component {
   render() {
     return (
       <div className="Experiments page page--padded">
-        <Router history={history} basename="/experiments">
+        <Router history={history} basename="/code">
           <Route render={({ location }) => (
             <TransitionGroup component={null}>
               <Transition key={history.location.pathname} timeout={1000}>
@@ -116,7 +116,7 @@ class Experiments extends Component {
                         {
                           EXPERIMENTS.map((props) => {
                             return (
-                              <Route exact key={props.path} path={`/experiments${props.path}`} render={() => {
+                              <Route exact key={props.path} path={`/code${props.path}`} render={() => {
                                 return (
                                   <ExperimentView key={props.path} {...props} />
                                 );

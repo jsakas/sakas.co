@@ -17,8 +17,8 @@ const MENU_ITEMS = [
     onClick: () => menuClick(() => history.push('/')),
     title: 'About',
   }, {
-    onClick: () => menuClick(() => history.push('/experiments')),
-    title: 'Experiments',
+    onClick: () => menuClick(() => history.push('/code')),
+    title: 'Code',
   }, {
     onClick: () => menuClick(() => history.push('/resume')),
     title: 'Resume',

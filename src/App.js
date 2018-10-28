@@ -27,9 +27,9 @@ const ROUTES = {
     showTitle: false,
   },
   experiments: {
-    path: '/experiments/:e?',
+    path: '/code/:e?',
     component: Experiments,
-    title: 'Experiments',
+    title: 'Code',
     showTitle: true,
   },
   resume: {
