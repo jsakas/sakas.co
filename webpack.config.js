@@ -5,7 +5,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.WEBPACK_ENV || 'development',
   stats: 'errors-only',
   devServer: {
     port: 5280,

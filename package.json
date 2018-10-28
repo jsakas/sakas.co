@@ -40,7 +40,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack",
+    "build": "WEBPACK_ENV=production webpack",
     "lint": "eslint ."
   }
 }
