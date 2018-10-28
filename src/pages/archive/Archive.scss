@@ -1,0 +1,65 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.Archive {
+  // TODO - can webkit mask be used to fade out content ?  
+  // -webkit-mask-image: linear-gradient(to bottom, white 85%, black 95%);
+  // -webkit-mask-size: 100vw 100vh;
+  
+  &__body {
+    @include animate-once(resume-enter, 1s);
+    color: $color-text;
+    margin: 0 auto;
+    max-width: 40rem;
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+  }
+}
+
+.Gist {
+  font-family: 'IBM Plex Mono', sans-serif;
+  padding: 2rem 0;
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+  }
+
+
+  &__title {
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: lighter;
+    font-size: .6rem;
+    letter-spacing: .1rem;
+    margin: 0;
+    color: $color-tertiary;
+  }
+
+  &__id {
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: lighter;
+    font-size: .6rem;
+    letter-spacing: .1rem;
+    margin: 0;
+  }
+
+  &__language {
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: lighter;
+    font-size: .6rem;
+    letter-spacing: .1rem;
+    margin: 0;
+  }
+
+  &__body {
+    font-family: 'IBM Plex Mono', sans-serif;
+    background: rgba(#111, .3);
+    padding: 1rem;
+    border-radius: .5rem;
+    max-height: 15rem;
+    overflow: scroll;
+  }
+}

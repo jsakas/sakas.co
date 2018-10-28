@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700|Raleway:300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 @import '~styles/variables.scss';
+@import '~styles/mixins.scss';
 
 html, body {
-  font-family: 'IBM Plex Mono', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: $color-text;
   padding: 0;
   margin: 0;
   background: $color-background;
+
+  @media print {
+    background: none;
+  }
 }
 
 *,
@@ -44,6 +49,10 @@ a {
     justify-content: center;
     width: 100vw;
     height: 100vh;
+
+    @media print {
+      display: none;
+    }
   }
 }
 
@@ -59,11 +68,31 @@ a {
 }
 
 .logo {
+  @include animate-once(logo-enter, 1s);
+  font-family: 'IBM Plex Mono', sans-serif;
   position: absolute;
   z-index: 30;
   left: 2rem;
   top: 3rem;
+  color: $color-primary;
+  display: inline-block;
 
+  @keyframes logo-enter {
+    0% {
+      opacity: 0;
+      top: 2rem;
+    }
+    
+    100% {
+      opacity: 1;
+      top: 3rem;
+    }
+  }
+
+  @media print {
+    right: 2rem;
+    left: auto;
+  }
 }
 
 .title {
@@ -71,6 +100,13 @@ a {
   top: 4rem;
   padding-left: 2rem;
   z-index: 30;
+
+  @media print {
+    right: 1.5rem;
+    left: auto;
+    text-align: right;
+    color: #111;
+  }
   
   h1 {
     font-family: 'Roboto', sans-serif;
@@ -94,6 +130,30 @@ a {
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+  }
+
+  @keyframes title-enter {
+    0% {
+      opacity: 0;
+      left: -50px;
+    }
+    
+    100% {
+      opacity: 1;
+      left: 0px;
+    }
+  }
+
+  @keyframes title-exit {
+    0% {
+      opacity: 1;
+      left: 0;
+    }
+    
+    100% {
+      opacity: 0;
+      left: 100px;
+    }
   }
 }
 
@@ -133,77 +193,26 @@ a {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
-}
 
-@keyframes page-enter {
-  0% {
-    opacity: 0;
-    // left: -50px;
+  @keyframes page-enter {
+    0% {
+      opacity: 0;
+    }
+    
+    100% {
+      opacity: 1;
+      left: 0px;
+    }
   }
   
-  100% {
-    opacity: 1;
-    left: 0px;
-  }
-}
-
-@keyframes page-exit {
-  0% {
-    opacity: 1;
-    left: 0;
-  }
-  
-  100% {
-    opacity: 0;
-    // left: 50px;
-  }
-}
-
-@keyframes title-enter {
-  0% {
-    opacity: 0;
-    left: -50px;
-  }
-  
-  100% {
-    opacity: 1;
-    left: 0px;
-  }
-}
-
-@keyframes title-exit {
-  0% {
-    opacity: 1;
-    left: 0;
-  }
-  
-  100% {
-    opacity: 0;
-    left: 50px;
-  }
-}
-
-
-@keyframes logo-enter {
-  0% {
-    opacity: 0;
-    left: -50px;
-  }
-  
-  100% {
-    opacity: 1;
-    left: 0px;
-  }
-}
-
-@keyframes logo-exit {
-  0% {
-    opacity: 1;
-    left: 0;
-  }
-  
-  100% {
-    opacity: 0;
-    left: 50px;
+  @keyframes page-exit {
+    0% {
+      opacity: 1;
+      left: 0;
+    }
+    
+    100% {
+      opacity: 0;
+    }
   }
 }
