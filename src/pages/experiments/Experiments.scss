@@ -48,6 +48,12 @@
     max-width: 70vw;
     max-height: 60vh;
     box-shadow: 0px 0px 80px 20px rgba(lighten($color-tertiary, 10), .3);
+    opacity: 0;
+    transition: opacity 1s;
+
+    &--loaded {
+      opacity: 1;
+    }
 
     iframe {
       border: 0;

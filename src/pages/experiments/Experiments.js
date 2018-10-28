@@ -30,41 +30,56 @@ const EXPERIMENTS = [
   }
 ];
 
-const ExperimentView = (props) => {
-  const focusOnLoad = (e) => {
+class ExperimentView extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      iframeloaded: false,
+    };
+  }
+
+  oniFrameLoad = (e) => {
+    this.setState({
+      iframeloaded: true,
+    });
+
     if (e.target) {
       e.target.focus();
     }
-  };
+  }
 
-  return (
-    <div className="ExperimentView">
-      <div className="ExperimentView__header">
-        <h2>{props.title}</h2>
-
-        {props.description && ( <p>{props.description}</p>)}
-      
-        <div className="ExperimentView__buttons">
-          {props.source_code && (
-            <div className="ExperimentView__button" 
-              onClick={() => window.open(props.source_code)}
-            >Source Code</div>
-          )}
-          <div className="ExperimentView__button" onClick={() => {
-            playClick();
-            history.push('/experiments');
-          }}>Back</div>
+  render() {
+    return (
+      <div className="ExperimentView">
+        <div className="ExperimentView__header">
+          <h2>{this.props.title}</h2>
+  
+          {this.props.description && ( <p>{this.props.description}</p>)}
+        
+          <div className="ExperimentView__buttons">
+            {this.props.source_code && (
+              <div className="ExperimentView__button" 
+                onClick={() => window.open(this.props.source_code)}
+              >Source Code</div>
+            )}
+            <div className="ExperimentView__button" onClick={() => {
+              playClick();
+              history.push('/experiments');
+            }}>Back</div>
+          </div>
         </div>
+  
+        {this.props.iframe && (
+          <div className={`ExperimentView__iframe ${this.state.iframeloaded ? 'ExperimentView__iframe--loaded': ''}`}>
+            <iframe border="0" allowTransparency onLoad={this.oniFrameLoad} src={this.props.iframe}></iframe>
+          </div>
+        )}
       </div>
+    );
+  }
+}
 
-      {props.iframe && (
-        <div className="ExperimentView__iframe">
-          <iframe border="0" onLoad={focusOnLoad} src={props.iframe}></iframe>
-        </div>
-      )}
-    </div>
-  );
-};
 
 class Experiment extends Component {
   render() {
