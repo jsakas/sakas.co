@@ -76,7 +76,7 @@ class App extends React.Component {
         <Router history={history}>
           <Route key={getBaseRoute(history.location)} render={({ location }) => {
             return (
-              <TransitionGroup component={(null)}>
+              <TransitionGroup component={null}>
 
                 <Transition key={'logo'} timeout={1000}>
                   {(state) => {

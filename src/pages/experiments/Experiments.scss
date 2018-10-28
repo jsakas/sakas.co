@@ -92,3 +92,48 @@
     }
   }
 }
+
+.exp-transition {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+
+  &--entering {
+    animation: exp-enter;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  &--exiting {
+    animation: exp-exit;
+    animation-duration: .2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes exp-enter {
+    0% {
+      opacity: 0;
+    }
+    
+    100% {
+      opacity: 1;
+      left: 0px;
+    }
+  }
+  
+  @keyframes exp-exit {
+    0% {
+      opacity: 1;
+      left: 0;
+    }
+    
+    100% {
+      opacity: 0;
+    }
+  }
+}

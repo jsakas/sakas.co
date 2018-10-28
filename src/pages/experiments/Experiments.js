@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Transition, TransitionGroup } from 'react-transition-group';
 import { Router, Route, Switch } from 'react-router-dom';
 import { playBlip, playClick } from '@utils/Audio';
 import history from '@history';
@@ -86,33 +87,46 @@ class Experiments extends Component {
     return (
       <div className="Experiments page page--padded">
         <Router history={history} basename="/experiments">
-          <Switch>
-            {
-              EXPERIMENTS.map((props, i) => {
-                return (
-                  <Route key={i} path={`/experiments${props.path}`} render={() => {
-                    return (
-                      <ExperimentView {...props} />
-                    );
-                  }} />
-                );
-              })
-            }
-
-            <Route exact key="root" path={'**'} render={() => {
-              return (
-                <div className="Experiments__grid">
-                  {
-                    EXPERIMENTS.map((props, i) => {
-                      return (
-                        <Experiment key={i} {...props} />
-                      );
-                    })
-                  }
-                </div>
-              );
-            }} />
-          </Switch>
+          <Route render={({ location }) => (
+            <TransitionGroup component={null}>
+              <Transition key={history.location.pathname} timeout={1000}>
+                {(state) => {
+                  return (
+                    <div className={`exp-transition exp-transition--${state}`}>
+                      <Switch location={location}>
+                        {
+                          EXPERIMENTS.map((props) => {
+                            return (
+                              <Route exact key={props.path} path={`/experiments${props.path}`} render={() => {
+                                return (
+                                  <ExperimentView key={props.path} {...props} />
+                                );
+                              }} />
+                            );
+                          })
+                        }
+          
+                        <Route exact key="**" path={'**'} render={() => {
+                          return (
+                            <div className="Experiments__grid">
+                              {
+                                EXPERIMENTS.map((props, i) => {
+                                  return (
+                                    <Experiment key={i} {...props} />
+                                  );
+                                })
+                              }
+                            </div>
+                          );
+                        }} />
+                      </Switch>
+                    </div>
+                  );
+                }}
+              </Transition>
+            </TransitionGroup>
+            
+          )} />
         </Router>
       </div>
     );
