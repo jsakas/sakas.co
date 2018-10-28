@@ -6,9 +6,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $color-background;
   font-family: 'Raleway', sans-serif;
   flex-direction: column;
+
+  &__canvas {
+    z-index: 0;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    flex-direction: column;
+    position: absolute;
+  }
+
+  &__navigate {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 
   &__avatar {
     width: 8rem;
@@ -59,5 +87,10 @@
     padding: 1rem;
     font-size: 1rem;
     line-height: 1.5rem;
+    font-weight: 300;
+  }
+
+  a {
+    font-weight: bold;
   }
 }

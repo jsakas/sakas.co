@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-transition-group';
-import Galaxy from '../../components/Galaxy';
-import Typer from '../../components/Typer';
+import Galaxy from 'components/Galaxy';
+import Typer from 'components/Typer';
+import Pulse from 'components/pulse/Pulse';
 
 import './Home.scss';
 
@@ -70,9 +71,8 @@ export default class Home extends Component {
           )}
 
         </div>
-        <div className="Home__navigate" onClick={() => this.props.history.push('/about')}>
-          <div className="Home__navigate-circle"></div>
-          <div className="Home__navigate-pulse"></div>
+        <div className="Home__navigate">
+          <Pulse onClick={() => this.props.history.push('/about')} />
         </div>
       </div>
     );
