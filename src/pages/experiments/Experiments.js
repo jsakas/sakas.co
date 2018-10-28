@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import { playBlip } from '@utils/Audio';
+import { playBlip, playClick } from '@utils/Audio';
 import history from '@history';
 
 import './Experiments.scss';
@@ -32,7 +32,10 @@ const ExperimentView = (props) => {
       {props.iframe && (
         <div className="iframe"><iframe border="0" src={props.iframe}></iframe></div>
       )}
-      <div className="ExperimentView__back" onClick={() => history.push('/experiments')}>Back</div>
+      <div className="ExperimentView__back" onClick={() => {
+        playClick();
+        history.push('/experiments');
+      }}>Back</div>
     </div>
   );
 };
@@ -42,7 +45,10 @@ class Experiment extends Component {
     return (
       <div className="Experiment" 
         onMouseOver={playBlip}
-        onClick={() => history.push(`/experiments${this.props.path}`)}
+        onClick={() => {
+          playClick();
+          history.push(`/experiments${this.props.path}`)
+        }}
       >
         {this.props.title}
       </div>

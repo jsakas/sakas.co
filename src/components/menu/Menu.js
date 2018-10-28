@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import history from '@history';
-import { playBlip } from '@utils/Audio';
+import { playBlip, playClick } from '@utils/Audio';
 
 import './Menu.scss';
+
+const menuClick = (onClick) => {
+  playClick();
+  onClick();
+};
 
 const MENU_ITEMS = [
   {
   //   onClick: () => history.push('/'),
   //   title: 'Home',
   // }, {
-    onClick: () => history.push('/'),
+    onClick: () => menuClick(() => history.push('/')),
     title: 'About',
   }, {
-    onClick: () => history.push('/experiments'),
+    onClick: () => menuClick(() => history.push('/experiments')),
     title: 'Experiments',
   }, {
-    onClick: () => history.push('/resume'),
+    onClick: () => menuClick(() => history.push('/resume')),
     title: 'Resume',
   }, {
-    onClick: () => history.push('/archive'),
+    onClick: () => menuClick(() => history.push('/archive')),
     title: 'Archive',
   }, {
-    onClick: () => history.push('/audio'),
+    onClick: () => menuClick(() => history.push('/audio')),
     title: 'Audio',
   }
 ];
