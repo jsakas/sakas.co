@@ -155,15 +155,17 @@ a {
 }
 
 .page {
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1.0) 90%, transparent 95%);
+  -webkit-mask-size: 100vw 100vh;
   overflow: scroll;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 2rem);
 
   &--padded {
-    padding: 2rem 2rem 4rem 2rem;
+    padding: 2rem;
   }
 }
 

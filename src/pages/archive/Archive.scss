@@ -1,11 +1,7 @@
 @import '~styles/variables';
 @import '~styles/mixins';
 
-.Archive {
-  // TODO - can webkit mask be used to fade out content ?  
-  // -webkit-mask-image: linear-gradient(to bottom, white 85%, black 95%);
-  // -webkit-mask-size: 100vw 100vh;
-  
+.Archive {  
   &__body {
     // @include animate-once(resume-enter, 1s);
     color: $color-text;
