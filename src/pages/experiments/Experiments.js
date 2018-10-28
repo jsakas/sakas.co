@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { playBlip, playClick } from '@utils/Audio';
 import history from '@history';
@@ -11,31 +11,56 @@ const EXPERIMENTS = [
     title: 'Subtractor',
     description: 'A polyphonic synthesizer built with JavaScript',
     iframe: 'https://jsakas.github.io/Subtractor/',
+    source_code: 'https://github.com/jsakas/Subtractor/'
+  }, 
+  {
+    path: '/eclipse',
+    title: 'Eclipse',
+    description: 'Audio visualization',
+    iframe: 'https://codepen.io/jsakas/live/NpLKdv',
+    source_code: 'https://codepen.io/jsakas/pen/NpLKdv',
   },
-  // {
-  //   path: '/prototype',
-  //   title: 'Prototype',
-  // },
-  // {
-  //   path: '/audiojs',
-  //   title: 'AudioJS',
-  // }
+  {
+    path: '/starry-night',
+    title: 'Starry Night',
+    description: 'JavaScript particles',
+    iframe: 'https://codepen.io/jsakas/live/VEjbog',
+    source_code: 'https://codepen.io/jsakas/pen/VEjbog'
+  }
 ];
 
 const ExperimentView = (props) => {
+  const focusOnLoad = (e) => {
+    if (e.target) {
+      e.target.focus();
+    }
+  };
+
   return (
     <div className="ExperimentView">
-      <h2>{props.title}</h2>
-      {props.description && (
-        <p>{props.description}</p>
-      )}
+      <div className="ExperimentView__header">
+        <h2>{props.title}</h2>
+
+        {props.description && ( <p>{props.description}</p>)}
+      
+        <div className="ExperimentView__buttons">
+          {props.source_code && (
+            <div className="ExperimentView__button" 
+              onClick={() => window.open(props.source_code)}
+            >Source Code</div>
+          )}
+          <div className="ExperimentView__button" onClick={() => {
+            playClick();
+            history.push('/experiments');
+          }}>Back</div>
+        </div>
+      </div>
+
       {props.iframe && (
-        <div className="iframe"><iframe border="0" src={props.iframe}></iframe></div>
+        <div className="ExperimentView__iframe">
+          <iframe border="0" onLoad={focusOnLoad} src={props.iframe}></iframe>
+        </div>
       )}
-      <div className="ExperimentView__back" onClick={() => {
-        playClick();
-        history.push('/experiments');
-      }}>Back</div>
     </div>
   );
 };
@@ -47,7 +72,7 @@ class Experiment extends Component {
         onMouseOver={playBlip}
         onClick={() => {
           playClick();
-          history.push(`/experiments${this.props.path}`)
+          history.push(`/experiments${this.props.path}`);
         }}
       >
         {this.props.title}
@@ -65,7 +90,11 @@ class Experiments extends Component {
             {
               EXPERIMENTS.map((props, i) => {
                 return (
-                  <Route key={i} path={`/experiments${props.path}`} render={() => <ExperimentView {...props} />} />
+                  <Route key={i} path={`/experiments${props.path}`} render={() => {
+                    return (
+                      <ExperimentView {...props} />
+                    );
+                  }} />
                 );
               })
             }
