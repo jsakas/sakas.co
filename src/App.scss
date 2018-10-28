@@ -115,6 +115,8 @@ a {
 }
 
 .title-transition {
+  transform-origin: center center;
+
   &--entering {
     animation: title-enter;
     animation-duration: 1s;
@@ -132,12 +134,14 @@ a {
   @keyframes title-enter {
     0% {
       opacity: 0;
-      left: -50px;
+      left: -150px;
+      transform: perspective(1000px) rotateY(-90deg);
     }
     
     100% {
       opacity: 1;
-      left: 0px;
+      left: 0;
+      transform: perspective(1000px) rotateY(0deg);
     }
   }
 
@@ -145,11 +149,13 @@ a {
     0% {
       opacity: 1;
       left: 0;
+      transform: perspective(1000px) rotateY(0deg);
     }
     
     100% {
       opacity: 0;
-      left: 100px;
+      left: 150px;
+      transform: perspective(1000px) rotateY(90deg);
     }
   }
 }
