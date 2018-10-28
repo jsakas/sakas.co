@@ -1,7 +1,7 @@
 {
-  "name": "pagedip",
+  "name": "sakas.co",
   "version": "1.0.0",
-  "description": "Pagedip Code Challenge",
+  "description": "Personal website of Jon Sakas",
   "main": "src/index.js",
   "author": "jon.sakas@gmail.com",
   "license": "MIT",
