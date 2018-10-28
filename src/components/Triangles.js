@@ -5,6 +5,10 @@ export default class Triangles extends Component {
     this.raf = startGalaxy();
   }
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   componentWillUnmount() {
     cancelAnimationFrame(this.raf);
   }

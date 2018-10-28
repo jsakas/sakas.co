@@ -23,15 +23,17 @@ export default class About extends Component {
             </span>
           </div>
           <p>
-            Jon Sakas is a Creative Technologist from Denver, CO. Currently working 
-            as the Engineering Manager at <a href="https://www.beatport.com" without rel="noopener noreferrer" target="_blank">Beatport</a>, 
-            he is passionate about building a more musicial web.
+            Jon Sakas is a Creative Technologist from Denver, CO. He is currently working 
+            as the Engineering Manager at <a href="https://www.beatport.com" rel="noopener noreferrer" target="_blank">Beatport</a>.
+            He is passionate about building a more musicial web.
           </p>
         </div>
         <div className="About__navigate">
-          <Pulse onClick={() => this.props.history.push('/')} />
+          <Pulse onClick={this.props.toggleMenu} />
         </div>
       </div>
     );
   }
 }
+
+

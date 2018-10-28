@@ -30,8 +30,17 @@ a {
   }
 }
 
-.page-transition {
+.page {
   overflow: scroll;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.page-transition {
+  overflow: visible;
   position: absolute;
   top: 0;
   left: 0;

@@ -1,0 +1,31 @@
+@import '~styles/variables';
+
+.Menu {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 3rem;
+  
+  color: $color-text;
+  z-index: 20;
+  transition: all .2s;
+  display: flex;
+
+  &--closed {
+    bottom: -3rem;
+  }
+}
+
+.MenuItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background: rgba($color-secondary, .2);
+  transition: background .2s;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($color-secondary, .4);
+  }
+}
