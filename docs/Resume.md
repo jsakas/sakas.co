@@ -1,6 +1,6 @@
 # Jon Sakas
 
-jon.sakas@gmail.com | 720.939.7877 | jon.sakas.co 
+jon.sakas@gmail.com | 720.939.7877 | [jon.sakas.co](http://jon.sakas.co) 
 
 # About
 
@@ -77,7 +77,7 @@ UI Engineer (2014)
 
 Led a team of developers and worked alongside marketing managers to come up with and execute mobile optimized, device-driven marketing campaigns for some of the world’s best-known brands.
 
-## Email Developer (2010 - 2014)
+### Email Developer (2010 - 2014)
 
 - Technical lead for a team of 10 developers
 - Collaborated with marketing managers to brainstorm impactful campaigns

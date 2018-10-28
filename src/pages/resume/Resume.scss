@@ -13,16 +13,33 @@
     overflow: scroll;
     border: 1px solid rgba($color-secondary, .3);
 
-    h1, h2 {
+    h1 {
       color: rgba(#fff, .8);
       font-family: 'Raleway', sans-serif;
       font-weight: 300;
       letter-spacing: 1px;
     }
 
+    h2 {
+      color: rgba($color-primary, .9);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
     h3, h4, h5, h6 {
+      font-weight: 100;
       color: rgba($color-primary, .8);
       font-family: 'Raleway', sans-serif;
+    }
+
+    p {
+      letter-spacing: .1rem;
+      font-weight: lighter;
+    }
+
+    a {
+      font-weight: 400;
     }
 
     @media print {    
