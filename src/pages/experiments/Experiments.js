@@ -92,6 +92,10 @@ class Experiment extends Component {
         }}
       >
         {this.props.title}
+
+        {this.props.description && (
+          <div className="Experiment__description">{this.props.description}</div>
+        )}
       </div>
     );
   }
