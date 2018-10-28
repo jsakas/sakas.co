@@ -1,18 +1,35 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  stats: 'errors-only',
+  devServer: {
+    port: 5280,
+    historyApiFallback: true,
+    index: path.join(__dirname, 'build', 'index.html'),
+    contentBase: path.join(__dirname, 'build'),
+  },
+  entry: {
+    main: './src/index.js'
+  },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'build', 'static'),
+    publicPath: '/static/',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Jon Sakas',
+      template: path.join(__dirname, 'src', 'html', 'base.html'),
+      filename: '../index.html',
+      chunks: ['main'],
+      inject: false,
+      body: ['main'],
+      alwaysWriteToDisk: true,
     }),
+    new HtmlWebpackHarddiskPlugin(),
     new ExtractCssChunks(),
   ],
   resolve: {
@@ -61,8 +78,4 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    port: 5280,
-    historyApiFallback: true
-  }
 };
