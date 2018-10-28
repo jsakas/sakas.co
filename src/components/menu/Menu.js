@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import history from '@history';
+import { playBlip } from '@utils/Audio';
 
 import './Menu.scss';
 
@@ -27,7 +28,7 @@ const MENU_ITEMS = [
 
 const MenuItem = ({ onClick, title }) => {
   return (
-    <div className="MenuItem" onClick={onClick}>
+    <div className="MenuItem" onClick={onClick} onMouseOver={() => playBlip()}>
       {title}
     </div>
   );

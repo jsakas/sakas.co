@@ -13,6 +13,8 @@ import Menu from 'components/menu/Menu';
 import Pulse from 'components/pulse/Pulse';
 import Triangles from 'components/Triangles';
 
+import AudioUtil from '@utils/Audio';
+
 import './App.scss';
 
 const ROUTES = {

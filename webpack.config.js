@@ -23,6 +23,8 @@ module.exports = {
       'styles': path.resolve(__dirname, 'src', 'styles'),
       '@history': path.resolve(__dirname, 'src', 'history'),
       '@docs': path.resolve(__dirname, 'docs'),
+      '@utils': path.resolve(__dirname, 'src', 'utils'),
+      '@audio': path.resolve(__dirname, 'src', 'audio'),
     },
   },
   module: {
@@ -50,7 +52,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|wav)$/,
         use: [
           {
             loader: 'file-loader',
