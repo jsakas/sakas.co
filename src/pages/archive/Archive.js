@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Loader from 'components/loader/Loader';
 
 import './Archive.scss';
 
@@ -32,7 +31,6 @@ class Gist extends Component {
           <h3 className="Gist__id">{gist.id}</h3>
           <h4 className="Gist__language">{file.language}</h4>
         </div>
-        <Loader loading={this.state.loading}>
           <div className="Gist__body">
             {gistBody && (
               <code>
@@ -42,7 +40,6 @@ class Gist extends Component {
               </code>
             )}
           </div>
-        </Loader>
       </div>
      
     );

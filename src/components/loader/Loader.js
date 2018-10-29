@@ -16,11 +16,12 @@ const LoaderIcon = () => {
 
 export default class Loader extends Component {
   render() {
+    let className = 'Loader__children';
+    className += this.props.loading ? ' Loader__children--loading' : ' Loader__children--loaded';
     return (
       <div className="Loader">
 
-        <TransitionGroup component={null}>
-        
+        <TransitionGroup key="loader" component={null}>
           {this.props.loading && (
             <Transition key="icon" timeout={1000}>
               {(state) => {
@@ -32,20 +33,11 @@ export default class Loader extends Component {
               }}
             </Transition>
           )}
-
-          {!this.props.loading && this.props.children && (
-            <Transition key="children" timeout={2000}>
-              {(state) => {
-                return (
-                  <div className={`Loader__children Loader__children--${state}`}>
-                    {this.props.children}
-                  </div>
-                );
-              }}
-            </Transition>
-          )}
-
         </TransitionGroup>
+
+        <div key="loader-children" className={className}>
+          {this.props.children}
+        </div>
 
       </div>
     );

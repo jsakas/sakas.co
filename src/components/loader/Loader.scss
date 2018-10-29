@@ -7,12 +7,18 @@
   height: 100%;
 
   &__children {
-    &--entering {
-      @include animate-once(loader-enter, 2s);
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    transition: opacity .2s;
+    opacity: 0;
+
+    &--loading {
+      opacity: 0;
     }
     
-    &--exiting {
-      @include animate-once(loader-exit, 2s);
+    &--loaded {
+      opacity: 1;
     }
   }
 
