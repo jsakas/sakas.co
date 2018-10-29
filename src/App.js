@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import history from '@history';
@@ -54,7 +54,7 @@ const ROUTES = {
 
 const getBaseRoute = location => location.pathname.split('/').filter(i => i)[0];
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -69,7 +69,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <div className="App">
         <div className="App__canvas">
           <Triangles />
         </div>
@@ -142,7 +142,7 @@ class App extends React.Component {
           <Pulse onClick={this.toggleMenu} />
         </div>
         <Menu open={this.state.menuOpen} />
-      </Fragment>
+      </div>
     );
   }
 }

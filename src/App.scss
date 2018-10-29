@@ -36,7 +36,17 @@ a {
   }
 }
 
+.LoadingScreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .App {
+  @include animate-once(page-enter, 3s);
+
   &__menu-toggle {
     position: absolute;
     bottom: 4rem;

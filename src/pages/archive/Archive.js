@@ -31,15 +31,15 @@ class Gist extends Component {
           <h3 className="Gist__id">{gist.id}</h3>
           <h4 className="Gist__language">{file.language}</h4>
         </div>
-          <div className="Gist__body">
-            {gistBody && (
-              <code>
-                <pre>
-                  {gistBody}
-                </pre>
-              </code>
-            )}
-          </div>
+        <div className="Gist__body">
+          {gistBody && (
+            <code>
+              <pre>
+                {gistBody}
+              </pre>
+            </code>
+          )}
+        </div>
       </div>
      
     );
