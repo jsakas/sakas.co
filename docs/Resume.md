@@ -19,7 +19,6 @@ Webpack, Grunt, Gulp,
 Adobe Creative Suite,
 Sketch
 
-
 ### Computer Programming & Database
 
 Python / Django / Flask,
@@ -77,20 +76,10 @@ UI Engineer (2014)
 
 Led a team of developers and worked alongside marketing managers to come up with and execute mobile optimized, device-driven marketing campaigns for some of the world’s best-known brands.
 
-### Email Developer (2010 - 2014)
+### Solution Developer (2010 - 2014)
 
 - Technical lead for a team of 10 developers
 - Collaborated with marketing managers to brainstorm impactful campaigns
 - Creatively matched marketing goals with appropriate technical plans
 - Developed and maintained a proprietary web application for internal use
 - Main clients included: Samsung, Eddie Bauer, Royal Caribbean Cruises, DirecTV, Walt Disney Parks & Resorts
-
-## Beta Nightclub
-
-Mixes, produces and performs on-trend, dance music spanning many genres. Frequently performs in shows with internationally renowned artists and maintains a strong network within the global dance community.
-
-### Resident DJ (2010 - 2014)
-
-Performs mixes and original work 2-3 times monthly
-Crafts two- to three-hour sets, covering many genres
-Actively maintains daily knowledge of the most current music trends & culture

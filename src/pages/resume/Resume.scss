@@ -3,11 +3,11 @@
 
 .Resume {
   &__body {
-    // @include animate-once(resume-enter, 1s);
+    position: relative;
     margin: 0 auto;
     max-width: 50rem;
     padding: 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 1em;
     overflow: scroll;
@@ -23,6 +23,10 @@
       font-family: 'Raleway', sans-serif;
       font-weight: 300;
       letter-spacing: 1px;
+
+      @media print {
+        color: #111;
+      }
     }
 
     h2 {
@@ -32,15 +36,25 @@
       letter-spacing: 1px;
     }
 
+    h1#professional-experience {
+      position: relative;
+      page-break-before: always;
+      page-break-inside: avoid;
+    }
+
     h3, h4, h5, h6 {
       font-weight: 100;
       color: rgba($color-primary, .8);
       font-family: 'Raleway', sans-serif;
     }
 
-    p {
-      letter-spacing: .1rem;
+    p, ul, li {
+      letter-spacing: .05rem;
       font-weight: lighter;
+
+      @media print {
+        font-weight: 400;
+      }
     }
 
     a {
@@ -54,31 +68,7 @@
       border: 0;
       max-width: 100%;
       background: none;
+      overflow: auto;
     }
-  }
-}
-
-@keyframes resume-enter {
-  0% {
-    opacity: 0;
-    transform: scale(.9);
-  }
-  
-  100% {
-    opacity: 1;
-
-    transform: scale(1);
-  }
-}
-
-@keyframes resume-exit {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  
-  100% {
-    opacity: 0;
-    transform: scale(.95);
   }
 }
