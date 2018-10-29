@@ -6,3 +6,11 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
+@mixin animate-loop($name, $time, $offset: 0) {
+  animation-name: $name;
+  animation-duration: $time;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}

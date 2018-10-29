@@ -18,8 +18,8 @@ const EXPERIMENTS = [
     path: '/eclipse',
     title: 'Eclipse',
     description: 'Audio visualization',
-    iframe: 'https://codepen.io/jsakas/live/NpLKdv',
-    source_code: 'https://codepen.io/jsakas/pen/NpLKdv',
+    iframe: 'https://codepen.io/jsakas/live/PpBMBw',
+    source_code: 'https://codepen.io/jsakas/pen/PpBMBw',
   },
   {
     path: '/starry-night',

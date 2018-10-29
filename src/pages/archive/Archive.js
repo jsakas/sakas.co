@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from 'components/loader/Loader';
 
 import './Archive.scss';
 
@@ -8,14 +9,14 @@ class Gist extends Component {
 
     this.state = {
       content: null,
-      loading: false,
+      loading: true,
     };
   }
 
   componentDidMount() {
     this.props.file && fetch(this.props.file.raw_url)
       .then(response => response.text())
-      .then(gistBody => this.setState({ gistBody }))
+      .then(gistBody => this.setState({ gistBody, loading: false }))
       .catch();
   }
 
@@ -24,22 +25,26 @@ class Gist extends Component {
     const { gistBody } = this.state;
 
     return (
+      
       <div className="Gist">
         <div className="Gist__heading">
           <h2 className="Gist__title">{file.filename}</h2>
           <h3 className="Gist__id">{gist.id}</h3>
           <h4 className="Gist__language">{file.language}</h4>
         </div>
-        <div className="Gist__body">
-          {gistBody && (
-            <code>
-              <pre>
-                {gistBody}
-              </pre>
-            </code>
-          )}
-        </div>
+        <Loader loading={this.state.loading}>
+          <div className="Gist__body">
+            {gistBody && (
+              <code>
+                <pre>
+                  {gistBody}
+                </pre>
+              </code>
+            )}
+          </div>
+        </Loader>
       </div>
+     
     );
   }
 }

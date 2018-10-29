@@ -8,7 +8,7 @@
     margin: 0 auto;
     max-width: 40rem;
     padding: 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 1em;
   }
@@ -17,6 +17,7 @@
 .Gist {
   font-family: 'IBM Plex Mono', sans-serif;
   padding: 2rem 0;
+
   &__heading {
     display: flex;
     align-items: center;
@@ -56,7 +57,6 @@
     background: rgba(#111, .3);
     padding: 1rem;
     border-radius: .5rem;
-    max-height: 15rem;
     overflow: scroll;
   }
 }

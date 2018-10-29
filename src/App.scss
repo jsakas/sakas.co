@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700|Raleway:300,400,500,600,700,800,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 @import '~styles/variables.scss';
 @import '~styles/mixins.scss';
 
@@ -30,6 +30,10 @@ a {
   height: 100vh;
   overflow: hidden;
   position: relative;
+
+  @media print {
+    overflow: visible;
+  }
 }
 
 .App {
@@ -37,6 +41,10 @@ a {
     position: absolute;
     bottom: 4rem;
     left: 1.5rem;
+
+    @media print {
+      display: none;
+    }
   }
 
   &__canvas {
@@ -124,7 +132,7 @@ a {
   }
   
   h1 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 100;
     text-transform: uppercase;
     letter-spacing: .5rem;
@@ -148,18 +156,11 @@ a {
   transform-origin: right center;
 
   &--entering {
-    animation: title-enter;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    @include animate-once(title-enter, 1s);
   }
   
   &--exiting {
-    animation: title-exit;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    transform-origin: left center;
+    @include animate-once(title-exit, 1s);
   }
 
   @keyframes title-enter {
@@ -204,6 +205,12 @@ a {
   &--padded {
     padding: 2rem;
   }
+
+  @media print {
+    -webkit-mask-image: none;
+    overflow: visible;
+    height: auto;
+  }
 }
 
 .page-transition {
@@ -215,19 +222,16 @@ a {
   max-height: 100vh;
   transition: all 1s;
 
+  @media print {
+    overflow: visible;
+  }
   
   &--entering {
-    animation: page-enter;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    @include animate-once(page-enter, 1s);
   }
   
   &--exiting {
-    animation: page-exit;
-    animation-duration: .2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    @include animate-once(page-exit, 1s);
   }
 
   @keyframes page-enter {
@@ -237,16 +241,18 @@ a {
     
     100% {
       opacity: 1;
-      left: 0px;
     }
   }
   
   @keyframes page-exit {
     0% {
       opacity: 1;
-      left: 0;
     }
     
+    50% {
+      opacity: 0;
+    }
+
     100% {
       opacity: 0;
     }
