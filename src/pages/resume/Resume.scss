@@ -12,7 +12,12 @@
     font-size: 1em;
     overflow: scroll;
     border: 1px solid rgba($color-secondary, .3);
-
+    
+    @media screen and (max-width: $breakpoint-resume) {
+      border: 0;
+      padding: 0;
+    }
+    
     h1 {
       color: rgba(#fff, .8);
       font-family: 'Raleway', sans-serif;

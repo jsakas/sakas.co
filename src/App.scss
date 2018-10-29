@@ -53,6 +53,19 @@ a {
       display: none;
     }
   }
+
+  &__mobile-header {
+    @media screen and (max-width: $breakpoint-header) {
+      display: block;
+      background: $color-background;
+      position: fixed;
+      z-index: 40;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2rem;
+    }
+  }
 }
 
 .fade-in {
@@ -75,6 +88,7 @@ a {
   top: 3rem;
   color: $color-primary;
   display: inline-block;
+  z-index: 40;
 
   @keyframes logo-enter {
     0% {
@@ -90,13 +104,17 @@ a {
     right: 2rem;
     left: auto;
   }
+
+  @media screen and (max-width: $breakpoint-header) {
+    top: .5rem;
+  }
 }
 
 .title {
   position: absolute;
-  top: 4rem;
+  top: 5.5rem;
   padding-left: 2rem;
-  z-index: 30;
+  z-index: 40;
 
   @media print {
     right: 1.5rem;
@@ -111,11 +129,23 @@ a {
     text-transform: uppercase;
     letter-spacing: .5rem;
     font-size: 1.4rem;
+    margin: 0;
+    position: relative;
+  }
+
+  @media screen and (max-width: $breakpoint-header) {
+    top: .5rem;
+    right: 1.5rem;
+    
+    h1 {
+      font-size: 1rem;
+      letter-spacing: .2rem;
+    }
   }
 }
 
 .title-transition {
-  transform-origin: center center;
+  transform-origin: right center;
 
   &--entering {
     animation: title-enter;
@@ -129,19 +159,20 @@ a {
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    transform-origin: left center;
   }
 
   @keyframes title-enter {
     0% {
       opacity: 0;
-      left: -150px;
-      transform: perspective(1000px) rotateY(-90deg);
+      left: 150px;
+      transform: perspective(400px) rotateY(90deg);
     }
     
     100% {
       opacity: 1;
       left: 0;
-      transform: perspective(1000px) rotateY(0deg);
+      transform: perspective(400px) rotateY(0deg);
     }
   }
 
@@ -149,13 +180,13 @@ a {
     0% {
       opacity: 1;
       left: 0;
-      transform: perspective(1000px) rotateY(0deg);
+      transform: perspective(400px) rotateY(0deg);
     }
     
     100% {
       opacity: 0;
-      left: 150px;
-      transform: perspective(1000px) rotateY(90deg);
+      left: -150px;
+      transform: perspective(400px) rotateY(-90deg);
     }
   }
 }

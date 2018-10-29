@@ -73,6 +73,7 @@ class App extends React.Component {
         <div className="App__canvas">
           <Triangles />
         </div>
+        <div className="App__mobile-header" />
         <Router history={history}>
           <Route key={getBaseRoute(history.location)} render={({ location }) => {
             return (
@@ -89,10 +90,10 @@ class App extends React.Component {
                 </Transition>
 
 
-                <Transition key={`${getBaseRoute(history.location)}--title`} timeout={1000}>
+                <Transition key={`${getBaseRoute(history.location)}--title`} timeout={3000}>
                   {(state) => {
                     return (
-                      <div className={`title title-transition title-transition--${state}`}>
+                      <div className={'title'}>
                         <Switch location={location}>
                           {Object.keys(ROUTES).filter(route => ROUTES[route].showTitle).map((route) => {
                             let title = ROUTES[route].title;
@@ -101,7 +102,7 @@ class App extends React.Component {
                                 exact
                                 key={location}
                                 path={ROUTES[route].path} 
-                                render={() => <h1>{title}</h1>}
+                                render={() => <h1 className={`title-transition title-transition--${state}`}>{title}</h1>}
                               />
                             );
                           })}

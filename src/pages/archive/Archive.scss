@@ -44,10 +44,11 @@
 
   &__language {
     font-family: 'IBM Plex Mono', sans-serif;
-    font-weight: lighter;
+    font-weight: normal;
     font-size: .6rem;
     letter-spacing: .1rem;
     margin: 0;
+    color: $color-primary;
   }
 
   &__body {
