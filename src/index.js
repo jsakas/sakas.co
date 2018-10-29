@@ -29,7 +29,7 @@ class LoadingScreen extends React.Component {
                 appLoading: false,
               });
               playEntry();
-            }, 4000);
+            }, 2500);
           })}
         />
       </Loader>
