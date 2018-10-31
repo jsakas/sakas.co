@@ -230,7 +230,7 @@ a {
   }
 
   &__page-transition {
-    transition: all 1s;
+    transition: opacity 1s;
 
     @media print {
       overflow: visible;
