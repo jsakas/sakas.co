@@ -73,7 +73,6 @@ class App extends Component {
         <div className="App__canvas">
           <Triangles />
         </div>
-        <div className="App__mobile-header" />
         <Router history={history}>
           <Route key={getBaseRoute(history.location)} render={({ location }) => {
             return (
@@ -82,7 +81,7 @@ class App extends Component {
                 <Transition key={'logo'} timeout={1000}>
                   {(state) => {
                     return (
-                      <div className={`logo logo-transition logo-transition--${state}`}>
+                      <div className={`App__logo App__logo-transition App__logo-transition--${state}`}>
                       jon.sakas
                       </div>
                     );
@@ -93,7 +92,7 @@ class App extends Component {
                 <Transition key={`${getBaseRoute(history.location)}--title`} timeout={3000}>
                   {(state) => {
                     return (
-                      <div className={'title'}>
+                      <div className={'App__title'}>
                         <Switch location={location}>
                           {Object.keys(ROUTES).filter(route => ROUTES[route].showTitle).map((route) => {
                             let title = ROUTES[route].title;
@@ -102,7 +101,7 @@ class App extends Component {
                                 exact
                                 key={location}
                                 path={ROUTES[route].path} 
-                                render={() => <h1 className={`title-transition title-transition--${state}`}>{title}</h1>}
+                                render={() => <h1 className={`App__title-transition App__title-transition--${state}`}>{title}</h1>}
                               />
                             );
                           })}
@@ -115,16 +114,18 @@ class App extends Component {
                 <Transition key={`${getBaseRoute(history.location)}--page`} timeout={1000}>
                   {(state) => {
                     return (
-                      <div className={`page page-transition page-transition--${state}`}>
+                      <div className={`App__page App__page-transition App__page-transition--${state}`}>
                         <Switch location={location}>
                           {Object.keys(ROUTES).map((route) => {
-                            let Component = ROUTES[route].component;
+                            let Page = ROUTES[route].component;
                             return (
                               <Route 
                                 exact
                                 key={location}
                                 path={ROUTES[route].path} 
-                                component={Component}
+                                render={() => {
+                                  return (<div className="App__page-wrapper"><Page /></div>);
+                                }}
                               />
                             );
                           })}

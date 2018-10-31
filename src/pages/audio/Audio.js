@@ -4,7 +4,7 @@ import './Audio.scss';
 
 const Audio = () => {
   return (
-    <div className="Audio page page--padded">
+    <div className="Audio">
       Check back soon.
     </div>
   );

@@ -1,12 +1,7 @@
 @import '~styles/variables';
 
 .Experiments {
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  position: relative;
 
   &__grid {
     display: grid;

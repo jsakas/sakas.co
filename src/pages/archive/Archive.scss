@@ -1,17 +1,10 @@
 @import '~styles/variables';
 @import '~styles/mixins';
+@import '~styles/prism';
 
 .Archive {  
-  &__body {
-    // @include animate-once(resume-enter, 1s);
-    color: $color-text;
-    margin: 0 auto;
-    max-width: 40rem;
-    padding: 1rem;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    font-size: 1em;
-  }
+  max-width: 40rem;
+  width: 100%;
 }
 
 .Gist {

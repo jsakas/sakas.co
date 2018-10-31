@@ -34,7 +34,7 @@ class Home extends Component {
           <Transition timeout={0} in={true} appear={true}>
             {(state) => {
               return (
-                <h1 className={`fade-in fade-in--${state}`}>
+                <h1 className={`App__fade-in App__fade-in--${state}`}>
                   <Typer text="Greetings" onComplete={this.onTyperComplete('phase1')} />
                 </h1>
               );
@@ -47,7 +47,7 @@ class Home extends Component {
             <Transition timeout={0} in={true} appear={true}>
               {(state) => {
                 return (
-                  <p className={`fade-in fade-in--${state}`}>
+                  <p className={`App__fade-in App__fade-in--${state}`}>
                     <Typer text="You have reached the home page of Jon Sakas" onComplete={this.onTyperComplete('phase2')} />
                   </p>
                 );
@@ -60,7 +60,7 @@ class Home extends Component {
             <Transition timeout={0} in={true} appear={true}>
               {(state) => {
                 return (
-                  <p className={`fade-in fade-in--${state}`}>
+                  <p className={`App__fade-in App__fade-in--${state}`}>
                     <Typer text="A human from Denver, Colorado, USA, Earth" onComplete={this.onTyperComplete('phase3')} />
                   </p>
                 );

@@ -32,6 +32,7 @@
     "jest": "23.6.0",
     "markdown-to-react-loader": "1.0.1",
     "node-sass": "4.9.3",
+    "prismjs": "1.15.0",
     "raw-body": "2.3.3",
     "sass-loader": "7.1.0",
     "webpack": "4.20.2",

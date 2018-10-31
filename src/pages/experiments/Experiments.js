@@ -104,7 +104,7 @@ class Experiment extends Component {
 class Experiments extends Component {
   render() {
     return (
-      <div className="Experiments page page--padded">
+      <div className="Experiments">
         <Router history={history} basename="/code">
           <Route render={({ location }) => (
             <TransitionGroup component={null}>

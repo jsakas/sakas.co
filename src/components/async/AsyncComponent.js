@@ -35,7 +35,6 @@ class AsyncComponent extends React.Component {
   }
 
   handleError = error => {
-    console.error('Error resolving AsyncComponent', error);
     this.props.onError(error);
     return !this.unmounted && this.setState({
       error,

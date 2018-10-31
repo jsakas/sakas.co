@@ -5,7 +5,7 @@ import './Resume.scss';
 
 const Resume = () => {
   return (
-    <div className="Resume page page--padded">
+    <div className="Resume">
       <div className="Resume__body">
         <ResumeMD />
       </div>
