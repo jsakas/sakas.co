@@ -98,7 +98,7 @@ class App extends Component {
             );
           }} />
         </Router>
-        <div className="App__menu-toggle">
+        <div className="App__menu-toggle" style={{ display: 'none' }}>
           <Pulse onClick={this.toggleMenu} />
         </div>
         <Menu open={this.state.menuOpen} />
