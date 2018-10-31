@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Triangles extends Component {
   componentDidMount(){
-    // this.raf = startGalaxy();
+    this.raf = startGalaxy();
   }
 
   shouldComponentUpdate() {
