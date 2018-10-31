@@ -1,8 +1,8 @@
 @import '~styles/variables';
 
 .Home {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,8 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 
   &__navigate {
@@ -47,8 +47,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 
     h1, p {
       font-weight: lighter;
