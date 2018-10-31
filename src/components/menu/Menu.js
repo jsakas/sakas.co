@@ -1,40 +1,26 @@
 import React, { Component } from 'react';
 import history from '@history';
 import { playBlip, playClick } from '@utils/Audio';
+import IdCard from '@icons/IdCard';
+
+import ROUTES from '../../Routes';
 
 import './Menu.scss';
 
-const menuClick = (onClick) => {
-  playClick();
-  onClick();
-};
+console.log(ROUTES);
 
-const MENU_ITEMS = [
-  {
-  //   onClick: () => history.push('/'),
-  //   title: 'Home',
-  // }, {
-    onClick: () => menuClick(() => history.push('/')),
-    title: 'About',
-  }, {
-    onClick: () => menuClick(() => history.push('/code')),
-    title: 'Code',
-  }, {
-    onClick: () => menuClick(() => history.push('/resume')),
-    title: 'Resume',
-  }, {
-    onClick: () => menuClick(() => history.push('/archive')),
-    title: 'Archive',
-  }, {
-    onClick: () => menuClick(() => history.push('/audio')),
-    title: 'Audio',
-  }
-];
+const MenuItem = (route) => {
+  const onClick = () => {
+    playClick();
+    history.push(route.path);
+  };
 
-const MenuItem = ({ onClick, title }) => {
+  let Icon = route.Icon;
+
   return (
     <div className="MenuItem" onClick={onClick} onMouseOver={() => playBlip()}>
-      {title}
+      <span className="MenuItem__text">{route.title}</span> 
+      <Icon className="MenuItem__icon" />
     </div>
   );
 };
@@ -42,6 +28,7 @@ const MenuItem = ({ onClick, title }) => {
 MenuItem.defaultProps = {
   onClick: () => null,
   title: '',
+  Icon: () => null,
 };
 
 export default class Menu extends Component {
@@ -53,7 +40,9 @@ export default class Menu extends Component {
 
     return (
       <div className={className}>
-        {MENU_ITEMS.map((props, i) => <MenuItem key={i} {...props} />)}
+        {Object.keys(ROUTES)
+          .filter(r => ROUTES[r].menu)
+          .map((r, i) => <MenuItem key={i} {...ROUTES[r]} />)}
       </div>
     );
   }

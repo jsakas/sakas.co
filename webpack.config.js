@@ -34,14 +34,15 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      'components': path.resolve(__dirname, 'src', 'components'),
-      'images': path.resolve(__dirname, 'src', 'images'),
-      'pages': path.resolve(__dirname, 'src', 'pages'),
+      '@components': path.resolve(__dirname, 'src', 'components'),
+      '@images': path.resolve(__dirname, 'src', 'images'),
+      '@pages': path.resolve(__dirname, 'src', 'pages'),
       'styles': path.resolve(__dirname, 'src', 'styles'),
       '@history': path.resolve(__dirname, 'src', 'history'),
       '@docs': path.resolve(__dirname, 'docs'),
       '@utils': path.resolve(__dirname, 'src', 'utils'),
       '@audio': path.resolve(__dirname, 'src', 'audio'),
+      '@icons': path.resolve(__dirname, 'src', 'icons'),
     },
   },
   module: {

@@ -5,7 +5,6 @@
   bottom: 0;
   width: 100vw;
   height: 3rem;
-  // background: $color-background;
   color: $color-text;
   z-index: 20;
   transition: all .2s;
@@ -37,4 +36,20 @@
   &:hover {
     background: rgba($color-secondary, .4);
   }
+
+  // &__icon {
+  //   display: none;
+  // }
+
+  // @media screen and (max-width: $breakpoint-header) {
+    &__text {
+      display: none;
+    }
+  
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: #fff;
+    }
+  // }
 }

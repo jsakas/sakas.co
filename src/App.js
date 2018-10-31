@@ -3,54 +3,13 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import history from '@history';
 
-// import Home from 'pages/home/Home';
-import About from 'pages/about/About';
-import Experiments from 'pages/experiments/Experiments';
-import Resume from 'pages/resume/Resume';
-import Archive from 'pages/archive/Archive';
-import Audio from 'pages/audio/Audio';
-import Menu from 'components/menu/Menu';
-import Pulse from 'components/pulse/Pulse';
-import Triangles from 'components/Triangles';
+import Menu from '@components/menu/Menu';
+import Pulse from '@components/pulse/Pulse';
+import Triangles from '@components/Triangles';
+
+import ROUTES from './Routes';
 
 import './App.scss';
-
-const ROUTES = {
-  // home: {
-  //   path: '/',
-  //   component: Home,
-  // },
-  about: {
-    path: '/',
-    component: About,
-    title: 'About',
-    showTitle: false,
-  },
-  experiments: {
-    path: '/code/:e?',
-    component: Experiments,
-    title: 'Code',
-    showTitle: true,
-  },
-  resume: {
-    path: '/resume',
-    component: Resume,
-    title: 'Resume',
-    showTitle: true,
-  },
-  archive: {
-    path: '/archive',
-    component: Archive,
-    title: 'Archive',
-    showTitle: true,
-  },
-  audio: {
-    path: '/audio',
-    component: Audio,
-    title: 'Audio',
-    showTitle: true,
-  }
-};
 
 const getBaseRoute = location => location.pathname.split('/').filter(i => i)[0];
 

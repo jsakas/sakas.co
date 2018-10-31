@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-transition-group';
-import Galaxy from 'components/Galaxy';
-import Typer from 'components/Typer';
+import Galaxy from '@components/Galaxy';
+import Typer from '@components/Typer';
 
 import './Home.scss';
 
