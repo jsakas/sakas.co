@@ -52,21 +52,4 @@ const ROUTES = {
   },
 };
 
-const MENU_ITEMS = [
-  {
-  //   onClick: () => history.push('/'),
-  //   title: 'Home',
-  // }, {
-
-  }, {
-
-  }, {
-
-  }, {
-
-  }, {
-
-  }
-];
-
 export default ROUTES;

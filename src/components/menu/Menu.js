@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import history from '@history';
 import { playBlip, playClick } from '@utils/Audio';
-import IdCard from '@icons/IdCard';
 
 import ROUTES from '../../Routes';
 
 import './Menu.scss';
-
-console.log(ROUTES);
 
 const MenuItem = (route) => {
   const onClick = () => {
