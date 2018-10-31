@@ -22,6 +22,8 @@
    -moz-hyphens: none;
    -ms-hyphens: none;
    hyphens: none;
+
+   -webkit-overflow-scrolling: touch;
  }
  
  pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
