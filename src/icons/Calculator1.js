@@ -1,0 +1,10 @@
+import React from "react";
+
+const SvgCalculator1 = props => (
+  <svg viewBox="0 0 60 60" {...props}>
+    <path d="M50.586 0H9.414A2.918 2.918 0 0 0 6.5 2.914v54.172A2.918 2.918 0 0 0 9.414 60h41.172a2.918 2.918 0 0 0 2.914-2.914V2.914A2.918 2.918 0 0 0 50.586 0zm.914 57.086c0 .504-.41.914-.914.914H9.414a.915.915 0 0 1-.914-.914V2.914c0-.504.41-.914.914-.914h41.172c.504 0 .914.41.914.914v54.172z" />
+    <path d="M11.5 55h11V44h-11v11zm2-9h7v7h-7v-7zM24.5 55h11V44h-11v11zm2-9h7v7h-7v-7zM37.5 55h11V31h-11v24zm2-22h7v20h-7V33zM11.5 42h11V31h-11v11zm2-9h7v7h-7v-7zM24.5 42h11V31h-11v11zm2-9h7v7h-7v-7zM11.5 29h11V18h-11v11zm2-9h7v7h-7v-7zM24.5 29h11V18h-11v11zm2-9h7v7h-7v-7zM37.5 29h11V18h-11v11zm2-9h7v7h-7v-7zM11.5 15h37V5h-37v10zm2-8h33v6h-33V7z" />
+  </svg>
+);
+
+export default SvgCalculator1;
