@@ -57,9 +57,15 @@
 
 .ExperimentView {
   position: relative;
+  display: flex;
+  flex-direction:column;
   max-width: 60rem;
   width: 100%;
   height: 50vh;
+
+  @media screen and (max-width: $breakpoint-resume) {
+    height: 85vh;
+  }
 
   h2 {
     font-weight: 300;
