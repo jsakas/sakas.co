@@ -3,11 +3,11 @@
 .ExperimentView {
   position: relative;
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: 80rem;
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 65vh;
 
   @media screen and (max-width: $breakpoint-resume) {
     height: 85vh;
