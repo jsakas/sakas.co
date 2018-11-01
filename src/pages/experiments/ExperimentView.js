@@ -51,7 +51,7 @@ class ExperimentView extends Component {
   
         {experiment.iframe && (
           <div className={`ExperimentView__iframe ${this.state.iframeloaded ? 'ExperimentView__iframe--loaded': ''}`}>
-            <iframe border="0" allowTransparency onLoad={this.oniFrameLoad} src={experiment.iframe}></iframe>
+            <iframe border="0" onLoad={this.oniFrameLoad} src={experiment.iframe}></iframe>
           </div>
         )}
       </div>

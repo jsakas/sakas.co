@@ -28,6 +28,7 @@
   &__description {
     position: absolute;
     top: 100%;
+    left: 0;
     background: rgba(0, 0, 0, .3);
     transition: top .2s;
     height: 4rem;
@@ -42,13 +43,34 @@
     font-family: 'IBM Plex Mono', sans-serif;
     font-weight: lighter;
     pointer-events: none;
+
+
+    @media screen and (max-width: 500px) {
+      top: calc(100% - 4rem);
+    }
   }
 
   &:hover &__description {
     top: calc(100% - 4rem);
   }
 
-  &:hover {
+  &__title {
+    position: relative;
+    transition: bottom .3s;
+    bottom: 0;
+    pointer-events: none;
+
+    @media screen and (max-width: 500px) {
+      bottom: 1rem;
+    }
+  }
+
+  &:hover &__title {
+    bottom: 1rem;
+  }
+
+  &:hover,
+  &:active {
     background: rgba($color-primary, .1);
     border: 1px solid rgba($color-secondary, 1);
   }

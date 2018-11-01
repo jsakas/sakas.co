@@ -16,7 +16,9 @@ class Experiment extends Component {
           history.push(`/code${this.props.path}`);
         }}
       >
-        {this.props.title}
+        {this.props.title && (
+          <div className="Experiment__title">{this.props.title}</div>
+        )}
 
         {this.props.description && (
           <div className="Experiment__description">{this.props.description}</div>
