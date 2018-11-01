@@ -2,82 +2,80 @@
 @import '~styles/mixins';
 
 .Resume {
-  &__body {
-    position: relative;
-    margin: 0 auto;
-    max-width: 50rem;
-    padding: 1rem;
-    font-family: 'Open Sans', sans-serif;
+  position: relative;
+  margin: 0 auto;
+  max-width: 50rem;
+  padding: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  overflow: scroll;
+  border: 1px solid rgba($color-secondary, .3);
+  
+  @media screen and (max-width: $breakpoint-resume) {
+    border: 0;
+    padding: 0;
+    font-size: .8rem;
+  }
+  
+  h1 {
+    color: rgba(#fff, .8);
+    font-family: 'Raleway', sans-serif;
     font-weight: 300;
-    font-size: 1em;
-    overflow: scroll;
-    border: 1px solid rgba($color-secondary, .3);
-    
-    @media screen and (max-width: $breakpoint-resume) {
-      border: 0;
-      padding: 0;
-      font-size: .8rem;
+    letter-spacing: 1px;
+
+    @media print {
+      color: #111;
     }
-    
-    h1 {
-      color: rgba(#fff, .8);
-      font-family: 'Raleway', sans-serif;
-      font-weight: 300;
-      letter-spacing: 1px;
+  }
 
-      @media print {
-        color: #111;
-      }
-    }
+  h2 {
+    color: rgba($color-primary, .9);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
 
-    h2 {
-      color: rgba($color-primary, .9);
-      font-family: 'Raleway', sans-serif;
-      font-weight: 300;
-      letter-spacing: 1px;
-    }
+  h1#professional-experience {
+    position: relative;
+    page-break-before: always;
+    page-break-inside: avoid;
+  }
 
-    h1#professional-experience {
-      position: relative;
-      page-break-before: always;
-      page-break-inside: avoid;
-    }
+  h3, h4, h5, h6 {
+    font-weight: 100;
+    color: rgba($color-primary, .8);
+    font-family: 'Raleway', sans-serif;
+  }
 
-    h3, h4, h5, h6 {
-      font-weight: 100;
-      color: rgba($color-primary, .8);
-      font-family: 'Raleway', sans-serif;
-    }
+  p, ul, li {
+    letter-spacing: .05rem;
+    font-weight: lighter;
 
-    p, ul, li {
-      letter-spacing: .05rem;
-      font-weight: lighter;
-
-      @media print {
-        font-weight: 400;
-      }
-    }
-
-    ul {
-      padding: 0 0 0 1.4rem;
-    }
-
-    li {
-      padding: 0;
-    }
-
-    a {
+    @media print {
       font-weight: 400;
     }
+  }
 
-    @media print {    
-      background: rgba(#fff, .9);
-      color: #111;  
-      padding: 0;
-      border: 0;
-      max-width: 100%;
-      background: none;
-      overflow: auto;
-    }
+  ul {
+    padding: 0 0 0 1.4rem;
+  }
+
+  li {
+    padding: 0;
+  }
+
+  a {
+    font-weight: 400;
+  }
+
+  @media print {    
+    background: rgba(#fff, .9);
+    color: #111;  
+    padding: 0;
+    border: 0;
+    max-width: 100%;
+    background: none;
+    overflow: auto;
   }
 }

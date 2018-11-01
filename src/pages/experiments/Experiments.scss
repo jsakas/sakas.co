@@ -2,17 +2,16 @@
 
 .Experiments {
   position: relative;
-  width: 100%;
-  height: 100%;
-  flex: 1;
+  margin: 0 auto;
+  max-width: 60rem;
+  overflow: scroll;
 
   &__grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    grid-auto-rows: minmax(100px, 200px);
+    grid-auto-rows: minmax(5rem, 10rem);
     grid-gap: 1rem;
-    max-width: 60rem;
-    width: 100%;
   }
 }
 
@@ -52,133 +51,5 @@
   &:hover {
     background: rgba($color-primary, .1);
     border: 1px solid rgba($color-secondary, 1);
-  }
-}
-
-.ExperimentView {
-  position: relative;
-  display: flex;
-  flex-direction:column;
-  max-width: 60rem;
-  width: 100%;
-  height: 50vh;
-
-  @media screen and (max-width: $breakpoint-resume) {
-    height: 85vh;
-  }
-
-  h2 {
-    font-weight: 300;
-    color: $color-tertiary;
-  }
-
-  &__iframe {
-    overflow: hidden;
-    background: #fff;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s;
-
-    &--loaded {
-      opacity: 1;
-    }
-
-    iframe {
-      border: 0;
-      width: 100%;
-      height: 100%;
-    }    
-  }
-
-  &__header {
-    position: relative;
-  }
-
-  &__buttons {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    @media screen and (max-width: $breakpoint-resume) {
-      position: static;
-      margin-bottom: 1rem;
-    }
-  }
-
-  &__button {
-    background: rgba($color-tertiary, .15);
-    transition: background .2s;
-    color: #fff;
-    border-radius: 2rem;
-    padding: .5rem 1rem;
-    position: relative;
-    margin-top: .5rem;
-    display: inline-block;
-    cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 100;
-    text-transform: uppercase;
-    letter-spacing: .2rem;
-    font-size: .65rem;
-    margin-left: 10px;
-
-    @media screen and (max-width: $breakpoint-resume) {
-      font-size: .4rem;
-      padding: .25rem .5rem;
-    }
-
-    &:first-child {
-      margin-left: 0px;
-    }
-
-    &:hover {
-      background: rgba($color-tertiary, .5);
-    }
-  }
-}
-
-.exp-transition {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-
-  &--entering {
-    animation: exp-enter;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-  }
-  
-  &--exiting {
-    animation: exp-exit;
-    animation-duration: .2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes exp-enter {
-    0% {
-      opacity: 0;
-    }
-    
-    100% {
-      opacity: 1;
-      left: 0px;
-    }
-  }
-  
-  @keyframes exp-exit {
-    0% {
-      opacity: 1;
-      left: 0;
-    }
-    
-    100% {
-      opacity: 0;
-    }
   }
 }

@@ -70,7 +70,7 @@ class App extends Component {
                   }}
                 </Transition>
 
-                <Transition key={`${getBaseRoute(history.location)}--page`} timeout={1000}>
+                <Transition key={`${history.location.pathname}--page`} timeout={1000}>
                   {(state) => {
                     return (
                       <div className={`App__page App__page-transition App__page-transition--${state}`}>
@@ -83,7 +83,13 @@ class App extends Component {
                                 key={location}
                                 path={ROUTES[route].path} 
                                 render={() => {
-                                  return (<div className="App__page-wrapper"><Page /></div>);
+                                  return (
+                                    <div className="App__page-wrapper">
+                                      <div className="App__page-content">
+                                        <Page />
+                                      </div>
+                                    </div>
+                                  );
                                 }}
                               />
                             );

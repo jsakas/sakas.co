@@ -1,5 +1,6 @@
 import About from '@pages/about/About';
 import Experiments from '@pages/experiments/Experiments';
+import ExperimentView from '@pages/experiments/ExperimentView';
 import Resume from '@pages/resume/Resume';
 import Archive from '@pages/archive/Archive';
 import Audio from '@pages/audio/Audio';
@@ -19,12 +20,19 @@ const ROUTES = {
     menu: true,
   },
   experiments: {
-    path: '/code/:e?',
+    path: '/code',
     component: Experiments,
     title: 'Code',
     showTitle: true,
     Icon: Share1,
     menu: true,
+  },
+  experiment: {
+    path: '/code/:e?',
+    component: ExperimentView,
+    title: 'Code',
+    showTitle: true,
+    menu: false,
   },
   resume: {
     path: '/resume',

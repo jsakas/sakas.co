@@ -206,6 +206,10 @@ a {
     position: relative;
   }
 
+  &__page-content {
+    width: 100%;
+  }
+
   &__page {
     -webkit-mask-image: linear-gradient(
       transparent 0%,

@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/subtractor",
+    "title": "Subtractor",
+    "description": "A polyphonic synthesizer built with JavaScript",
+    "iframe": "https://jsakas.github.io/Subtractor/",
+    "source_code": "https://github.com/jsakas/Subtractor/"
+  }, 
+  {
+    "path": "/eclipse",
+    "title": "Eclipse",
+    "description": "Audio visualization",
+    "iframe": "https://codepen.io/jsakas/live/PpBMBw",
+    "source_code": "https://codepen.io/jsakas/pen/PpBMBw"
+  },
+  {
+    "path": "/starry-night",
+    "title": "Starry Night",
+    "description": "JavaScript particles",
+    "iframe": "https://codepen.io/jsakas/live/VEjbog",
+    "source_code": "https://codepen.io/jsakas/pen/VEjbog"
+  }
+]

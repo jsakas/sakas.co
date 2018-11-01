@@ -3,8 +3,10 @@
 @import '~styles/prism';
 
 .Archive {  
+  position: relative;
+  margin: 0 auto;
   max-width: 40rem;
-  width: 100%;
+  overflow: scroll;
 }
 
 .Gist {
