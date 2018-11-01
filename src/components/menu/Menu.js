@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import history from '@history';
 import { playBlip, playClick } from '@utils/Audio';
 
-import ROUTES from '../../Routes';
+import ROUTES from '@routes';
 
 import './Menu.scss';
 

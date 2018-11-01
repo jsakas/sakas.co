@@ -45,6 +45,7 @@ module.exports = {
       '@utils': path.resolve(__dirname, 'src', 'utils'),
       '@audio': path.resolve(__dirname, 'src', 'audio'),
       '@icons': path.resolve(__dirname, 'src', 'icons'),
+      '@routes': path.resolve(__dirname, 'src', 'routes'),
     },
   },
   module: {

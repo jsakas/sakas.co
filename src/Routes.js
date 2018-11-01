@@ -28,7 +28,7 @@ const ROUTES = {
     menu: true,
   },
   experiment: {
-    path: '/code/:e?',
+    path: '/code/:id/:slug',
     component: ExperimentView,
     title: 'Code',
     showTitle: true,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { playClick } from '@utils/Audio';
 import history from '@history';
 
@@ -9,10 +10,10 @@ import experiment_data from './experiment_data.json';
 class ExperimentView extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       iframeloaded: false,
-      experiment: experiment_data[0]
+      experiment: experiment_data.find(e => e.id === Number(props.match.params.id))
     };
   }
 
@@ -59,4 +60,4 @@ class ExperimentView extends Component {
   }
 }
 
-export default ExperimentView;
+export default withRouter(ExperimentView);

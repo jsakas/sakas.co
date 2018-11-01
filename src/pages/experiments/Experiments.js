@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import pathToRegexp from 'path-to-regexp';
+import routes from '@routes';
 import { playBlip, playClick } from '@utils/Audio';
 import history from '@history';
 
@@ -7,13 +9,23 @@ import './Experiments.scss';
 import experiment_data from './experiment_data.json';
 
 class Experiment extends Component {
+  constructor(props) {
+    super(props);
+    
+    const toPath = pathToRegexp.compile(routes['experiment'].path);
+    this.url = toPath({
+      id: this.props.id,
+      slug: this.props.slug,
+    });
+  }
+
   render() {
     return (
       <div className="Experiment" 
         onMouseOver={playBlip}
         onClick={() => {
           playClick();
-          history.push(`/code${this.props.path}`);
+          history.push(this.url);
         }}
       >
         {this.props.title && (

@@ -6,8 +6,7 @@ import history from '@history';
 import Menu from '@components/menu/Menu';
 import Pulse from '@components/pulse/Pulse';
 import Triangles from '@components/Triangles';
-
-import ROUTES from './Routes';
+import ROUTES from '@routes';
 
 import './App.scss';
 
