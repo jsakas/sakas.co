@@ -259,24 +259,29 @@ a {
 
     @keyframes page-enter {
       0% {
+        top: -5rem;
         opacity: 0;
       }
       
       100% {
+        top: 0rem;
         opacity: 1;
       }
     }
     
     @keyframes page-exit {
       0% {
+        top: 0rem;
         opacity: 1;
       }
       
       50% {
+        top: 5rem;
         opacity: 0;
       }
 
       100% {
+        top: 5rem;
         opacity: 0;
       }
     }
