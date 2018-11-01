@@ -51,9 +51,9 @@ const startGalaxy = () => {
     particle.movementSpeed = (r() + 0.1) / 250,
     particle.growthSpeed = r() / 10,
     particle.maxSize = r() * PARTICLE_MAX_SIZE,
-    particle.red = r() * 177,
-    particle.green = r() * 177,
-    particle.blue = 177,
+    particle.red = Math.floor(r() * 255),
+    particle.green = Math.floor(r() * 255),
+    particle.blue = 255,
     particle.radius = Math.sqrt(
       Math.pow(particle.startX, 2) + Math.pow(particle.startY, 2)
     ) + 100;
@@ -73,7 +73,8 @@ const startGalaxy = () => {
     context.arc(WINW, WINH, 10, 0, 2 * Math.PI);
 
     PARTICLES = PARTICLES.filter(p => p.size < p.maxSize).map(p => {
-      const color = `rgba(${p.red}, ${p.green}, ${p.blue}, ${1 - p.size / p.maxSize})`;
+      const color = `rgba(${p.red}, ${p.green}, ${p.blue}, ${(1 - p.size / p.maxSize).toFixed(2)})`;
+
       p.size += p.growthSpeed;
       p.offset += p.movementSpeed;
       p.radius += 1;

@@ -67,8 +67,8 @@ const startGalaxy = () => {
     particle.movementSpeed = (r() + 0.1) / 2000;
     particle.growthSpeed = r() / 10;
     particle.maxSize = r() * PARTICLE_MAX_SIZE;
-    particle.red = r() * 177;
-    particle.green = r() * 177;
+    particle.red = Math.floor(r() * 177);
+    particle.green = Math.floor(r() * 177);
     particle.blue = 177;
 
     return particle;

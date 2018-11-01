@@ -8,8 +8,10 @@ module.exports = {
   mode: process.env.WEBPACK_ENV || 'development',
   stats: 'errors-only',
   devServer: {
+    host: '0.0.0.0',
     port: 5280,
     historyApiFallback: true,
+    disableHostCheck: true,
     index: path.join(__dirname, 'build', 'index.html'),
     contentBase: path.join(__dirname, 'build'),
   },
