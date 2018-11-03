@@ -4,7 +4,7 @@
     "slug": "subtractor",
     "title": "Subtractor",
     "description": "A polyphonic synthesizer built with JavaScript",
-    "iframe": "https://jsakas.github.io/Subtractor/",
+    "iframe": "https://subtractor.netlify.com",
     "source_code": "https://github.com/jsakas/Subtractor/"
   },
   {
