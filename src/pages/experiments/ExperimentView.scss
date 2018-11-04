@@ -7,12 +7,8 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  height: 65vh;
+  height: 100%;
   padding: 2rem;
-
-  @media screen and (max-width: $breakpoint-resume) {
-    height: 85vh;
-  }
 
   h2 {
     font-weight: 300;
