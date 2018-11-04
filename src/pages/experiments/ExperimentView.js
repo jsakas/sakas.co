@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import pathToRegexp from 'path-to-regexp';
 import routes from '@routes';
-import { playClick } from '@utils/UISoundFX';
+import { playClick } from '@utils/UISoundFx';
 import history from '@history';
 import AsyncComponent from '@components/async/AsyncComponent';
 
