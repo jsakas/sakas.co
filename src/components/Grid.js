@@ -9,7 +9,7 @@ const r = Math.random;
 const tau = Math.PI * 2;
 const average = (array) => array.reduce((a, b) => a + b) / array.length;
 
-const audio = new Audio();
+const audio = new Audio(1024);
 
 class Particle {
   constructor(index, value) {
@@ -58,7 +58,7 @@ const getColor = () => {
 const draw = (canvas, context) => {
   color = getColor();
   
-  let ad = audio.data.map(arr => [...arr.slice(50, 90)]);
+  let ad = audio.data.map(arr => [...arr.slice(100, 300)]);
   let adr = ad.map(arr => [...arr].reverse());
   let audioData = ad.map((arr, i) => arr.concat(adr[i]));
 
