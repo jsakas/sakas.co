@@ -2,7 +2,7 @@ import Grid from '@components/Grid';
 import Galaxy from '@components/Galaxy';
 import Eclipse from '@components/Eclipse';
 
-module.exports = [
+export default [
   {
     id: 1,
     type: 'iframe',

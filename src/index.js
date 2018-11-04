@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import Loader from '@components/loader/Loader';
 import AsyncComponent from '@components/async/AsyncComponent';
 import { playEntry } from '@utils/UISoundFX';
@@ -22,14 +21,9 @@ class LoadingScreen extends React.Component {
     return (
       <Loader loading={this.state.appLoading}>
         <AsyncComponent
-          resolve={() => new Promise(resolve => {
-            setTimeout(() => {
-              resolve({ default: App });
-              this.setState({
-                appLoading: false,
-              });
-              playEntry();
-            }, 200);
+          resolve={() => import('./App').then((module) => {
+            this.setState({ appLoading: false, }, playEntry);
+            return module;
           })}
         />
       </Loader>
