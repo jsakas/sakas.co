@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const WebpackStats = require('webpack-visualizer-plugin');
 
 
 module.exports = {
@@ -33,6 +34,9 @@ module.exports = {
     }),
     new HtmlWebpackHarddiskPlugin(),
     new ExtractCssChunks(),
+    new WebpackStats({
+      filename: './bundle.html',
+    }),
   ],
   resolve: {
     alias: {
