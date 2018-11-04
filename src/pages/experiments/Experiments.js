@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import pathToRegexp from 'path-to-regexp';
 import routes from '@routes';
-import { playBlip, playClick } from '@utils/UISoundFX';
+import { playBlip, playClick } from '@utils/UISoundFx';
 import history from '@history';
 
 import './Experiments.scss';
