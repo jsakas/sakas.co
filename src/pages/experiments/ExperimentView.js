@@ -4,6 +4,7 @@ import pathToRegexp from 'path-to-regexp';
 import routes from '@routes';
 import { playClick } from '@utils/UISoundFX';
 import history from '@history';
+import AsyncComponent from '@components/async/AsyncComponent';
 
 import './ExperimentView.scss';
 
@@ -77,15 +78,11 @@ class ExperimentView extends Component {
           </div>
         </div>
 
-        {experiment.component && (() => {
-          const Component = experiment.component;
-          return (
-
-            <div className="ExperimentView__fullscreen">
-              <Component />
-            </div>
-          );
-        })()}
+        {experiment.component && (
+          <div className="ExperimentView__fullscreen">
+            <AsyncComponent resolve={experiment.component} />
+          </div>
+        )}
   
         {experiment.iframe && (
           <div className={`ExperimentView__iframe ${this.state.iframeloaded ? 'ExperimentView__iframe--loaded': ''}`}>

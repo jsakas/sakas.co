@@ -1,7 +1,3 @@
-import Grid from '@components/Grid';
-import Galaxy from '@components/Galaxy';
-import Eclipse from '@components/Eclipse';
-
 export default [
   {
     id: 1,
@@ -17,7 +13,7 @@ export default [
     type: 'component',
     slug: 'grid',
     title: 'Grid',
-    component: Grid,
+    component: () => import('@components/Grid'),
     description: 'Web Audio & Canvas Experiment',
   },
   {
@@ -25,7 +21,7 @@ export default [
     type: 'component',
     slug: 'eclipse',
     title: 'Eclipse',
-    component: Eclipse,
+    component: () => import('@components/Eclipse'),
     description: 'Web Audio & Canvas Experiment',
   },
   {
@@ -33,7 +29,7 @@ export default [
     type: 'component',
     slug: 'space-doughnut',
     title: 'Space Doughnut',
-    component: Galaxy,
+    component: () => import('@components/Galaxy'),
     description: 'JavaScript Particles',
   }
 ];
