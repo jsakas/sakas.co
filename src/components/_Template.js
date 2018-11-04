@@ -23,8 +23,6 @@ export default class CanvasDrawing extends Component {
   }
 }
 
-const r = Math.random;
-
 const startGalaxy = () => {
   const canvas = document.getElementById(ID);
   const context = canvas.getContext('2d');
@@ -41,12 +39,6 @@ const startGalaxy = () => {
 
   window.addEventListener('resize', updateCanvasSize);
   updateCanvasSize();
-
-  const particlesFactory = () => {
-    const particle = {};
-
-    return particle;
-  };
 
   const draw = () => {
     context.clearRect(0, 0, WINW, WINH);
