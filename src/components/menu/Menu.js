@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import history from '@history';
-import { playBlip, playClick } from '@utils/Audio';
+import { playBlip, playClick } from '@utils/UISoundFX';
 
 import ROUTES from '@routes';
 

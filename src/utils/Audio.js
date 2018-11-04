@@ -1,51 +1,63 @@
-import blip from '@audio/blip.wav';
-import click from '@audio/click.wav';
-import entry from '@audio/entry.wav';
+export default class Audio {
+  constructor(
+    fftSize = 256,
+    smoothing1 = .1,
+    smoothing2 = .95,
+  ) {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    this._context = new AudioContext();
 
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-const ac = new AudioContext();
+    // set up responsive analsyer
+    this._analyser1 = this._context.createAnalyser();
+    this._analyser1.smoothingTimeConstant = smoothing1;
+    this._analyser1.fftSize = fftSize;
+    this._analyser1Data = new Uint8Array(this._analyser1.frequencyBinCount);
 
-let blipData;
-fetch(blip)
-  .then(response => response.arrayBuffer())
-  .then(buffer => ac.decodeAudioData(buffer, data => {
-    blipData = data;
-  }));
+    // set up smooth analsyer
+    this._analyser2 = this._context.createAnalyser();
+    this._analyser2.smoothingTimeConstant = smoothing2;
+    this._analyser2.fftSize = fftSize;
+    this._analyser2Data = new Uint8Array(this._analyser2.frequencyBinCount);
+  }
 
-const playBlip = () => {
-  const source = ac.createBufferSource();
-  source.buffer = blipData;
-  source.connect(ac.destination);
-  source.start(0);
-};
+  decodeAudioDataPromise = (buffer) => {
+    return new Promise((resolve, reject) => {
+      this._context.decodeAudioData(buffer, resolve, reject);
+    });
+  }
 
-let clickData;
-fetch(click)
-  .then(response => response.arrayBuffer())
-  .then(buffer => ac.decodeAudioData(buffer, data => {
-    clickData = data;
-  }));
+  getSourceFromUrl = (url) => {
+    return fetch(url)
+      .then(response => response.arrayBuffer())
+      .then(this.decodeAudioDataPromise)
+      .then(this.createSource)
+      .then(this.connectAnalyser)
+      .then(this.connectDestination);
+  }
 
-const playClick = () => {
-  const source = ac.createBufferSource();
-  source.buffer = clickData;
-  source.connect(ac.destination);
-  source.start(0);
-};
+  createSource = (bufferData) => {
+    const source = this._context.createBufferSource();
+    source.buffer = bufferData;
+    return source;
+  }
 
-let entryData;
-fetch(entry)
-  .then(response => response.arrayBuffer())
-  .then(buffer => ac.decodeAudioData(buffer, data => {
-    entryData = data;
-  }));
+  connectAnalyser = (source) => {
+    source.connect(this._analyser1);
+    this._analyser1.connect(this._analyser2);
+    return source;
+  }
 
-const playEntry = () => {
-  const source = ac.createBufferSource();
-  source.buffer = entryData;
-  source.connect(ac.destination);
-  source.start(0);
-};
+  connectDestination = (source) => {
+    this._analyser2.connect(this._context.destination);
+    return source;
+  }
 
-export { playBlip, playClick, playEntry };
-
+  get data() {
+    this._analyser1.getByteFrequencyData(this._analyser1Data);
+    this._analyser2.getByteFrequencyData(this._analyser2Data);
+    return [
+      this._analyser1Data,
+      this._analyser2Data
+    ];
+  }
+}

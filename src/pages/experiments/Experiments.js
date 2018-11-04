@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import pathToRegexp from 'path-to-regexp';
 import routes from '@routes';
-import { playBlip, playClick } from '@utils/Audio';
+import { playBlip, playClick } from '@utils/UISoundFX';
 import history from '@history';
 
 import './Experiments.scss';
 
-import experiment_data from './experiment_data.json';
+import experiment_data from './experiment_data';
 
 class Experiment extends Component {
   constructor(props) {

@@ -211,12 +211,7 @@ a {
   }
 
   &__page {
-    -webkit-mask-image: linear-gradient(
-      transparent 0%,
-      rgba(0, 0, 0, 1.0) 5%, 
-      rgba(0, 0, 0, 1.0) 85%, 
-      transparent 92%);
-    -webkit-mask-size: 100% 100%;
+
     -webkit-overflow-scrolling: touch;
     overflow: scroll;
     position: absolute; 
@@ -225,12 +220,22 @@ a {
     bottom: 0; 
     left: 0;
 
-    @media screen and (max-width: $breakpoint-header) {
+    &--gradient-mask {
       -webkit-mask-image: linear-gradient(
-        transparent 5%,
-        rgba(0, 0, 0, 1.0) 10%, 
+        transparent 0%,
+        rgba(0, 0, 0, 1.0) 5%, 
         rgba(0, 0, 0, 1.0) 85%, 
-        transparent 95%);
+        transparent 92%);
+      -webkit-mask-size: 100% 100%;
+
+      @media screen and (max-width: $breakpoint-header) {
+        -webkit-mask-image: linear-gradient(
+          transparent 5%,
+          rgba(0, 0, 0, 1.0) 10%, 
+          rgba(0, 0, 0, 1.0) 85%, 
+          transparent 95%);
+      }
+  
     }
 
     @media print {

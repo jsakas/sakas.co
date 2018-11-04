@@ -2,84 +2,24 @@
  * A React component template for drawing on the canvas with requestAnimationFrame.
  */
 import React, { Component } from 'react';
+import Audio from '@utils/Audio';
 import audioLoop from '@audio/justice.mp3';
 
 const ID = 'AudioViz1';
 
 // util functions
 const r = Math.random;
-const _2pi = Math.PI * 2;
+const tau = Math.PI * 2;
 const average = (array) => array.reduce((a, b) => a + b) / array.length;
-
-class Audio {
-  constructor() {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    this._context = new AudioContext();
-
-    // set up responsive analsyer
-    this._analyser1 = this._context.createAnalyser();
-    this._analyser1.smoothingTimeConstant = .1;
-    this._analyser1.fftSize = 256;
-    this._analyser1Data = new Uint8Array(this._analyser1.frequencyBinCount);
-
-    // set up smooth analsyer
-    this._analyser2 = this._context.createAnalyser();
-    this._analyser2.smoothingTimeConstant = .95;
-    this._analyser2.fftSize = 256;
-    this._analyser2Data = new Uint8Array(this._analyser2.frequencyBinCount);
-  }
-
-  decodeAudioDataPromise = (buffer) => {
-    return new Promise((resolve, reject) => {
-      this._context.decodeAudioData(buffer, resolve, reject);
-    });
-  }
-
-  getSourceFromUrl = (url) => {
-    return fetch(url)
-      .then(response => response.arrayBuffer())
-      .then(this.decodeAudioDataPromise)
-      .then(this.createSource)
-      .then(this.connectAnalyser)
-      .then(this.connectDestination);
-  }
-
-  createSource = (bufferData) => {
-    const source = this._context.createBufferSource();
-    source.buffer = bufferData;
-    return source;
-  }
-
-  connectAnalyser = (source) => {
-    source.connect(this._analyser1);
-    this._analyser1.connect(this._analyser2);
-    return source;
-  }
-
-  connectDestination = (source) => {
-    this._analyser2.connect(this._context.destination);
-    return source;
-  }
-
-  get data() {
-    this._analyser1.getByteFrequencyData(this._analyser1Data);
-    this._analyser2.getByteFrequencyData(this._analyser2Data);
-    return [
-      this._analyser1Data,
-      this._analyser2Data
-    ];
-  }
-}
 
 const audio = new Audio();
 
 export default class CanvasDrawing extends Component {
   componentDidMount(){
     audio.getSourceFromUrl(audioLoop).then(source => {
-      source.loop = true;
       source.start(0);
       this.source = source;
-      this.raf = startGalaxy();
+      this.raf = startAnimation();
     });
   
   }
@@ -115,7 +55,7 @@ class Particle {
   }
 }
 
-const startGalaxy = () => {
+const startAnimation = () => {
   const canvas = document.getElementById(ID);
   const context = canvas.getContext('2d');
 
@@ -189,34 +129,34 @@ const startGalaxy = () => {
       
       context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${p.opacity})`;
       context.beginPath();
-      context.arc(x, midLine - p.iterations, p.value, 0, _2pi);
-      context.arc(x, midLine + p.iterations, p.value, 0, _2pi);
+      context.arc(x, midLine - p.iterations, p.value, 0, tau);
+      context.arc(x, midLine + p.iterations, p.value, 0, tau);
       context.fill();
       context.beginPath();
-      context.arc(x - p.iterations, midLine, p.value, 0, _2pi);
-      context.arc(x + p.iterations, midLine, p.value, 0, _2pi);
-      context.fill();
-
-
-      context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${p.opacity})`;
-      context.beginPath();
-      context.arc(x, midLine - p.iterations + spread, p.value, 0, _2pi);
-      context.arc(x, midLine + p.iterations + spread, p.value, 0, _2pi);
-      context.fill();
-      context.beginPath();
-      context.arc(x - p.iterations, midLine + spread, p.value, 0, _2pi);
-      context.arc(x + p.iterations, midLine + spread, p.value, 0, _2pi);
+      context.arc(x - p.iterations, midLine, p.value, 0, tau);
+      context.arc(x + p.iterations, midLine, p.value, 0, tau);
       context.fill();
 
 
       context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${p.opacity})`;
       context.beginPath();
-      context.arc(x, midLine - p.iterations - spread, p.value, 0, _2pi);
-      context.arc(x, midLine + p.iterations - spread, p.value, 0, _2pi);
+      context.arc(x, midLine - p.iterations + spread, p.value, 0, tau);
+      context.arc(x, midLine + p.iterations + spread, p.value, 0, tau);
       context.fill();
       context.beginPath();
-      context.arc(x - p.iterations, midLine - spread, p.value, 0, _2pi);
-      context.arc(x + p.iterations, midLine - spread, p.value, 0, _2pi);
+      context.arc(x - p.iterations, midLine + spread, p.value, 0, tau);
+      context.arc(x + p.iterations, midLine + spread, p.value, 0, tau);
+      context.fill();
+
+
+      context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${p.opacity})`;
+      context.beginPath();
+      context.arc(x, midLine - p.iterations - spread, p.value, 0, tau);
+      context.arc(x, midLine + p.iterations - spread, p.value, 0, tau);
+      context.fill();
+      context.beginPath();
+      context.arc(x - p.iterations, midLine - spread, p.value, 0, tau);
+      context.arc(x + p.iterations, midLine - spread, p.value, 0, tau);
       context.fill();
 
       p.update();
@@ -226,10 +166,10 @@ const startGalaxy = () => {
     // DRAW CENTER CIRCLES
     for (let i = 0; i <= MAX_SECTIONS; i++) {
       context.beginPath();
-      context.fillStyle = 'rgba(0, 0, 0, .5)';
-      context.arc(i * drawInterval, midLine, audioData[1][i * freqInterval] * .1, 0, _2pi);
-      context.arc(i * drawInterval, midLine - spread, audioData[1][i * freqInterval] * .1, 0, _2pi); 
-      context.arc(i * drawInterval, midLine + spread, audioData[1][i * freqInterval] * .1, 0, _2pi); 
+      context.fillStyle = 'rgba(17, 17, 17, .5)';
+      context.arc(i * drawInterval, midLine, audioData[1][i * freqInterval] * .1, 0, tau);
+      context.arc(i * drawInterval, midLine - spread, audioData[1][i * freqInterval] * .1, 0, tau); 
+      context.arc(i * drawInterval, midLine + spread, audioData[1][i * freqInterval] * .1, 0, tau); 
       context.fill();
     }
 

@@ -8,7 +8,7 @@ import Pulse from '@components/pulse/Pulse';
 import Triangles from '@components/Triangles';
 import ROUTES from '@routes';
 
-import AudioViz1 from '@components/AudioViz1';
+import ExperimentView from '@pages/experiments/ExperimentView';
 
 import './App.scss';
 
@@ -31,90 +31,113 @@ class App extends Component {
     return (
       <Router history={history}>
         <Switch>
-          <Route key={history.location.pathname} path="/scratch/:id?" render={() => {
+          
+          <Route path="/code/:id/:slug" key={history.location.pathname} render={({ location }) => {
             return (
-              <AudioViz1 />
+              <TransitionGroup component={null}>
+                <Transition key={`${history.location.pathname}--experiment`} timeout={1000}>
+                  {(state) => {
+                    return (
+                      <div className={`App__page App__page-transition App__page-transition--${state}`}>
+                        <Switch location={location}>
+                          <Route 
+                            exact
+                            key={location.pathname}
+                            path="/code/:id/:slug" 
+                            component={ExperimentView}
+                          />
+                        </Switch>
+                      </div>
+                    );
+                  }}
+                </Transition>
+              </TransitionGroup>
             );
-          }} />
-          <div className="App">
-            <div className="App__canvas">
-              <Triangles />
-            </div>
-            <Route key={getBaseRoute(history.location)} render={({ location }) => {
-              return (
-                <TransitionGroup component={null}>
+          }}>
+            
+          </Route>
 
-                  <Transition key={'logo'} timeout={1000}>
-                    {(state) => {
-                      return (
-                        <div className={`App__logo App__logo-transition App__logo-transition--${state}`}>
+          <Route>
+            <div className="App">
+              <div className="App__canvas">
+                <Triangles />
+              </div>
+              <Route key={getBaseRoute(history.location)} render={({ location }) => {
+                return (
+                  <TransitionGroup component={null}>
+
+                    <Transition key={'logo'} timeout={1000}>
+                      {(state) => {
+                        return (
+                          <div className={`App__logo App__logo-transition App__logo-transition--${state}`}>
                       jon.sakas
-                        </div>
-                      );
-                    }}
-                  </Transition>
+                          </div>
+                        );
+                      }}
+                    </Transition>
 
 
-                  <Transition key={`${getBaseRoute(history.location)}--title`} timeout={3000}>
-                    {(state) => {
-                      return (
-                        <div className={'App__title'}>
-                          <Switch location={location}>
-                            {Object.keys(ROUTES).filter(route => ROUTES[route].showTitle).map((route) => {
-                              let title = ROUTES[route].title;
-                              return (
-                                <Route 
-                                  exact
-                                  key={location}
-                                  path={ROUTES[route].path} 
-                                  render={() => <h1 className={`App__title-transition App__title-transition--${state}`}>{title}</h1>}
-                                />
-                              );
-                            })}
-                          </Switch>
-                        </div>
-                      );
-                    }}
-                  </Transition>
+                    <Transition key={`${getBaseRoute(history.location)}--title`} timeout={3000}>
+                      {(state) => {
+                        return (
+                          <div className={'App__title'}>
+                            <Switch location={location}>
+                              {Object.keys(ROUTES).filter(route => ROUTES[route].showTitle).map((route) => {
+                                let title = ROUTES[route].title;
+                                return (
+                                  <Route 
+                                    exact
+                                    key={location}
+                                    path={ROUTES[route].path} 
+                                    render={() => <h1 className={`App__title-transition App__title-transition--${state}`}>{title}</h1>}
+                                  />
+                                );
+                              })}
+                            </Switch>
+                          </div>
+                        );
+                      }}
+                    </Transition>
 
-                  <Transition key={`${history.location.pathname}--page`} timeout={1000}>
-                    {(state) => {
-                      return (
-                        <div className={`App__page App__page-transition App__page-transition--${state}`}>
-                          <Switch location={location}>
-                            {Object.keys(ROUTES).map((route) => {
-                              let Page = ROUTES[route].component;
-                              return (
-                                <Route 
-                                  exact
-                                  key={location}
-                                  path={ROUTES[route].path} 
-                                  render={() => {
-                                    return (
-                                      <div className="App__page-wrapper">
-                                        <div className="App__page-content">
-                                          <Page />
+                    <Transition key={`${history.location.pathname}--page`} timeout={1000}>
+                      {(state) => {
+                        return (
+                          <div className={`App__page App__page-transition App__page-transition--${state} App__page--gradient-mask`}>
+                            <Switch location={location}>
+                              {Object.keys(ROUTES).map((route) => {
+                                let Page = ROUTES[route].component;
+                                return (
+                                  <Route 
+                                    exact
+                                    key={location.pathname}
+                                    path={ROUTES[route].path} 
+                                    render={() => {
+                                      return (
+                                        <div className="App__page-wrapper">
+                                          <div className="App__page-content">
+                                            <Page />
+                                          </div>
                                         </div>
-                                      </div>
-                                    );
-                                  }}
-                                />
-                              );
-                            })}
-                          </Switch>
-                        </div>
-                      );
-                    }}
-                  </Transition>
+                                      );
+                                    }}
+                                  />
+                                );
+                              })}
+                            </Switch>
+                          </div>
+                        );
+                      }}
+                    </Transition>
 
-                </TransitionGroup>
-              );
-            }} />
-            <div className="App__menu-toggle" style={{ display: 'none' }}>
-              <Pulse onClick={this.toggleMenu} />
+                  </TransitionGroup>
+                );
+              }} />
+              <div className="App__menu-toggle" style={{ display: 'none' }}>
+                <Pulse onClick={this.toggleMenu} />
+              </div>
+              <Menu open={this.state.menuOpen} />
             </div>
-            <Menu open={this.state.menuOpen} />
-          </div>
+          </Route>
         </Switch>
       </Router>
     );

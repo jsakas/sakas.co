@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Loader from '@components/loader/Loader';
 import AsyncComponent from '@components/async/AsyncComponent';
-import { playEntry } from '@utils/Audio';
+import { playEntry } from '@utils/UISoundFX';
 
 const container = document.createElement('div');
 container.id = 'app';

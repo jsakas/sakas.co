@@ -29,12 +29,6 @@ const startGalaxy = () => {
     WINW = window.innerWidth;
     WINH = window.innerHeight;
 
-    if (WINW > WINH) {
-      WINH = WINW;
-    } else {
-      WINW = WINH;
-    }
-
     canvas.setAttribute('width', WINW);
     canvas.setAttribute('height', WINH);
   };
@@ -82,7 +76,7 @@ const startGalaxy = () => {
       context.beginPath();
       context.arc(
         p.radius * Math.cos(p.offset) + WINW / 2,
-        p.radius * Math.sin(p.offset) + WINW / 2,
+        p.radius * Math.sin(p.offset) + WINH / 2,
         p.size,
         0,
         2 * Math.PI
