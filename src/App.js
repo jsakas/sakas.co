@@ -34,24 +34,16 @@ class App extends Component {
           
           <Route path="/code/:id/:slug" key={history.location.pathname} render={({ location }) => {
             return (
-              <TransitionGroup component={null}>
-                <Transition key={`${history.location.pathname}--experiment`} timeout={1000}>
-                  {(state) => {
-                    return (
-                      <div className={`App__page App__page-transition App__page-transition--${state}`}>
-                        <Switch location={location}>
-                          <Route 
-                            exact
-                            key={location.pathname}
-                            path="/code/:id/:slug" 
-                            component={ExperimentView}
-                          />
-                        </Switch>
-                      </div>
-                    );
-                  }}
-                </Transition>
-              </TransitionGroup>
+              <div className={'App__page App__page-transition'}>
+                <Switch location={location}>
+                  <Route 
+                    exact
+                    key={location.pathname}
+                    path="/code/:id/:slug" 
+                    component={ExperimentView}
+                  />
+                </Switch>
+              </div>  
             );
           }}>
             
