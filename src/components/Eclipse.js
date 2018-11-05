@@ -1,9 +1,7 @@
 import React from 'react';
-import Audio from '@utils/Audio';
-import audioLoop from '@audio/geek.mp3';
+import GlobalPlayer from '@utils/GlobalPlayer';
+import audioFile from '@audio/geek.mp3';
 import Canvas from '@components/canvas/Canvas';
-
-const audio = new Audio(1024);
 
 let color, red=0, green=0, blue=255;
 const getColor = () => {
@@ -41,7 +39,7 @@ const draw = (canvas, context) => {
 
   const degrees = 360;
   const radius = 200;
-  const freqData = audio.data[1];
+  const freqData = GlobalPlayer.data[1];
   
   context.clearRect(0, 0, 2000, 2000);
   context.beginPath();
@@ -82,9 +80,14 @@ const draw = (canvas, context) => {
   context.stroke();
 };
 
-const load = () => audio.getSourceFromUrl(audioLoop);
+
+const load = () => {
+  GlobalPlayer.fftSize = 1024;
+  return GlobalPlayer.getSourceFromUrl(audioFile);
+};
+
 const afterLoad = (source) => source.start(0);
-const unload = (source) => source.stop();
+const unload = (source) => GlobalPlayer.fadeOut(source);
 
 const AudioVisual = () => {
   return (

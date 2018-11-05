@@ -31,8 +31,7 @@ export default class Audio {
       .then(response => response.arrayBuffer())
       .then(this.decodeAudioDataPromise)
       .then(this.createSource)
-      .then(this.connectAnalyser)
-      .then(this.connectDestination);
+      .then(this.connect);
   }
 
   createSource = (bufferData) => {
@@ -41,15 +40,39 @@ export default class Audio {
     return source;
   }
 
-  connectAnalyser = (source) => {
-    source.connect(this._analyser1);
-    this._analyser1.connect(this._analyser2);
+  connectGainNode
+
+  connect = (source) => {
+    
+    const gainNode = this._context.createGain();
+    gainNode.gain.value = 1;
+    
+    source.gainNode = gainNode;
+
+    source
+      .connect(gainNode)
+      .connect(this._analyser1)
+      .connect(this._analyser2)
+      .connect(this._context.destination);
     return source;
   }
 
-  connectDestination = (source) => {
-    this._analyser2.connect(this._context.destination);
-    return source;
+
+  fadeOut = (source, time = 1) => {
+    source.gainNode.gain
+      .linearRampToValueAtTime(
+        0,
+        this._context.currentTime + time
+      );
+    source.stop(this._context.currentTime + time);
+  }
+
+  set fftSize(value) {
+    this._analyser1.fftSize = value;
+    this._analyser1Data = new Uint8Array(this._analyser1.frequencyBinCount);
+
+    this._analyser2.fftSize = value;
+    this._analyser2Data = new Uint8Array(this._analyser2.frequencyBinCount);
   }
 
   get data() {

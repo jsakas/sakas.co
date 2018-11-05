@@ -1,6 +1,6 @@
 import React from 'react';
-import Audio from '@utils/Audio';
-import audioLoop from '@audio/justice.mp3';
+import GlobalPlayer from '@utils/GlobalPlayer';
+import audioFile from '@audio/justice.mp3';
 import Canvas from '@components/canvas/Canvas';
 
 
@@ -8,8 +8,6 @@ import Canvas from '@components/canvas/Canvas';
 const r = Math.random;
 const tau = Math.PI * 2;
 const average = (array) => array.reduce((a, b) => a + b) / array.length;
-
-const audio = new Audio(1024);
 
 class Particle {
   constructor(index, value) {
@@ -58,7 +56,7 @@ const getColor = () => {
 const draw = (canvas, context) => {
   color = getColor();
   
-  let ad = audio.data.map(arr => [...arr.slice(100, 300)]);
+  let ad = GlobalPlayer.data.map(arr => [...arr.slice(100, 300)]);
   let adr = ad.map(arr => [...arr].reverse());
   let audioData = ad.map((arr, i) => arr.concat(adr[i]));
 
@@ -140,9 +138,12 @@ const draw = (canvas, context) => {
 };
 
 
-const load = () => audio.getSourceFromUrl(audioLoop);
+const load = () => {
+  GlobalPlayer.fftSize = 1024;
+  return GlobalPlayer.getSourceFromUrl(audioFile);
+};
 const afterLoad = (source) => source.start(0);
-const unload = (source) => source.stop();
+const unload = (source) => GlobalPlayer.fadeOut(source);
 
 const AudioVisual = () => {
   return (
