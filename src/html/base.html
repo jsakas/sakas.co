@@ -7,6 +7,17 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Jon Sakas">
+
+  <link rel="apple-touch-icon" href="<%= require('../images/app-icon-144.png') %>">
+  <link rel="apple-touch-icon" sizes="167x167" href="<%= require('../images/app-icon-144.png') %>">
+  <link rel="apple-touch-icon" sizes="152x152" href="<%= require('../images/app-icon-152.png') %>">
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= require('../images/app-icon-180.png') %>">
+
+  <link rel="icon" type="image/png" href="<%= require('../images/app-icon-16.png') %>" sizes="16x16">
+  <link rel="icon" type="image/png" href="<%= require('../images/app-icon-32.png') %>" sizes="32x32">
+  <link rel="icon" type="image/png" href="<%= require('../images/app-icon-96.png') %>" sizes="96x96">
+  
+
   <% for (var chunk in htmlWebpackPlugin.options.head) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.head[chunk]].entry %>"></script>
   <% } %>
