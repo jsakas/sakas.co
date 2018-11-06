@@ -45,6 +45,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "WEBPACK_ENV=production webpack",
+    "deploy": "rm -rf build && yarn build && netlify deploy --prod",
     "lint": "eslint ."
   }
 }
