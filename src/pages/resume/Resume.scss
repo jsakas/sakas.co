@@ -9,7 +9,7 @@
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 1em;
-  overflow: scroll;
+  overflow: auto;
   border: 1px solid rgba($color-secondary, .3);
   
   @media screen and (max-width: $breakpoint-resume) {

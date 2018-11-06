@@ -213,7 +213,7 @@ a {
   &__page {
 
     -webkit-overflow-scrolling: touch;
-    overflow: scroll;
+    overflow: auto;
     position: absolute; 
     top: 0;
     right: 0;

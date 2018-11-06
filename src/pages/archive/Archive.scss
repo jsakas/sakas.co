@@ -6,7 +6,7 @@
   position: relative;
   margin: 0 auto;
   max-width: 40rem;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .Gist {
@@ -56,7 +56,7 @@
     background: rgba(#111, .3);
     padding: 1rem;
     border-radius: .5rem;
-    overflow: scroll;
+    overflow: auto;
 
     @media screen and (max-width: $breakpoint-resume) {
       padding: 0;
