@@ -26,16 +26,8 @@ const radians = (degrees) => {
 
 let iterations = 0;
 
-const draw = (canvas, context) => {
-  if (!canvas || !context) {
-    return;
-  }
-
-  let x, y;
-
-  color = getColor();
+const draw = (canvas, context) => {  
   context.clearRect(0, 0, canvas.width, canvas.height);
-
 
   const degrees = 360;
   const radius = 200;
@@ -44,11 +36,13 @@ const draw = (canvas, context) => {
   context.clearRect(0, 0, 2000, 2000);
   context.beginPath();
 
-  for (var d = 0; d < degrees; d++) {
-    context.strokeStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${.7})`;
-    context.lineWidth=2;
-    context.lineCap='round';
-      
+  color = getColor();
+  context.strokeStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${.7})`;
+  context.lineWidth = 2;
+  context.lineCap = 'round';
+  
+  let x, y;
+  for (let d = 0; d < degrees; d++) {    
     // start coordinates
     x = (canvas.width / 2) + radius * Math.cos(radians(d) + iterations);
     y = (canvas.height / 2) + radius * Math.sin(radians(d) + iterations);
