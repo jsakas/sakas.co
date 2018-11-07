@@ -84,21 +84,21 @@ const startGalaxy = () => {
     context.beginPath();
     context.arc(WINW, WINH, 10, 0, 2 * Math.PI);
 
-    PARTICLES = PARTICLES.map(p => {
+
+    PARTICLES.forEach(p => {
+      context.beginPath();
       const color = `rgba(${p.red}, ${p.green}, ${p.blue}, ${.01})`;
+      context.fillStyle = color;
 
       p.offset1 = p.p1dir ? p.offset1 + p.movementSpeed : p.offset1 - p.movementSpeed;
       p.offset2 = p.p2dir ? p.offset2 + p.movementSpeed : p.offset2 - p.movementSpeed;
       p.offset3 = p.p3dir ? p.offset3 + p.movementSpeed : p.offset3 - p.movementSpeed;
 
-      context.beginPath();
       context.moveTo(p.r1 * Math.cos(p.offset1) + WINW / 2, p.r1 * Math.sin(p.offset1) + WINW / 2,);
       context.lineTo(p.r2 * Math.cos(p.offset2) + WINW / 2, p.r2 * Math.sin(p.offset2) + WINW / 2,);
       context.lineTo(p.r3 * Math.cos(p.offset3) + WINW / 2, p.r3 * Math.sin(p.offset3) + WINW / 2,);
       context.lineTo(p.r1 * Math.cos(p.offset1) + WINW / 2, p.r1 * Math.sin(p.offset1) + WINW / 2,);
-      context.fill();
 
-      context.fillStyle = color;
       context.fill();
       return p;
     });
