@@ -80,54 +80,55 @@ const draw = (canvas, context) => {
   context.stroke();
   
   PARTICLES = PARTICLES.filter(p => p.opacity > 0 && p.value > 0);
-  PARTICLES.forEach(p => {
-    const x = p.index * drawInterval;
+  for (let i = 0; i < PARTICLES.length; i++) {
+    const particle = PARTICLES[i];
+    const x = particle.index * drawInterval;
+
+    const STARTING_POINTS = [
+      // mid row
+      [x, midY - particle.iterations],
+      [x, midY + particle.iterations],
+      [x - particle.iterations, midY],
+      [x + particle.iterations, midY],
+
+      // top row
+      [x, midY - particle.iterations + spread],
+      [x, midY + particle.iterations + spread],
+      [x - particle.iterations, midY + spread],
+      [x + particle.iterations, midY + spread],
+
+      // bottom row
+      [x, midY - particle.iterations - spread],
+      [x, midY + particle.iterations - spread],
+      [x - particle.iterations, midY - spread],
+      [x + particle.iterations, midY - spread],
+    ];
+
+    context.beginPath();
+    context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${particle.opacity})`;
+
+    STARTING_POINTS.forEach(point => {
+      context.moveTo(point[0], point[1]);
+      context.arc(point[0], point[1], particle.value, 0, tau);
+    });
     
-    context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${p.opacity})`;
-    context.beginPath();
-    context.arc(x, midY - p.iterations, p.value, 0, tau);
-    context.arc(x, midY + p.iterations, p.value, 0, tau);
     context.fill();
-    context.beginPath();
-    context.arc(x - p.iterations, midY, p.value, 0, tau);
-    context.arc(x + p.iterations, midY, p.value, 0, tau);
-    context.fill();
-
-
-    context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${p.opacity})`;
-    context.beginPath();
-    context.arc(x, midY - p.iterations + spread, p.value, 0, tau);
-    context.arc(x, midY + p.iterations + spread, p.value, 0, tau);
-    context.fill();
-    context.beginPath();
-    context.arc(x - p.iterations, midY + spread, p.value, 0, tau);
-    context.arc(x + p.iterations, midY + spread, p.value, 0, tau);
-    context.fill();
-
-
-    context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${p.opacity})`;
-    context.beginPath();
-    context.arc(x, midY - p.iterations - spread, p.value, 0, tau);
-    context.arc(x, midY + p.iterations - spread, p.value, 0, tau);
-    context.fill();
-    context.beginPath();
-    context.arc(x - p.iterations, midY - spread, p.value, 0, tau);
-    context.arc(x + p.iterations, midY - spread, p.value, 0, tau);
-    context.fill();
-
-    p.update();
-  });
-
+    particle.update();
+  }
+  
 
   // DRAW CENTER CIRCLES
+  context.beginPath();
+  context.fillStyle = 'rgba(17, 17, 17, .5)';
   for (let i = 0; i <= MAX_SECTIONS; i++) {
-    context.beginPath();
-    context.fillStyle = 'rgba(17, 17, 17, .5)';
+    context.moveTo(i * drawInterval, midY);
     context.arc(i * drawInterval, midY, audioData[1][i * freqInterval] * .1, 0, tau);
-    context.arc(i * drawInterval, midY - spread, audioData[1][i * freqInterval] * .1, 0, tau); 
-    context.arc(i * drawInterval, midY + spread, audioData[1][i * freqInterval] * .1, 0, tau); 
-    context.fill();
+    context.moveTo(i * drawInterval, midY - spread);
+    context.arc(i * drawInterval, midY - spread, audioData[1][i * freqInterval] * .1, 0, tau);
+    context.moveTo(i * drawInterval, midY + spread);
+    context.arc(i * drawInterval, midY + spread, audioData[1][i * freqInterval] * .1, 0, tau);
   }
+  context.fill();
 
   if (PARTICLES.length < 250) {
     const a = average(audioData[0]);
