@@ -49,11 +49,10 @@ export default class Audio {
     
     source.gainNode = gainNode;
 
-    source
-      .connect(gainNode)
-      .connect(this._analyser1)
-      .connect(this._analyser2)
-      .connect(this._context.destination);
+    source.connect(gainNode);
+    gainNode.connect(this._analyser1);
+    this._analyser1.connect(this._analyser2);
+    this._analyser2.connect(this._context.destination);
     return source;
   }
 
