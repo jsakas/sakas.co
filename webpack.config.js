@@ -23,6 +23,7 @@ module.exports = {
     sentry: './src/integrations/Sentry.js',
   },
   output: {
+    filename: '[hash].js',
     path: path.resolve(__dirname, 'build', 'static'),
     publicPath: '/static/',
   },

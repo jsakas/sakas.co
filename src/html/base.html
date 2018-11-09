@@ -16,7 +16,17 @@
   <link rel="icon" type="image/png" href="<%= require('../images/app-icon-16.png') %>" sizes="16x16">
   <link rel="icon" type="image/png" href="<%= require('../images/app-icon-32.png') %>" sizes="32x32">
   <link rel="icon" type="image/png" href="<%= require('../images/app-icon-96.png') %>" sizes="96x96">
-  
+
+  <% if (APP_ENV == 'production') { %>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128960496-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-128960496-1');
+    </script>
+  <% } %>
 
   <% for (var chunk in htmlWebpackPlugin.options.head) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.head[chunk]].entry %>"></script>
