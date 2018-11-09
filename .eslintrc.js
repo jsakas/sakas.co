@@ -47,4 +47,7 @@ module.exports = {
         ],
         "react/prop-types": "off"
     },
+    "globals": {
+        "APP_ENV": true,
+    },
 };

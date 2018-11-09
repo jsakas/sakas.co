@@ -3,10 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const WebpackStats = require('webpack-visualizer-plugin');
+const { DefinePlugin } = require('webpack');
 
 
 module.exports = {
-  mode: process.env.WEBPACK_ENV || 'development',
+  mode: process.env.WEBPACK_ENV == 'production' ? 'production' : 'development',
+  devtool: process.env.WEBPACK_ENV == 'production' ? 'source-map' : 'none',
   stats: 'errors-only',
   devServer: {
     host: '0.0.0.0',
@@ -17,7 +19,8 @@ module.exports = {
     contentBase: path.join(__dirname, 'build'),
   },
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
+    sentry: './src/integrations/Sentry.js',
   },
   output: {
     path: path.resolve(__dirname, 'build', 'static'),
@@ -27,10 +30,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'html', 'base.html'),
       filename: '../index.html',
-      chunks: ['main'],
+      chunks: ['sentry', 'main'],
       inject: false,
-      body: ['main'],
+      body: ['sentry', 'main'],
       alwaysWriteToDisk: true,
+    }),
+    new DefinePlugin({
+      'APP_ENV': JSON.stringify(process.env.APP_ENV),
     }),
     new HtmlWebpackHarddiskPlugin(),
     new ExtractCssChunks(),

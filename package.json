@@ -8,6 +8,7 @@
   "dependencies": {
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
+    "@sentry/browser": "4.3.0",
     "react": "16.6.0",
     "react-dom": "16.6.0",
     "react-router": "4.3.1",
@@ -43,8 +44,8 @@
     "webpack-visualizer-plugin": "0.1.11"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "WEBPACK_ENV=production webpack",
+    "start": "WEBPACK_ENV=development APP_ENV=development webpack-dev-server",
+    "build": "WEBPACK_ENV=production APP_ENV=production webpack",
     "deploy": "rm -rf build && yarn build && netlify deploy --prod",
     "lint": "eslint ."
   }
