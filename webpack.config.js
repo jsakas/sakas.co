@@ -40,7 +40,9 @@ module.exports = {
       'APP_ENV': JSON.stringify(process.env.APP_ENV),
     }),
     new HtmlWebpackHarddiskPlugin(),
-    new ExtractCssChunks(),
+    new ExtractCssChunks({
+      filename: '[hash].css'
+    }),
     new WebpackStats({
       filename: './bundle.html',
     }),
