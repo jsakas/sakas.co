@@ -23,7 +23,7 @@ module.exports = {
     sentry: './src/integrations/Sentry.js',
   },
   output: {
-    filename: '[hash].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'build', 'static'),
     publicPath: '/static/',
   },
@@ -33,7 +33,8 @@ module.exports = {
       filename: '../index.html',
       chunks: ['sentry', 'main'],
       inject: false,
-      body: ['sentry', 'main'],
+      head: ['sentry'],
+      body: ['main'],
       alwaysWriteToDisk: true,
     }),
     new DefinePlugin({
