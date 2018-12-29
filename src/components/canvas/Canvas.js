@@ -57,7 +57,7 @@ class Canvas extends Component {
       return cancelAnimationFrame(this.raf);
     }
 
-    return requestAnimationFrame(this.startRaf);
+    this.raf = requestAnimationFrame(this.startRaf);
   }
 
   render() {
