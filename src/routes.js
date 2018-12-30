@@ -56,7 +56,7 @@ const ROUTES = {
     title: 'Audio',
     showTitle: true,
     Icon: PlayButton1,
-    menu: true,
+    menu: false,
   },
 };
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-transition-group';
-import Galaxy from '@components/Galaxy';
 import Typer from '@components/Typer';
+import { playClick } from '@utils/UISoundFx';
 
-import './Home.scss';
+import './CryptoTyper.scss';
 
 class Home extends Component {
   static displayNamme = 'Home';
@@ -18,24 +18,28 @@ class Home extends Component {
     };
   }
   onTyperComplete = (phase) => () => {
-    this.setState({
-      [phase]: true,
-    });
+    setTimeout(() => {
+      this.setState({
+        [phase]: true,
+      });
+    }, 1000);
   }
 
   render() {
     return (
       <div className="Home">
-        <div className="Home__galaxy">
-          <Galaxy />
-        </div>
         <div className="Home__intro">
-          
+
           <Transition timeout={0} in={true} appear={true}>
             {(state) => {
               return (
                 <h1 className={`App__fade-in App__fade-in--${state}`}>
-                  <Typer text="Greetings" onComplete={this.onTyperComplete('phase1')} />
+                  <Typer 
+                    text="Greetings"
+                    onComplete={this.onTyperComplete('phase1')}
+                    onType={playClick}
+                    speed="50"
+                  />
                 </h1>
               );
             }
@@ -48,7 +52,12 @@ class Home extends Component {
               {(state) => {
                 return (
                   <p className={`App__fade-in App__fade-in--${state}`}>
-                    <Typer text="You have reached the home page of Jon Sakas" onComplete={this.onTyperComplete('phase2')} />
+                    <Typer
+                      text="You have reached the home page of Jon Sakas"
+                      onComplete={this.onTyperComplete('phase2')}
+                      onType={playClick}
+                      speed="50"
+                    />
                   </p>
                 );
               }
@@ -61,7 +70,12 @@ class Home extends Component {
               {(state) => {
                 return (
                   <p className={`App__fade-in App__fade-in--${state}`}>
-                    <Typer text="A human from Denver, Colorado, USA, Earth" onComplete={this.onTyperComplete('phase3')} />
+                    <Typer
+                      text="A human from Denver, Colorado, USA, Earth"
+                      onComplete={this.onTyperComplete('phase3')}
+                      onType={playClick}
+                      speed="50"
+                    />
                   </p>
                 );
               }

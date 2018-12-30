@@ -67,7 +67,7 @@ Managed all technical aspects of email marketing which included development, aut
 
 Worked on a team of 6 creating front-end applications for web and email. All delivered products were responsive and mobile optimized. Main objectives were to work with strategic and creative teams to produce content that was both user-friendly and forward thinking to maximize campaign success.
 
-UI Engineer (2014)
+### UI Engineer (2014)
 
 - Collaborated with marketing managers to brainstorm impactful campaigns
 - Creatively matched marketing goals with appropriate technical plans

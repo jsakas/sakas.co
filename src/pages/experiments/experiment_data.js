@@ -31,5 +31,13 @@ export default [
     title: 'Space Doughnut',
     component: () => import('@components/Galaxy'),
     description: 'JavaScript Particles',
+  },
+  {
+    id: 5,
+    type: 'component',
+    slug: 'crypto-typer',
+    title: 'Crypto Typer',
+    component: () => import('@components/CryptoTyper'),
+    description: 'A possible page intro',
   }
 ];

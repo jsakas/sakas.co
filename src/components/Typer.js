@@ -46,7 +46,7 @@ export default class Typer extends Component {
           return i;
         }),
       };
-    });
+    }, this.props.onType);
   }
 
   render() {
@@ -62,4 +62,5 @@ Typer.defaultProps = {
   text: '',
   speed: 100,
   onComplete: () => {},
+  onType: () => {}
 };
