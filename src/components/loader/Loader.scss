@@ -122,12 +122,13 @@
   0% {
     transform: scale(1.5);
     opacity: 1;
+    background: $color-secondary;
   }
 
   25% {
     transform: scale(.75);
     opacity: .7;
-    background: #fff;
+    background: $color-secondary;
   }
 
   50% {
@@ -139,12 +140,13 @@
   75% {
     transform: scale(.75);
     opacity: .7;
-    background: #fff;
+    background: $color-secondary;
   }
 
   100% {
     transform: scale(1.5);
     opacity: 1;
+    background: $color-secondary;
   }
 }
 

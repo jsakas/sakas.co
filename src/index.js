@@ -4,6 +4,8 @@ import Loader from '@components/loader/Loader';
 import AsyncComponent from '@components/async/AsyncComponent';
 import { playEntry } from '@utils/UISoundFx';
 
+import './index.scss';
+
 const container = document.createElement('div');
 container.id = 'app';
 document.body.appendChild(container);
