@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Prism from 'prismjs';
+
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-json';
@@ -77,7 +78,7 @@ class Archive extends Component {
       }
     })
       .then(response => response.json())
-      .then(gists => this.setState({ gists }))
+      .then(gists => Array.isArray(gists) && this.setState({ gists }))
       .catch();
   }
 

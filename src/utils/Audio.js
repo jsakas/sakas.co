@@ -40,8 +40,6 @@ export default class Audio {
     return source;
   }
 
-  connectGainNode
-
   connect = (source) => {
     
     const gainNode = this._context.createGain();

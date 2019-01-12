@@ -45,7 +45,8 @@ module.exports = {
             "error",
             "always"
         ],
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "react/display-name": "off",
     },
     "globals": {
         "APP_ENV": true,

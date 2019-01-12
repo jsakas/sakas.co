@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import history from '@history';
 
+import ErrorBoundary, { withErrorBoundary } from '@components/error/ErrorBoundary';
 import Menu from '@components/menu/Menu';
 import Pulse from '@components/pulse/Pulse';
 import Triangles from '@components/Triangles';
@@ -115,7 +116,9 @@ class App extends Component {
                                       return (
                                         <div className="App__page-wrapper">
                                           <div className="App__page-content">
-                                            <Page />
+                                            <ErrorBoundary>
+                                              <Page />
+                                            </ErrorBoundary>
                                           </div>
                                         </div>
                                       );
@@ -144,4 +147,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withErrorBoundary(App);
