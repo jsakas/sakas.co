@@ -1,5 +1,8 @@
 [Settings]
 
+[build.environment]
+  YARN_VERSION = "1.6.0"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
