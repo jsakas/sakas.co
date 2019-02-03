@@ -49,15 +49,15 @@ CRM
 
 ## Beatport
 
-### Senior Software Engineer, Engineering Team Lead (2015 - current)
+### Manager, Software Engineering (2018 - current)
+### Senior Software Engineer, Engineering Team Lead (2015 - 2018)
 
+- Manages team of 8 full stack software engineers.
 - Leads development for the completion of new product initiatives.
-- Maintains flagship e-commerce product which serves over 5 million users.
-- Runs all agile ceremonies including planning, backlog maintenance, sprint review, and daily standup.
-
-### Software Engineer (2015 - 2017)
-
-Developed the full application stack which includes a data/API layer (PHP), a backend web application layer (Python/Flask) and a front-end JavaScript layer.
+- Lead maintainer for flagship e-commerce product which serves over 5 million users.
+- Ran all agile ceremonies including planning, backlog maintenance, sprint review, and daily standup.
+- Built frontend component library (Beatport UI) which currently powers 5 production applications.
+- Architected and deployed Content Management System for internal and external parties.
 
 ### Email Developer (2014 - 2015)
 
