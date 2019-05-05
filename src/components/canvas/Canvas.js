@@ -32,10 +32,6 @@ class Canvas extends Component {
       });
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
   componentWillUnmount() {
     this.cancelable.cancel();
     cancelAnimationFrame(this.raf);
