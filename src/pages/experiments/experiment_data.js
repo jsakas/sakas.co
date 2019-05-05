@@ -39,5 +39,13 @@ export default [
     title: 'Crypto Typer',
     component: () => import('@components/CryptoTyper'),
     description: 'A possible page intro',
+  },
+  {
+    id: 6,
+    type: 'component',
+    slug: 'js-function-graphing',
+    title: 'JavaScript Function Graphing',
+    component: () => import('@components/Grapher'),
+    description: 'Graphing mathematical functions on a canvas',
   }
 ];
