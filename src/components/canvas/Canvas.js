@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { makeCancelablePromise } from '@utils';
 
-import './Canvas.scss';
+import style from './Canvas.style';
+import withStyles from '@utils/withStyles';
 
 class Canvas extends Component {
   constructor(props) {
@@ -81,7 +82,7 @@ Canvas.defaultProps = {
   onLoadCallback: () => {},
 };
 
-export default class CanvasLoaderWrapper extends Component {
+class CanvasLoaderWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -109,3 +110,5 @@ export default class CanvasLoaderWrapper extends Component {
 CanvasLoaderWrapper.defaultProps = {
   afterLoad: () => {},
 };
+
+export default withStyles(style)(CanvasLoaderWrapper);

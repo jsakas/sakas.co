@@ -4,7 +4,8 @@ import { playBlip, playClick } from '@utils/UISoundFx';
 
 import ROUTES from '@routes';
 
-import './Menu.scss';
+import style from './Menu.style';
+import withStyles from '@utils/withStyles';
 
 const MenuItem = (route) => {
   const onClick = () => {
@@ -28,7 +29,7 @@ MenuItem.defaultProps = {
   Icon: () => null,
 };
 
-export default class Menu extends Component {
+class Menu extends Component {
   render() {
     const { open } = this.props;
 
@@ -44,3 +45,5 @@ export default class Menu extends Component {
     );
   }
 }
+
+export default withStyles(style)(Menu);

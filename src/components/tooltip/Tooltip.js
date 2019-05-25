@@ -1,6 +1,7 @@
 import React from 'react';
 
-import './Tooltip.scss';
+import style from './Tooltip.style';
+import withStyles from '@utils/withStyles';
 
 const Tooltip = ({ render, children }) => {
   return (
@@ -16,4 +17,4 @@ Tooltip.defaultProps = {
   children: null,
 };
 
-export default Tooltip;
+export default withStyles(style)(Tooltip);

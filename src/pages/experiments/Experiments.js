@@ -4,7 +4,8 @@ import routes from '@routes';
 import { playBlip, playClick } from '@utils/UISoundFx';
 import history from '@history';
 
-import './Experiments.scss';
+import style from './Experiments.style';
+import withStyles from '@utils/withStyles';
 
 import experiment_data from './experiment_data';
 
@@ -58,4 +59,4 @@ class Experiments extends Component {
   }
 }
 
-export default Experiments;
+export default withStyles(style)(Experiments);

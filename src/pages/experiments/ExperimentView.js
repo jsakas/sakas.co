@@ -6,7 +6,9 @@ import { playClick } from '@utils/UISoundFx';
 import history from '@history';
 import AsyncComponent from '@components/async/AsyncComponent';
 
-import './ExperimentView.scss';
+import style from './ExperimentView.style';
+import withStyles from '@utils/withStyles';
+import compose from '@utils/compose';
 
 import experiment_data from './experiment_data';
 
@@ -94,4 +96,7 @@ class ExperimentView extends Component {
   }
 }
 
-export default withRouter(ExperimentView);
+export default compose(
+  withRouter,
+  withStyles(style),
+)(ExperimentView);

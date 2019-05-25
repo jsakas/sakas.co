@@ -5,7 +5,8 @@ import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-json';
 
-import './Archive.scss';
+import style from './Archive.style';
+import withStyles from '@utils/withStyles';
 
 class Gist extends Component {
   constructor(props) {
@@ -102,4 +103,4 @@ class Archive extends Component {
   }
 }
 
-export default Archive;
+export default withStyles(style)(Archive);

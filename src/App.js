@@ -11,7 +11,10 @@ import ROUTES from '@routes';
 
 import ExperimentView from '@pages/experiments/ExperimentView';
 
-import './App.scss';
+import compose from '@utils/compose';
+import withStyles from '@utils/withStyles';
+
+import style from './App.style';
 
 const getBaseRoute = location => location.pathname.split('/').filter(i => i)[0];
 
@@ -61,7 +64,7 @@ class App extends Component {
           <Route>
             <div className="App">
               <div className="App__canvas">
-                <Triangles />
+                {/* <Triangles /> */}
               </div>
               <Route key={getBaseRoute(history.location)} render={({ location }) => {
                 return (
@@ -147,4 +150,7 @@ class App extends Component {
   }
 }
 
-export default withErrorBoundary(App);
+export default compose(
+  withErrorBoundary,
+  withStyles(style),
+)(App);

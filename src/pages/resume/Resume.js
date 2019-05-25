@@ -3,7 +3,8 @@ import Tooltip from '@components/tooltip/Tooltip';
 import ResumeMD from '@docs/Resume.md';
 import IconPrint from '@icons/Print';
 
-import './Resume.scss';
+import style from './Resume.style';
+import withStyles from '@utils/withStyles';
 
 const Resume = () => {
   return (
@@ -20,4 +21,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default withStyles(style)(Resume);

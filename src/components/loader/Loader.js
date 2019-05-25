@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { TransitionGroup, Transition } from 'react-transition-group';
 
-import './Loader.scss';
+import style from './Loader.style';
+import withStyles from '@utils/withStyles';
 
 const LoaderIcon = () => {
   return (
@@ -14,7 +15,7 @@ const LoaderIcon = () => {
   );
 };
 
-export default class Loader extends Component {
+class Loader extends Component {
   render() {
     let className = 'Loader__children';
     className += this.props.loading ? ' Loader__children--loading' : ' Loader__children--loaded';
@@ -48,3 +49,5 @@ Loader.defaultProps = {
   loading: false,
   children: null,
 };
+
+export default withStyles(style)(Loader);
