@@ -13,7 +13,7 @@ export default [
     type: 'component',
     slug: 'grid',
     title: 'Grid',
-    component: () => import('@components/Grid'),
+    component: () => import('@components/grid/Grid'),
     description: 'Web Audio & Canvas Experiment',
   },
   {
@@ -21,7 +21,7 @@ export default [
     type: 'component',
     slug: 'eclipse',
     title: 'Eclipse',
-    component: () => import('@components/Eclipse'),
+    component: () => import('@components/eclipse/Eclipse'),
     description: 'Web Audio & Canvas Experiment',
   },
   {
@@ -29,7 +29,7 @@ export default [
     type: 'component',
     slug: 'space-doughnut',
     title: 'Space Doughnut',
-    component: () => import('@components/Galaxy'),
+    component: () => import('@components/galaxy/Galaxy'),
     description: 'JavaScript Particles',
   },
   {
@@ -37,7 +37,7 @@ export default [
     type: 'component',
     slug: 'crypto-typer',
     title: 'Crypto Typer',
-    component: () => import('@components/CryptoTyper'),
+    component: () => import('@components/typer/CryptoTyper'),
     description: 'A possible page intro',
   },
   {
@@ -45,7 +45,7 @@ export default [
     type: 'component',
     slug: 'js-function-graphing',
     title: 'JavaScript Function Graphing',
-    component: () => import('@components/Grapher'),
+    component: () => import('@components/grapher/Grapher'),
     description: 'Graphing mathematical functions on a canvas',
   }
 ];

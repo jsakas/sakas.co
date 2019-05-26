@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-transition-group';
-import Typer from '@components/Typer';
+import Typer from './Typer';
 import { playClick } from '@utils/UISoundFx';
 
-import './CryptoTyper.scss';
+import style from './CryptoTyper.style';
+import withStyles from '@utils/withStyles';
 
 class Home extends Component {
   static displayNamme = 'Home';
@@ -89,4 +90,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withStyles(style)(Home);

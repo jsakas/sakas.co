@@ -6,7 +6,7 @@ import history from '@history';
 import ErrorBoundary, { withErrorBoundary } from '@components/error/ErrorBoundary';
 import Menu from '@components/menu/Menu';
 import Pulse from '@components/pulse/Pulse';
-import Triangles from '@components/Triangles';
+import Triangles from '@components/triangles/Triangles';
 import ROUTES from '@routes';
 
 import ExperimentView from '@pages/experiments/ExperimentView';

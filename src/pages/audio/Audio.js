@@ -1,6 +1,7 @@
 import React from 'react';
 
-import './Audio.scss';
+import style from './Audio.style';
+import withStyles from '@utils/withStyles';
 
 const Audio = () => {
   return (
@@ -10,4 +11,4 @@ const Audio = () => {
   );
 };
 
-export default Audio;
+export default withStyles(style)(Audio);
