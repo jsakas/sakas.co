@@ -1,15 +1,18 @@
 {
   "presets": [
+    "@emotion/babel-preset-css-prop",
     "@babel/preset-react",
     "@babel/preset-env"
   ],
   "plugins": [
-    "emotion",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    ["@babel/plugin-proposal-decorators", {
-      "legacy": true
-    }]
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }

@@ -6,7 +6,6 @@ import history from '@history';
 import ErrorBoundary, { withErrorBoundary } from '@components/error/ErrorBoundary';
 import Menu from '@components/menu/Menu';
 import Pulse from '@components/pulse/Pulse';
-import Triangles from '@components/triangles/Triangles';
 import ROUTES from '@routes';
 
 import ExperimentView from '@pages/experiments/ExperimentView';
@@ -64,7 +63,6 @@ class App extends Component {
           <Route>
             <div className="App">
               <div className="App__canvas">
-                {/* <Triangles /> */}
               </div>
               <Route key={getBaseRoute(history.location)} render={({ location }) => {
                 return (

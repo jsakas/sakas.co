@@ -1,6 +1,7 @@
 import React from 'react';
 
-import './Pulse.scss';
+import style from './Pulse.style';
+import withStyles from '@utils/withStyles';
 
 const Pulse = ({ onClick }) => {
   return (
@@ -15,4 +16,4 @@ Pulse.defaultProps = {
   onClick: () => null,
 };
 
-export default Pulse;
+export default withStyles(style)(Pulse);

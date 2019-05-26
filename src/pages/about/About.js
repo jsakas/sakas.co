@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import withStyles from '@utils/withStyles'
+import withStyles from '@utils/withStyles';
 
 import style from './About.style';
 

@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Canvas from '@components/canvas/Canvas';
 
-import './Grapher.scss';
+import style from './Grapher.style';
+import withStyles from '@utils/withStyles';
 
 const COLOR_PRIMARY = 'rgb(203, 54, 98, .8)';
 const COLOR_SECONDARY = 'rgb(143, 82, 128, .9)';
@@ -139,4 +140,4 @@ class Visual extends Component {
 }
 
 
-export default Visual;
+export default withStyles(style)(Visual);

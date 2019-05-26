@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import prismStyles from '@styles/prism';
 
 export default theme => css`
-    ${prismStyles(theme)}
+    ${prismStyles}
 
     .Archive {  
         position: relative;
@@ -68,4 +68,4 @@ export default theme => css`
             }
         }
     }
-`
+`;

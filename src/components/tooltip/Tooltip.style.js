@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 
-export default theme => css`
+export default css`
     .Tooltip {
         position: relative;
 

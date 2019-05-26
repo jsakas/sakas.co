@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from 'emotion-theming'
+import { ThemeProvider } from 'emotion-theming';
 import Loader from '@components/loader/Loader';
 import AsyncComponent from '@components/async/AsyncComponent';
 import { playEntry } from '@utils/UISoundFx';
 
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/core';
 import globalStyle from '@styles/global';
 
 const container = document.createElement('div');
@@ -20,7 +20,7 @@ const theme = {
   color_background: '#111',
   breakpoint_header: '1200px',
   breakpoint_resume: '768px',
-}
+};
 
 class Main extends React.Component {
   constructor(props) {

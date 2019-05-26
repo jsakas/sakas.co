@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
-import './ErrorBoundary.scss';
+import style from './ErrorBoundary.style';
+import withStyles from '@utils/withStyles';
 
-export default class ErrorBoundary extends Component {
+@withStyles(style)
+class ErrorBoundary extends Component {
   static defaultProps = {
     onError: () => {},
   }
@@ -66,3 +68,5 @@ export const withErrorBoundary = (WrappedComponent) => {
     );
   };
 };
+
+export default ErrorBoundary;

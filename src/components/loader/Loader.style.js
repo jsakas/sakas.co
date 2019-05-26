@@ -21,7 +21,7 @@ const animate = (time = '2s', delay = 0) =>`
         width: 100%;
         animation-delay: ${delay};
     }
-`
+`;
 
 export default theme => css`
     .Loader {
