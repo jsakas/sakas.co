@@ -5,7 +5,7 @@ import history from '@history';
 
 import ErrorBoundary, { withErrorBoundary } from '@components/error/ErrorBoundary';
 import ThemeControl from '@components/themectl/ThemeControl';
-import Trianges from '@components/triangles/Triangles';
+import Triangles from '@components/triangles/Triangles';
 import Menu from '@components/menu/Menu';
 import Pulse from '@components/pulse/Pulse';
 import ROUTES from '@routes';

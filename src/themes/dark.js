@@ -23,4 +23,8 @@ export const color_exp_border = rgba(color_secondary, .3);
 export const color_exp_border_hover = rgba(color_secondary, 1);
 export const color_exp_text = color_text;
 export const color_exp_bg = rgba('#000', .3);
-
+export const color_exp_title = color_primary;
+export const color_exp_button_bg = rgba(color_tertiary, .15);
+export const color_exp_button_bg_hover = rgba(color_tertiary, .5);
+export const color_canvas_loader_1 = color_primary;
+export const color_canvas_loader_2 = color_text;

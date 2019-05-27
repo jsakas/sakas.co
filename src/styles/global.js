@@ -1,11 +1,6 @@
 import { css } from '@emotion/core';
 
 export default theme => css`
-    @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,700');
-    @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900');
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-    @import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
-
     html, body {
         font-family: ${theme.font_secondary};
         color: $color-text;

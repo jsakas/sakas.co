@@ -7,7 +7,7 @@ export default theme => css`
   }
 
   .App {
-    ${animateOnce('page-enter', '3s')}
+    ${animateOnce('page-enter', '1s')}
 
     &__menu-toggle {
       position: absolute;
@@ -83,6 +83,7 @@ export default theme => css`
       top: 5.5rem;
       padding-left: 2rem;
       z-index: 40;
+
 
       @media print {
         right: 1.5rem;

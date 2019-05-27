@@ -29,10 +29,10 @@ export default theme => css`
         position: absolute;
         width: 2rem;
         height: 2rem;
-        border-top: .1rem solid ${theme.color_primary};
-        border-right: .1rem solid ${theme.color_text};
-        border-bottom: .1rem solid ${theme.color_text};
-        border-left: .1rem solid ${theme.color_text};
+        border-top: .1rem solid ${theme.color_canvas_loader_1};
+        border-right: .1rem solid ${theme.color_canvas_loader_2};
+        border-bottom: .1rem solid ${theme.color_canvas_loader_2};
+        border-left: .1rem solid ${theme.color_canvas_loader_2};
         border-radius: 50%;
         animation-name: spin;
         animation-iteration-count: infinite;
