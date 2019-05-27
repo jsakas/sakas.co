@@ -10,10 +10,10 @@ export default theme => css`
     color: ${theme.color_primary};
     width: 100%;
     box-sizing: border-box;
-    font-family: 'IBM Plex Mono', sans-serif;
+    font-family: ${theme.font_mono};
 
     input {
-        font-family: 'IBM Plex Mono', sans-serif;
+        font-family: ${theme.font_mono};
         width: 100%;
         font-size: 1.6rem;
         background: none;

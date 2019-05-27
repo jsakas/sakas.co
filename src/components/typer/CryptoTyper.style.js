@@ -18,7 +18,7 @@ export default theme => css`
         height: 100%;
 
         h1, p {
-        font-family: 'IBM Plex Mono', sans-serif;
+        font-family: ${theme.font_mono};
         font-weight: lighter;
         color: ${theme.color_text};
         margin: 0;

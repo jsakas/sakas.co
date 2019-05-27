@@ -7,7 +7,7 @@ export default theme => css`
         margin: 4rem auto;
         max-width: 50rem;
         padding: 1rem;
-        font-family: 'Open Sans', sans-serif;
+        font-family: ${theme.font_primary};
         font-weight: 300;
         font-size: 1em;
         border: 1px solid ${rgba(theme.color_secondary, .3)};
@@ -27,18 +27,18 @@ export default theme => css`
             border-radius: 50%;
 
             @media screen and (max-width: ${theme.breakpoint_resume}) {
-            right: 0rem;
-            top: 0rem;
+                right: 0rem;
+                top: 0rem;
             }
 
             @media print {
-            display: none;
+                display: none;
             }
         }
         
         &__print-icon {
             display:block;
-            fill: #111;
+            fill: ${theme.color_background};
             width: 1.2rem;
             height: 1.2rem;
             cursor: pointer;
@@ -46,7 +46,7 @@ export default theme => css`
         
         h1 {
             color: rgba(#fff, .8);
-            font-family: 'Raleway', sans-serif;
+            font-family: ${theme.font_secondary};
             font-weight: 300;
             letter-spacing: 1px;
 
@@ -59,7 +59,7 @@ export default theme => css`
 
         h2 {
             color: ${rgba(theme.color_primary, .9)};
-            font-family: 'Raleway', sans-serif;
+            font-family: ${theme.font_secondary};
             font-weight: 300;
             letter-spacing: 1px;
 
@@ -80,7 +80,7 @@ export default theme => css`
         h3, h4, h5, h6 {
             font-weight: 100;
             color: ${rgba(theme.color_primary, .8)};
-            font-family: 'Raleway', sans-serif;
+            font-family: ${theme.font_secondary};
         }
 
         h3 {

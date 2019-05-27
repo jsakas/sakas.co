@@ -12,15 +12,12 @@ const container = document.createElement('div');
 container.id = 'app';
 document.body.appendChild(container);
 
-const theme = {
-  color_primary: 'rgb(203, 54, 98)',
-  color_secondary: 'rgb(143, 82, 128)',
-  color_tertiary: '#947494',
-  color_text: '#f5f5f5',
-  color_background: '#111',
-  breakpoint_header: '1200px',
-  breakpoint_resume: '768px',
+const THEMES = {
+  light: require('@themes/light'),
+  dark: require('@themes/dark'),
 };
+
+console.log('THEMES', THEMES);
 
 class Main extends React.Component {
   constructor(props) {
@@ -28,15 +25,21 @@ class Main extends React.Component {
 
     this.state = {
       appLoading: true,
+      theme: THEMES.light,
     };
+  }
+
+  setTheme = (theme) => {
+    this.setState({ theme: THEMES[theme] });
   }
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={this.state.theme}>
         <Global styles={globalStyle} />
         <Loader loading={this.state.appLoading}>
           <AsyncComponent
+            setTheme={this.setTheme}
             resolve={() => import('./App').then((module) => {
               this.setState({ appLoading: false, }, playEntry);
               return module;

@@ -4,6 +4,8 @@ import { TransitionGroup, Transition } from 'react-transition-group';
 import history from '@history';
 
 import ErrorBoundary, { withErrorBoundary } from '@components/error/ErrorBoundary';
+import ThemeControl from '@components/themectl/ThemeControl';
+import Trianges from '@components/triangles/Triangles';
 import Menu from '@components/menu/Menu';
 import Pulse from '@components/pulse/Pulse';
 import ROUTES from '@routes';
@@ -63,7 +65,11 @@ class App extends Component {
           <Route>
             <div className="App">
               <div className="App__canvas">
+                <Trianges />
               </div>
+
+              <ThemeControl setTheme={this.props.setTheme} />
+
               <Route key={getBaseRoute(history.location)} render={({ location }) => {
                 return (
                   <TransitionGroup component={null}>
@@ -72,7 +78,7 @@ class App extends Component {
                       {(state) => {
                         return (
                           <div className={`App__logo App__logo-transition App__logo-transition--${state}`}>
-                      jon.sakas
+                            jon.sakas 
                           </div>
                         );
                       }}

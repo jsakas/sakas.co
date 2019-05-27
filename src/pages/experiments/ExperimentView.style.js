@@ -70,7 +70,7 @@ export default theme => css`
         margin-top: .5rem;
         display: inline-block;
         cursor: pointer;
-        font-family: 'Open Sans', sans-serif;
+        font-family: ${theme.font_primary};
         font-weight: 100;
         text-transform: uppercase;
         letter-spacing: .2rem;

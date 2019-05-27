@@ -1,5 +1,4 @@
 import { css } from '@emotion/core';
-import { rgba } from 'polished';
 
 export default theme =>  css`
     .Experiments {
@@ -15,40 +14,40 @@ export default theme =>  css`
             grid-auto-rows: minmax(5rem, 10rem);
             grid-gap: 1rem;
         }
-        }
+    }
 
-        .Experiment {
+    .Experiment {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all .4s;
         cursor: pointer;
-        border: 1px solid ${rgba(theme.color_secondary, .3)};
+        border: 1px solid ${theme.color_exp_border};
         overflow: hidden;
 
         &__description {
             position: absolute;
             top: 100%;
             left: 0;
-            background: rgba(0, 0, 0, .3);
+            background: ${theme.color_exp_bg};
+            color: ${theme.color_exp_text};
+            font-family: ${theme.font_primary};
             transition: top .2s;
+            padding: 1rem;
             height: 4rem;
             width: 100%;
-            display: block;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #fff;
             font-size: .8rem;
-            font-family: 'IBM Plex Mono', sans-serif;
             font-weight: lighter;
             pointer-events: none;
 
 
             @media screen and (max-width: 500px) {
-            top: calc(100% - 4rem);
+                top: calc(100% - 4rem);
             }
         }
 
@@ -74,7 +73,7 @@ export default theme =>  css`
         &:hover,
         &:active {
             background: rgba($color-primary, .1);
-            border: 1px solid ${rgba(theme.color_secondary, 1)};
+            border: 1px solid ${theme.color_exp_border_hover};
         }
     }
 `;

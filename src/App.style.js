@@ -49,7 +49,7 @@ export default theme => css`
 
     &__logo {
       ${animateOnce('logo-enter', '1s')}
-      font-family: 'IBM Plex Mono', sans-serif;
+      font-family: ${theme.font_secondary};
       position: absolute;
       z-index: 30;
       left: 2rem;
@@ -92,7 +92,7 @@ export default theme => css`
       }
       
       h1 {
-        font-family: 'Open Sans', sans-serif;
+        font-family: ${theme.font_primary};
         font-weight: 100;
         text-transform: uppercase;
         letter-spacing: .5rem;

@@ -1,5 +1,4 @@
 import { css } from '@emotion/core';
-import { rgba } from 'polished';
 
 export default theme => css`
     .Menu {
@@ -7,7 +6,7 @@ export default theme => css`
         bottom: 0;
         width: 100vw;
         height: 3rem;
-        color: $color-text;
+        color: ${theme.color_menu_text};
         z-index: 20;
         transition: all .2s;
         display: flex;
@@ -26,24 +25,24 @@ export default theme => css`
         align-items: center;
         justify-content: center;
         flex: 1;
-        background: ${rgba(theme.color_secondary, .2)};
+        background: ${theme.color_menu_bg};
         transition: background .2s;
         cursor: pointer;
-        font-family: 'Open Sans', sans-serif;
+        font-family: ${theme.font_primary};
         font-weight: 300;
         text-transform: uppercase;
         font-size: .8rem;
         letter-spacing: .3rem;
     
         &:hover {
-            background: ${rgba(theme.color_secondary, .4)};
+            background: ${theme.color_menu_bg_hover};
         }
     
         &__icon {
             display: none;
         }
     
-        @media screen and (max-width: ${theme.color_secondary}) {
+        @media screen and (max-width: ${theme.breakpoint_resume}) {
             &__text {
                 display: none;
             }
@@ -53,6 +52,7 @@ export default theme => css`
                 height: 1.5rem;
                 fill: #fff;
                 pointer-events: none;
+                display: block;
             }
         }
     }

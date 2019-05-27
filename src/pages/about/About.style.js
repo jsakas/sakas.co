@@ -8,7 +8,7 @@ export default theme => css`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Raleway', sans-serif;
+    font-family: ${theme.font_secondary};
     flex-direction: column;
 
     &__canvas {
@@ -30,7 +30,7 @@ export default theme => css`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: 'Raleway', sans-serif;
+        font-family: ${theme.font_secondary};
         flex-direction: column;
         position: absolute;
     }
@@ -101,28 +101,31 @@ export default theme => css`
 
     &__headline {
         display: inline-block;
-        font-family: 'Raleway', sans-serif;
+        font-family: ${theme.font_secondary};
         
         h1 {
-        color: ${theme.color_primary};
-        font-size: 2.5rem;
-        margin: .2rem 0;
+            color: ${theme.color_primary};
+            font-size: 2.5rem;
+            margin: .2rem 0;
         }
 
         ul {
-        margin: .2rem 0;
-        padding: 0;
+            margin: .2rem 0;
+            padding: 0;
+            font-family: ${theme.font_primary};
         }
         
         li {
-        font-size: 1.5rem;
-        margin: .2rem 0;
-        padding: 0;
-        list-style-type: none;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            margin: .2rem 0;
+            padding: 0;
+            list-style-type: none;
         }
     }
 
     p {
+        font-family: ${theme.font_primary};
         text-align: center;
         width: 100%;
         max-width: 30rem;

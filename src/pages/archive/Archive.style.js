@@ -10,10 +10,10 @@ export default theme => css`
         margin: 0 auto;
         max-width: 40rem;
         overflow: auto;
-        }
+    }
 
-        .Gist {
-        font-family: 'IBM Plex Mono', sans-serif;
+    .Gist {
+        font-family: ${theme.font_mono};
         padding: 2rem 0;
 
         &__heading {
@@ -25,7 +25,7 @@ export default theme => css`
 
 
         &__title {
-            font-family: 'IBM Plex Mono', sans-serif;
+            font-family: ${theme.font_mono};
             font-weight: bold;
             font-size: .6rem;
             letter-spacing: .1rem;
@@ -34,7 +34,7 @@ export default theme => css`
         }
 
         &__id {
-            font-family: 'IBM Plex Mono', sans-serif;
+            font-family: ${theme.font_mono};
             font-weight: lighter;
             font-size: .6rem;
             letter-spacing: .1rem;
@@ -46,7 +46,7 @@ export default theme => css`
         }
 
         &__language {
-            font-family: 'IBM Plex Mono', sans-serif;
+            font-family: ${theme.font_mono};
             font-weight: normal;
             font-size: .6rem;
             letter-spacing: .1rem;
@@ -55,7 +55,7 @@ export default theme => css`
         }
 
         &__body {
-            font-family: 'IBM Plex Mono', sans-serif;
+            font-family: ${theme.font_mono};
             background: rgba(#111, .3);
             padding: 1rem;
             border-radius: .5rem;

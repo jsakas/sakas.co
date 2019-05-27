@@ -41,26 +41,26 @@ module.exports = {
       'APP_ENV': JSON.stringify(process.env.APP_ENV),
     }),
     new HtmlWebpackHarddiskPlugin(),
-    // new ExtractCssChunks({
-    //   filename: '[hash].css'
-    // }),
+    new ExtractCssChunks({
+      filename: '[hash].css'
+    }),
     new WebpackStats({
       filename: './bundle.html',
     }),
   ],
   resolve: {
     alias: {
+      '@audio': path.resolve(__dirname, 'src', 'audio'),
       '@components': path.resolve(__dirname, 'src', 'components'),
+      '@docs': path.resolve(__dirname, 'docs'),
+      '@history': path.resolve(__dirname, 'src', 'history'),
+      '@icons': path.resolve(__dirname, 'src', 'icons'),
       '@images': path.resolve(__dirname, 'src', 'images'),
       '@pages': path.resolve(__dirname, 'src', 'pages'),
-      'styles': path.resolve(__dirname, 'src', 'styles'),
-      '@styles': path.resolve(__dirname, 'src', 'styles'),
-      '@history': path.resolve(__dirname, 'src', 'history'),
-      '@docs': path.resolve(__dirname, 'docs'),
-      '@utils': path.resolve(__dirname, 'src', 'utils'),
-      '@audio': path.resolve(__dirname, 'src', 'audio'),
-      '@icons': path.resolve(__dirname, 'src', 'icons'),
       '@routes': path.resolve(__dirname, 'src', 'routes'),
+      '@styles': path.resolve(__dirname, 'src', 'styles'),
+      '@themes': path.resolve(__dirname, 'src', 'themes'),
+      '@utils': path.resolve(__dirname, 'src', 'utils'),
     },
   },
   module: {
@@ -82,10 +82,21 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          // ExtractCssChunks.loader,
+          ExtractCssChunks.loader,
           'css-loader',
           'sass-loader',
         ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              icon: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif|wav|mp3)$/,

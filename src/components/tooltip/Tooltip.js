@@ -3,9 +3,21 @@ import React from 'react';
 import style from './Tooltip.style';
 import withStyles from '@utils/withStyles';
 
-const Tooltip = ({ render, children }) => {
+const Tooltip = ({ render, placement, children }) => {
+  let classList = ['Tooltip'];
+  switch (placement) {
+  case 'left':
+    classList.push('Tooltip--left');
+    break;
+  case 'bottom':
+    classList.push('Tooltip--bottom');
+    break;
+  default:
+    break;
+  }
+
   return (
-    <div className="Tooltip">
+    <div className={classList.join(' ')}>
       <div className="Tooltip__content">{render()}</div>
       { children }
     </div>
@@ -14,6 +26,7 @@ const Tooltip = ({ render, children }) => {
 
 Tooltip.defaultProps = {
   render: () => null,
+  placement: 'bottom',
   children: null,
 };
 
