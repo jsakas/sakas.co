@@ -65,7 +65,7 @@ class App extends Component {
           <Route>
             <div className="App">
               <div className="App__canvas">
-                <Trianges />
+                <Triangles />
               </div>
 
               <ThemeControl setTheme={this.props.setTheme} />
