@@ -3,7 +3,6 @@ import { css } from '@emotion/core';
 export default theme => css`
     html, body {
         font-family: ${theme.font_primary};
-        color: $color-text;
         padding: 0;
         margin: 0;
         background: ${theme.color_background};

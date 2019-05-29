@@ -3,6 +3,8 @@ import Experiments from '@pages/experiments/Experiments';
 import ExperimentView from '@pages/experiments/ExperimentView';
 import Resume from '@pages/resume/Resume';
 import Archive from '@pages/archive/Archive';
+import Portfolio from '@pages/portfolio/Portfolio';
+import ProjectView from '@pages/portfolio/ProjectView';
 import Audio from '@pages/audio/Audio';
 import User from '@icons/User';
 import Share1 from '@icons/Share1';
@@ -19,6 +21,14 @@ const ROUTES = {
     Icon: User,
     menu: true,
   },
+  portfolio: {
+    path: '/portfolio',
+    component: Portfolio,
+    title: 'Portfolio',
+    showTitle: true,
+    Icon: Layers,
+    menu: true,
+  },
   experiments: {
     path: '/code',
     component: Experiments,
@@ -33,6 +43,15 @@ const ROUTES = {
     title: 'Code',
     showTitle: true,
     menu: false,
+    mainView: false,
+  },
+  project: {
+    path: '/project/:id/:slug',
+    component: ProjectView,
+    title: 'Code',
+    showTitle: true,
+    menu: false,
+    mainView: false,
   },
   resume: {
     path: '/resume',

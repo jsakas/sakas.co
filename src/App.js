@@ -11,6 +11,7 @@ import Pulse from '@components/pulse/Pulse';
 import ROUTES from '@routes';
 
 import ExperimentView from '@pages/experiments/ExperimentView';
+import ProjectView from '@pages/portfolio/ProjectView';
 
 import compose from '@utils/compose';
 import withStyles from '@utils/withStyles';
@@ -48,7 +49,7 @@ class App extends Component {
             <Route path="*" key={getBaseRoute(history.location)} render={({ location }) => {
               return (
                 <TransitionGroup component={null}>
-                  <Transition key={`${history.location.pathname}--experiment`} timeout={5000}>
+                  <Transition key={`${history.location.pathname}--experiment`} timeout={1000}>
                     {(state) => {
                       return (
                           <Switch location={location}>
@@ -66,12 +67,30 @@ class App extends Component {
                     }}
                   </Transition>
 
+                  <Transition key={`${history.location.pathname}--project`} timeout={1000}>
+                    {(state) => {
+                      return (
+                          <Switch location={location}>
+                            <Route
+                              exact
+                              key={location.pathname}
+                              path="/project/:id/:slug"
+                              render={(props) => (
+                                <ProjectView {...props} transitionState={state} />
+                              )}
+                              transitionState={state}
+                            />
+                          </Switch>
+                      );
+                    }}
+                  </Transition>
+
                   <Transition key={'logo'} timeout={1000}>
                     {(state) => {
                       return (
                         <div className={`App__logo App__logo-transition App__logo-transition--${state}`}>
                           jon.sakas
-                          </div>
+                        </div>
                       );
                     }}
                   </Transition>
@@ -101,7 +120,6 @@ class App extends Component {
 
                   <Transition key={`${history.location.pathname}--page`} timeout={1000}>
                     {(state) => {
-                      console.log('PAGE STATE', state);
                       return (
                         <div className={`App__page App__page-transition App__page-transition--${state} App__page--gradient-mask`}>
                           <Switch location={location}>

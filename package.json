@@ -25,6 +25,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.9",
     "@emotion/core": "^10.0.10",
     "@fortawesome/fontawesome-free": "^5.8.2",
+    "@svgr/cli": "^4.2.0",
     "@svgr/webpack": "^4.2.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",

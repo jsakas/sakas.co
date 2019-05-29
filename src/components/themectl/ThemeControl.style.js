@@ -5,7 +5,7 @@ export default theme => css`
     .ThemeControl {
         position: absolute;
         right: 2rem;
-        top: 2rem;
+        bottom: 5rem;
         z-index: 50;
 
         &__icon {
