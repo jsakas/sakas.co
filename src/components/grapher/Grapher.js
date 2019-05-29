@@ -1,23 +1,21 @@
 import React, { Component, Fragment } from 'react';
+import { withTheme } from 'emotion-theming';
 import Canvas from '@components/canvas/Canvas';
 
 import style from './Grapher.style';
 import withStyles from '@utils/withStyles';
 
+import compose from '@utils/compose';
+
 const COLOR_PRIMARY = 'rgb(203, 54, 98, .8)';
 const COLOR_SECONDARY = 'rgb(143, 82, 128, .9)';
 
-const drawAxis = (canvas, context) => {
+const drawAxis = (canvas, context, theme) => {
   let w = canvas.width;
   let h = canvas.height;
 
-  context.clearRect(0, 0, w, h);
-  
-  // translate & draw x / y axis
-  context.translate(w / 2, h / 2);
-
   context.beginPath();
-  context.strokeStyle = COLOR_PRIMARY;
+  context.strokeStyle = theme.color_primary;
   context.moveTo(-w / 2, 0);
   context.lineTo(w / 2, 0);
   context.stroke();
@@ -28,32 +26,25 @@ const drawAxis = (canvas, context) => {
   context.lineTo(0, h / 2);
   context.stroke();
   context.closePath();
-  
-  // reset translate before next draw
-  context.translate(-w / 2, -h / 2);
 };
 
-const drawFunction = (canvas, context, fn) => {
+const drawFunction = (canvas, context, fn, theme) => {
   if (!fn) {
     return;
   }
 
   let w = canvas.width;
   let h = canvas.height;
-  
-  // translate & draw x / y axis
-  context.translate(w / 2, h / 2);
-  
-  context.strokeStyle = COLOR_SECONDARY;
-  
+
+  context.strokeStyle = theme.color_tertiary;
+
   let sy = h / 3;
   let inc = .01;
 
   try {
-
     context.beginPath();
     context.moveTo(0, fn(0) * sy);
-    for (let x = 0, fx = 0; x < w / 2; x+=1, fx+= inc) {
+    for (let x = 0, fx = 0; x < w / 2; x += 1, fx += inc) {
       context.lineTo(x, fn(fx) * sy);
     }
     context.stroke();
@@ -65,7 +56,7 @@ const drawFunction = (canvas, context, fn) => {
   try {
     context.beginPath();
     context.moveTo(0, fn(0) * sy);
-    for (let x = 0, fx = 0; x > -w / 2; x-=1, fx-= inc) {
+    for (let x = 0, fx = 0; x > -w / 2; x -= 1, fx -= inc) {
       context.lineTo(x, fn(fx) * sy);
     }
     context.stroke();
@@ -73,9 +64,6 @@ const drawFunction = (canvas, context, fn) => {
   } catch (e) {
     console.warn(e);
   }
-
-  // reset translate before next draw
-  context.translate(-w / 2, -h / 2);
 };
 
 
@@ -101,12 +89,20 @@ class Visual extends Component {
 
   render() {
     let { fns } = this.state;
+    let { theme } = this.props;
 
     return (
       <Fragment>
         <Canvas
           draw={(canvas, context) => {
-            drawAxis(canvas, context);
+            let w = canvas.width;
+            let h = canvas.height;
+            context.clearRect(0, 0, w, h);
+
+            // transform coordinate system
+            context.transform(1, 0, 0, -1, w / 2, h / 2);
+            
+            drawAxis(canvas, context, theme);
 
             fns.forEach(fn => {
               let fx;
@@ -115,8 +111,11 @@ class Visual extends Component {
               } catch (e) {
                 fx = undefined;
               }
-              drawFunction(canvas, context, fx);
+              drawFunction(canvas, context, fx, theme);
             });
+
+            // reset translate before next draw
+            context.setTransform(1, 0, 0, 1, 0, 0);
           }}
           id="grapher"
         />
@@ -124,11 +123,11 @@ class Visual extends Component {
           {fns.map((fn, i) => {
             return (
               <div className="grapher-input" key={i}>
-                <input 
+                <input
                   placeholder="e.g. Math.sin, x => Math.sin(x), x => x ** 2, Math.random"
                   type="text"
                   value={fn}
-                  onChange={this.setFn(i)}>   
+                  onChange={this.setFn(i)}>
                 </input>
               </div>
             );
@@ -140,4 +139,7 @@ class Visual extends Component {
 }
 
 
-export default withStyles(style)(Visual);
+export default compose(
+  withStyles(style),
+  withTheme, 
+)(Visual);

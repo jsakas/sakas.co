@@ -22,6 +22,7 @@ export default theme => css`
             right: 0;
             bottom: 0;
             left: 0;
+            z-index: 9;
         }
 
         &__iframe {

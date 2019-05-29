@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 export default theme => css`
     .grapher-info {
     position: fixed;
-    bottom: 0;
+    bottom: 3rem;
     left: 0;
     right: 0;
     padding: 2rem;
