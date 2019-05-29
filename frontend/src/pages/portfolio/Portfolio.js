@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import pathToRegexp from 'path-to-regexp';
 import routes from '@routes';
-
 import history from '@history';
+import { GlobalState } from '@store';
 
 import style from './Portfolio.style';
 import withStyles from '@utils/withStyles';
 
-import portfolio_data from './portfolio_data';
+const Html = ({ content, type, className, style }) => {
+    return React.createElement(type, {
+        className: className,
+        style: style,
+        dangerouslySetInnerHTML: {
+            __html: content
+        },
+    });
+}
+Html.defaultProps = {
+    content: '',
+    type: 'span',
+    className: '',
+    style: {},
+}
 
 class ProjectPreview extends Component {
     constructor(props) {
@@ -21,16 +35,15 @@ class ProjectPreview extends Component {
     }
 
     render() {
-        let { id, title, description, thumbnail } = this.props;
+        let { id, title, excerpt, thumbnail } = this.props;
 
         return (
             <div key={id} className="Portfolio__project" onClick={() => {
-                console.log('CLICKED');
                 history.push(this.url);
             }}>
                 <div className="Portfolio__project-info">
-                    <h2>{title}</h2>
-                    <p>{description}</p>
+                    <Html content={title.rendered} type="h2" />
+                    <Html content={excerpt.rendered} />
                 </div>
                 <div className="Portfolio__project-thumbnail">
                     <img src={thumbnail} width="200" />
@@ -38,15 +51,17 @@ class ProjectPreview extends Component {
             </div>
         )
     }
-
 }
 
 
 class Portfolio extends Component {
+    static contextType = GlobalState;
+
     render() {
         return (
             <div className="Portfolio">
-                {portfolio_data.map(project => {
+                {this.context.posts.map(project => {
+
                     return (<ProjectPreview key={project.id} {...project} />);
                 })}
             </div>
