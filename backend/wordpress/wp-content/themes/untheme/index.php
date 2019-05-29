@@ -14,8 +14,6 @@
  * @since 1.0.0
  */
 
-?>
-
-	<div>Hello, world.</div>
-
-<?php
+header('Content-Type: application/json');
+$response = array ('version' => 1);
+echo json_encode($response);
