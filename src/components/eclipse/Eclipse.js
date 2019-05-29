@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalPlayer from '@utils/GlobalPlayer';
-import audioFile from '@audio/gonnabealright.wav';
+import audioFile from '@audio/geek.mp3';
 import Canvas from '@components/canvas/Canvas';
 
 let color, red=0, green=0, blue=255;
