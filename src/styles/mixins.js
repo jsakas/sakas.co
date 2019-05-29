@@ -6,6 +6,7 @@ export function animateOnce(name, time) {
         animation-duration: ${time};
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
+        animation-timing-function: ease;
     `;
 }
   

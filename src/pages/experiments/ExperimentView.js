@@ -47,51 +47,59 @@ class ExperimentView extends Component {
 
   render() {
     let { experiment, next, prev } = this.state;
+    let { transitionState } = this.props;
+
+    let classList = [
+      'App__page',
+      'App__page-transition',
+      `App__page-transition--${transitionState}`,
+      'ExperimentView'
+    ]
 
     return (
-      <div className="ExperimentView">
-        <div className="ExperimentView__header">
-          <h2>{experiment.title}</h2>
-  
-          {experiment.description && ( <p>{experiment.description}</p>)}
-        
-          <div className="ExperimentView__buttons">
-            {prev && (
-              <div className="ExperimentView__button" 
-                onClick={() => history.push(this.getExperimentUrl(prev))}
-              >Previous</div>
-            )}
+        <div className={classList.join(' ')}>
+          <div className="ExperimentView__header">
+            <h2>{experiment.title}</h2>
+    
+            {experiment.description && ( <p>{experiment.description}</p>)}
+          
+            <div className="ExperimentView__buttons">
+              {prev && (
+                <div className="ExperimentView__button" 
+                  onClick={() => history.push(this.getExperimentUrl(prev))}
+                >Previous</div>
+              )}
 
-            {next && (
-              <div className="ExperimentView__button" 
-                onClick={() => history.push(this.getExperimentUrl(next))}
-              >Next</div>
-            )}
+              {next && (
+                <div className="ExperimentView__button" 
+                  onClick={() => history.push(this.getExperimentUrl(next))}
+                >Next</div>
+              )}
 
-            {experiment.source_code && (
-              <div className="ExperimentView__button" 
-                onClick={() => window.open(experiment.source_code)}
-              >Source Code</div>
-            )}
-            <div className="ExperimentView__button" onClick={() => {
-              playClick();
-              history.push('/code');
-            }}>Back</div>
+              {experiment.source_code && (
+                <div className="ExperimentView__button" 
+                  onClick={() => window.open(experiment.source_code)}
+                >Source Code</div>
+              )}
+              <div className="ExperimentView__button" onClick={() => {
+                playClick();
+                history.push('/code');
+              }}>Back</div>
+            </div>
           </div>
+
+          {experiment.component && (
+            <div className="ExperimentView__fullscreen">
+              <AsyncComponent resolve={experiment.component} />
+            </div>
+          )}
+    
+          {experiment.iframe && (
+            <div className={`ExperimentView__iframe ${this.state.iframeloaded ? 'ExperimentView__iframe--loaded': ''}`}>
+              <iframe border="0" onLoad={this.oniFrameLoad} src={experiment.iframe}></iframe>
+            </div>
+          )}
         </div>
-
-        {experiment.component && (
-          <div className="ExperimentView__fullscreen">
-            <AsyncComponent resolve={experiment.component} />
-          </div>
-        )}
-  
-        {experiment.iframe && (
-          <div className={`ExperimentView__iframe ${this.state.iframeloaded ? 'ExperimentView__iframe--loaded': ''}`}>
-            <iframe border="0" onLoad={this.oniFrameLoad} src={experiment.iframe}></iframe>
-          </div>
-        )}
-      </div>
     );
   }
 }

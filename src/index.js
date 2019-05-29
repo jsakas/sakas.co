@@ -17,8 +17,6 @@ const THEMES = {
   dark: require('@themes/dark'),
 };
 
-console.log('THEMES', THEMES);
-
 class Main extends React.Component {
   constructor(props) {
     super(props);

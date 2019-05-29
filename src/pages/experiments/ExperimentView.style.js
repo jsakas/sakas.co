@@ -8,8 +8,8 @@ export default theme => css`
         overflow: auto;
         display: flex;
         flex-direction: column;
-        height: 100%;
-        padding: 2rem;
+        height: 100vh;
+        padding: 2rem 2rem 5rem;
 
         h2 {
             font-weight: 300;
