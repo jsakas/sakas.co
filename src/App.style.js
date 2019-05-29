@@ -193,7 +193,6 @@ export default theme => css`
             rgba(0, 0, 0, 1.0) 85%, 
             transparent 95%);
         }
-    
       }
 
       @media print {
