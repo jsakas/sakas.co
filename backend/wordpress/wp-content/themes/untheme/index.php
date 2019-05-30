@@ -8,10 +8,6 @@
  * E.g., it puts together the home page when no home.php file exists.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since 1.0.0
  */
 
 header('Content-Type: application/json');
