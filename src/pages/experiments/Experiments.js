@@ -46,7 +46,7 @@ class Experiments extends Component {
       <div className="Experiments">
         <div className={'Experiments__grid'}>
           {
-            experiment_data.map((props, i) => {
+            experiment_data.filter(i => i.indexed).map((props, i) => {
               return (
                 <Experiment key={i} {...props} />
               );

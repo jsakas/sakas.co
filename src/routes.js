@@ -10,6 +10,8 @@ import Menu1 from '@icons/Menu1';
 import Layers from '@icons/Layers';
 import PlayButton1 from '@icons/PlayButton1';
 
+import PureWineDemo from '@components/pure-wine-demo/PureWineDemo';
+
 const ROUTES = {
   about: {
     path: '/',

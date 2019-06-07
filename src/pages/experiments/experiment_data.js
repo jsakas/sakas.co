@@ -6,7 +6,9 @@ export default [
     title: 'Subtractor',
     description: 'A polyphonic synthesizer built with JavaScript',
     iframe: 'https://subtractor.netlify.com',
-    source_code: 'https://github.com/jsakas/Subtractor/'
+    source_code: 'https://github.com/jsakas/Subtractor/',
+    showControls: true,
+    indexed: true,
   },
   {
     id: 2,
@@ -15,6 +17,8 @@ export default [
     title: 'Grid',
     component: () => import('@components/Grid'),
     description: 'Web Audio & Canvas Experiment',
+    showControls: true,
+    indexed: true,
   },
   {
     id: 3,
@@ -23,6 +27,8 @@ export default [
     title: 'Eclipse',
     component: () => import('@components/Eclipse'),
     description: 'Web Audio & Canvas Experiment',
+    showControls: true,
+    indexed: true,
   },
   {
     id: 4,
@@ -31,6 +37,8 @@ export default [
     title: 'Space Doughnut',
     component: () => import('@components/Galaxy'),
     description: 'JavaScript Particles',
+    showControls: true,
+    indexed: true,
   },
   {
     id: 5,
@@ -39,6 +47,8 @@ export default [
     title: 'Crypto Typer',
     component: () => import('@components/CryptoTyper'),
     description: 'A possible page intro',
+    showControls: true,
+    indexed: true,
   },
   {
     id: 6,
@@ -47,5 +57,15 @@ export default [
     title: 'JavaScript Function Graphing',
     component: () => import('@components/Grapher'),
     description: 'Graphing mathematical functions on a canvas',
-  }
+    showControls: true,
+    indexed: true,
+  },
+  {
+    id: 7,
+    slug: 'pure-wine',
+    component: () => import('@components/pure-wine-demo/PureWineDemo'),
+    title: '',
+    showControls: false,
+    indexed: false,
+  },
 ];

@@ -53,7 +53,7 @@ class ExperimentView extends Component {
   
           {experiment.description && ( <p>{experiment.description}</p>)}
         
-          <div className="ExperimentView__buttons">
+          {experiment.showControls && (<div className="ExperimentView__buttons">
             {prev && (
               <div className="ExperimentView__button" 
                 onClick={() => history.push(this.getExperimentUrl(prev))}
@@ -76,6 +76,7 @@ class ExperimentView extends Component {
               history.push('/code');
             }}>Back</div>
           </div>
+          )}
         </div>
 
         {experiment.component && (
