@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      volumes:
+        - name: wordpress-volume
+          persistentVolumeClaim:
+            claimName: wordpress-volume
+      containers:
+      - name: sakasco-wp
+        image: jonsakas/sakascowp:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: "/var/www/html/wp-content/uploads"
+          name: wordpress-volume
+      initContainers:
+      - name: content-uploads-permissions
+        image: busybox
+        command: ["/bin/chmod","-R","755", "/var/www/html/wp-content/uploads"]
+        volumeMounts:
+        - mountPath: "/var/www/html/wp-content/uploads"
+          name: wordpress-volume
+
