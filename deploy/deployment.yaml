@@ -21,6 +21,15 @@ spec:
         image: jonsakas/sakascowp:latest
         ports:
         - containerPort: 80
+        env:
+          - name: WORDPRESS_DB_HOST
+            value: sakascowpdb.cpld7umrgzmc.us-west-2.rds.amazonaws.com:3306
+          - name: WORDPRESS_DB_USER
+            value: VkofWk9GMGhVqBQW
+          - name: WORDPRESS_DB_PASSWORD
+            value: jYxhXq6ZqGiTNsYB
+          - name: WORDPRESS_DB_NAME
+            value: wordpress
         volumeMounts:
         - mountPath: "/var/www/html/wp-content/uploads"
           name: wordpress-volume

@@ -37,7 +37,7 @@ class Main extends React.Component {
   getData = () => {
     return Promise.all([
       import('./App'),
-      fetch('http://api.sakas.co/wp-json/wp/v2/posts').then(r => r.json())
+      fetch('http://localhost:8001/wp-json/wp/v2/posts').then(r => r.json())
     ]).then(([
       module,
       posts,

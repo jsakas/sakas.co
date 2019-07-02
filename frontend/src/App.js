@@ -49,41 +49,6 @@ class App extends Component {
             <Route path="*" key={getBaseRoute(history.location)} render={({ location }) => {
               return (
                 <TransitionGroup component={null}>
-                  <Transition key={`${history.location.pathname}--experiment`} timeout={1000}>
-                    {(state) => {
-                      return (
-                          <Switch location={location}>
-                            <Route
-                              exact
-                              key={location.pathname}
-                              path="/code/:id/:slug"
-                              render={(props) => (
-                                <ExperimentView {...props} transitionState={state} />
-                              )}
-                              transitionState={state}
-                            />
-                          </Switch>
-                      );
-                    }}
-                  </Transition>
-
-                  <Transition key={`${history.location.pathname}--project`} timeout={1000}>
-                    {(state) => {
-                      return (
-                          <Switch location={location}>
-                            <Route
-                              exact
-                              key={location.pathname}
-                              path="/project/:id/:slug"
-                              render={(props) => (
-                                <ProjectView {...props} transitionState={state} />
-                              )}
-                              transitionState={state}
-                            />
-                          </Switch>
-                      );
-                    }}
-                  </Transition>
 
                   <Transition key={'logo'} timeout={1000}>
                     {(state) => {
@@ -150,6 +115,46 @@ class App extends Component {
                             })}
                           </Switch>
                         </div>
+                      );
+                    }}
+                  </Transition>
+
+                  <Transition key={`${history.location.pathname}--experiment`} timeout={3000}>
+                    {(state) => {
+                      return (
+                          <Switch location={location}>
+                            <Route
+                              exact
+                              key={location.pathname}
+                              path="/code/:id/:slug"
+                              render={(props) => (
+                                <ExperimentView {...props} transitionState={state} />
+                              )}
+                              transitionState={state}
+                            />
+                          </Switch>
+                      );
+                    }}
+                  </Transition>
+
+                  <Transition key={`${history.location.pathname}--project`} timeout={{
+                    appear: 3000,
+                    enter: 3000,
+                    exit: 1000,
+                  }}>
+                    {(state) => {
+                      return (
+                          <Switch location={location}>
+                            <Route
+                              exact
+                              key={location.pathname}
+                              path="/project/:id/:slug"
+                              render={(props) => (
+                                <ProjectView {...props} transitionState={state} />
+                              )}
+                              transitionState={state}
+                            />
+                          </Switch>
                       );
                     }}
                   </Transition>

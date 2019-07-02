@@ -17,13 +17,18 @@ services:
       context: ./backend
     image: jonsakas/sakascowp:latest
     ports:
-      - '8000:80'
+      - '8001:80'
     restart: always
     environment:
       WORDPRESS_DB_HOST: 'db:3306'
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+      # WORDPRESS_DB_HOST: sakascowpdb.cpld7umrgzmc.us-west-2.rds.amazonaws.com:3306
+      # WORDPRESS_DB_USER: VkofWk9GMGhVqBQW
+      # WORDPRESS_DB_PASSWORD: jYxhXq6ZqGiTNsYB
+      # WORDPRESS_DB_NAME: wordpress
+
     volumes:
       - ./backend/wordpress:/var/www/html
 

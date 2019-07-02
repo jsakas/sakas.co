@@ -4,24 +4,10 @@ import routes from '@routes';
 import history from '@history';
 import { GlobalState } from '@store';
 
+import Html from '@components/Html';
+
 import style from './Portfolio.style';
 import withStyles from '@utils/withStyles';
-
-const Html = ({ content, type, className, style }) => {
-    return React.createElement(type, {
-        className: className,
-        style: style,
-        dangerouslySetInnerHTML: {
-            __html: content
-        },
-    });
-}
-Html.defaultProps = {
-    content: '',
-    type: 'span',
-    className: '',
-    style: {},
-}
 
 class ProjectPreview extends Component {
     constructor(props) {

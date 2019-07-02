@@ -18,6 +18,10 @@ export default theme => css`
         font-family: ${theme.font_secondary};
     }
 
+    figure {
+        margin: 0;
+    }
+
     *,
     *:before,
     *:after {

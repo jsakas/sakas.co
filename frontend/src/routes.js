@@ -48,7 +48,7 @@ const ROUTES = {
   project: {
     path: '/project/:id/:slug',
     component: ProjectView,
-    title: 'Code',
+    title: 'Project',
     showTitle: true,
     menu: false,
     mainView: false,
