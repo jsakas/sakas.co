@@ -10,7 +10,8 @@ import style from './ExperimentView.style';
 import withStyles from '@utils/withStyles';
 import compose from '@utils/compose';
 
-import experiment_data from './experiment_data';
+const requireAll = (r) => r.keys().map(r);
+const experiment_data = requireAll(require.context('@docs/experiments', true, /\.md$/));
 
 class ExperimentView extends Component {
   constructor(props) {
@@ -56,6 +57,8 @@ class ExperimentView extends Component {
       'ExperimentView'
     ]
 
+    let ComponentExperiement = experiment.default;
+
     return (
         <div className={classList.join(' ')}>
           <div className="ExperimentView__header">
@@ -88,9 +91,9 @@ class ExperimentView extends Component {
             </div>
           </div>
 
-          {experiment.component && (
+          {ComponentExperiement && (
             <div className="ExperimentView__fullscreen">
-              <AsyncComponent resolve={experiment.component} />
+              <ComponentExperiement />
             </div>
           )}
     
