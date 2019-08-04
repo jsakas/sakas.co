@@ -6,7 +6,7 @@ export const color_primary = '#006E6D';
 export const color_secondary = '#008773';
 export const color_tertiary = '#002D3F';
 
-export const font_primary = '\'Open Sans\', sans-serif';
+export const font_primary = '\'Montserrat\', sans-serif';
 export const font_secondary = '\'Kanit\', sans-serif';
 export const font_mono = '\'IBM Plex Mono\', sans-serif';
 
