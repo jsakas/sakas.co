@@ -128,7 +128,8 @@ class App extends Component {
                               if (route.mainView === false) {
                                 return;
                               }
-                              let Page = route.component;
+                              let Default = () => null;
+                              let Page = route.component || Default;
                               return (
                                 <Route
                                   exact

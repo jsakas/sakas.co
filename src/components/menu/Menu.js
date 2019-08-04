@@ -40,6 +40,7 @@ class Menu extends Component {
       <div className={className}>
         {Object.keys(ROUTES)
           .filter(r => ROUTES[r].menu)
+          .sort((a, b) => ROUTES[a].menuOrder - ROUTES[b].menuOrder)
           .map((r, i) => <MenuItem key={i} {...ROUTES[r]} />)}
       </div>
     );

@@ -1,10 +1,10 @@
 import About from '@pages/about/About';
 import Experiments from '@pages/experiments/Experiments';
-import ExperimentView from '@pages/experiments/ExperimentView';
 import Resume from '@pages/resume/Resume';
 import Archive from '@pages/archive/Archive';
 import Portfolio from '@pages/portfolio/Portfolio';
 import ProjectView from '@pages/portfolio/ProjectView';
+import _404 from '@pages/errors/404';
 import Audio from '@pages/audio/Audio';
 import User from '@icons/User';
 import Share1 from '@icons/Share1';
@@ -13,15 +13,8 @@ import Layers from '@icons/Layers';
 import PlayButton1 from '@icons/PlayButton1';
 
 const ROUTES = {
-  about: {
-    path: '/',
-    component: About,
-    title: 'About',
-    showTitle: false,
-    Icon: User,
-    menu: true,
-  },
   portfolio: {
+    active: false,
     path: '/portfolio',
     component: Portfolio,
     title: 'Portfolio',
@@ -29,23 +22,24 @@ const ROUTES = {
     Icon: Layers,
     menu: true,
   },
+  experiment: {
+    active: true,
+    path: '/code/:id/:slug',
+    title: 'Code',
+    showTitle: true,
+  },
   experiments: {
+    active: true,
     path: '/code',
     component: Experiments,
     title: 'Code',
     showTitle: true,
     Icon: Share1,
     menu: true,
-  },
-  experiment: {
-    path: '/code/:id/:slug',
-    component: ExperimentView,
-    title: 'Code',
-    showTitle: true,
-    menu: false,
-    mainView: false,
+    menuOrder: 2,
   },
   project: {
+    active: false,
     path: '/project/:id/:slug',
     component: ProjectView,
     title: 'Code',
@@ -54,22 +48,27 @@ const ROUTES = {
     mainView: false,
   },
   resume: {
+    active: true,
     path: '/resume',
     component: Resume,
     title: 'Resume',
     showTitle: true,
     Icon: Menu1,
     menu: true,
+    menuOrder: 3,
   },
   archive: {
+    active: true,
     path: '/archive',
     component: Archive,
     title: 'Archive',
     showTitle: true,
     Icon: Layers,
     menu: true,
+    menuOrder: 4,
   },
   audio: {
+    active: true,
     path: '/audio',
     component: Audio,
     title: 'Audio',
@@ -77,6 +76,28 @@ const ROUTES = {
     Icon: PlayButton1,
     menu: false,
   },
+  about: {
+    active: true,
+    path: '/',
+    component: About,
+    title: 'About',
+    showTitle: false,
+    Icon: User,
+    menu: true,
+    menuOrder: 1,
+  },
+  default: {
+    active: true,
+    path: '*',
+    component: _404,
+    title: 'Not Found',
+    menu: false,
+  }
 };
 
-export default ROUTES;
+export default Object.keys(ROUTES)
+  .filter(r => ROUTES[r].active)
+  .reduce((a, c) => {
+    a[c] = ROUTES[c];
+    return a;
+  }, {});

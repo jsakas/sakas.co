@@ -4,7 +4,6 @@ import pathToRegexp from 'path-to-regexp';
 import routes from '@routes';
 import { playClick } from '@utils/UISoundFx';
 import history from '@history';
-import AsyncComponent from '@components/async/AsyncComponent';
 
 import style from './ExperimentView.style';
 import withStyles from '@utils/withStyles';
