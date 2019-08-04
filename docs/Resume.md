@@ -49,8 +49,8 @@ CRM
 
 ## Beatport
 
-### Manager, Software Engineering (2018 - current)
-### Senior Software Engineer, Engineering Team Lead (2015 - 2018)
+### Manager, Software Engineering (2018 - 2019)
+### Senior Software Engineer, Engineering Team Lead (2015 - 2019)
 
 - Manages team of 8 full stack software engineers.
 - Leads development for the completion of new product initiatives.
