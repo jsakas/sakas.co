@@ -23,7 +23,7 @@ class Main extends React.Component {
 
     this.state = {
       appLoading: true,
-      theme: THEMES.light,
+      theme: THEMES.dark,
     };
   }
 

@@ -38,7 +38,7 @@ class App extends Component {
 
       <div className="App">
         <div className="App__canvas">
-          {/* <Triangles /> */}
+          <Triangles />
         </div>
 
         <ThemeControl setTheme={this.props.setTheme} />
@@ -52,17 +52,17 @@ class App extends Component {
                   <Transition key={`${history.location.pathname}--experiment`} timeout={1000}>
                     {(state) => {
                       return (
-                          <Switch location={location}>
-                            <Route
-                              exact
-                              key={location.pathname}
-                              path="/code/:id/:slug"
-                              render={(props) => (
-                                <ExperimentView {...props} transitionState={state} />
-                              )}
-                              transitionState={state}
-                            />
-                          </Switch>
+                        <Switch location={location}>
+                          <Route
+                            exact
+                            key={location.pathname}
+                            path="/code/:id/:slug"
+                            render={(props) => (
+                              <ExperimentView {...props} transitionState={state} />
+                            )}
+                            transitionState={state}
+                          />
+                        </Switch>
                       );
                     }}
                   </Transition>
@@ -70,17 +70,17 @@ class App extends Component {
                   <Transition key={`${history.location.pathname}--project`} timeout={1000}>
                     {(state) => {
                       return (
-                          <Switch location={location}>
-                            <Route
-                              exact
-                              key={location.pathname}
-                              path="/project/:id/:slug"
-                              render={(props) => (
-                                <ProjectView {...props} transitionState={state} />
-                              )}
-                              transitionState={state}
-                            />
-                          </Switch>
+                        <Switch location={location}>
+                          <Route
+                            exact
+                            key={location.pathname}
+                            path="/project/:id/:slug"
+                            render={(props) => (
+                              <ProjectView {...props} transitionState={state} />
+                            )}
+                            transitionState={state}
+                          />
+                        </Switch>
                       );
                     }}
                   </Transition>

@@ -29,16 +29,16 @@ class ProjectView extends Component {
       'App__page-transition',
       `App__page-transition--${transitionState}`,
       'ProjectView'
-    ]
+    ];
 
     return (
-        <div className={classList.join(' ')}>
-          <div className="ProjectView__header">
-            <h2>{project.title}</h2>
+      <div className={classList.join(' ')}>
+        <div className="ProjectView__header">
+          <h2>{project.title}</h2>
     
-            {project.description && ( <p>{project.description}</p>)}
-          </div>
+          {project.description && ( <p>{project.description}</p>)}
         </div>
+      </div>
     );
   }
 }

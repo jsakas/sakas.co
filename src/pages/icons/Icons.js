@@ -8,9 +8,6 @@ const allFiles = (ctx => {
   return keys.reduce((o, k, i) => { o[k] = values[i]; return o; }, {});
 })(require.context('@icons', true, /\.js$/));
 
-console.log(allFiles);
-
-
 class Icons extends Component {
   render() {
     return (
