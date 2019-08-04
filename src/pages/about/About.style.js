@@ -1,5 +1,4 @@
 import { css } from '@emotion/core';
-import avatar from '@images/avatar.jpg';
 
 export default theme => css`
     .About {
@@ -45,10 +44,8 @@ export default theme => css`
     &__avatar {
         width: 8rem;
         height: 8rem;
-        background-image: url(${avatar});
-        background-size: contain;
-        border-radius: 50%;
-        overflow: hidden;
+        margin-right: 1rem;
+        position: relative;
     }
 
     &__intro {
