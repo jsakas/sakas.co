@@ -12,38 +12,35 @@ Enjoys working in team environments while delivering strong and immediate result
 
 ### Web Development & Graphic Design
 
-HTML (web, email and mobile),
-CSS / Sass / Postcss,
-JavaScript (ES5/6/7, Vanilla, React, Backbone, jQuery, and more),
-Webpack, Grunt, Gulp,
-Adobe Creative Suite,
-Sketch
+- HTML for Web, Email, and Mobile
+- CSS / Sass / Postcss / CSS in JS
+- JavaScript (ES5/6/7/8, Vanilla, React, Vue, Backbone, jQuery, and more)
+- Webpack, Grunt, Gulp
+- Adobe Creative Suite, Sketch
 
 ### Computer Programming & Database
 
-Python / Django / Flask,
-Node / Express,
-PHP / Zend / Wordpress,
-SQL (MySQL, PostgresQL, MSSQL),
-Linux / Shell / Bash,
-Docker / Compose / Vagrant,
-C++ / Java (college only)
+- Python / Django / Flask
+- Node / Express
+- PHP / Zend / Wordpress
+- SQL (MySQL, PostgresQL, MSSQL)
+- Linux / Shell / Bash
+- Docker / Compose / Vagrant
 
 ### Workflow & Productivity
 
-Test-Driven Development,
-Continous Integration & Delivery,
-Git,
-Agile (Pivotal Tracker / JIRA),
-
+- Test-Driven Development
+- Continous Integration & Delivery
+- Git
+- Agile
 
 ### Marketing & Analytics
 
-Google Analytics,
-Salesforce Marketing Cloud (ExactTarget),
-Segment,
-Looker,
-CRM
+- Google Analytics
+- Salesforce Marketing Cloud (ExactTarget)
+- Segment
+- Looker
+- CRM
 
 # Professional Experience
 
@@ -52,8 +49,8 @@ CRM
 ### Manager, Software Engineering (2018 - 2019)
 ### Senior Software Engineer, Engineering Team Lead (2015 - 2019)
 
-- Manages team of 8 full stack software engineers.
-- Leads development for the completion of new product initiatives.
+- Managed team of 9 full stack software engineers.
+- Led development for the completion of new product initiatives.
 - Lead maintainer for flagship e-commerce product which serves over 5 million users.
 - Ran all agile ceremonies including planning, backlog maintenance, sprint review, and daily standup.
 - Built frontend component library (Beatport UI) which currently powers 5 production applications.
@@ -65,7 +62,7 @@ Managed all technical aspects of email marketing which included development, aut
 
 ## DEG
 
-Worked on a team of 6 creating front-end applications for web and email. All delivered products were responsive and mobile optimized. Main objectives were to work with strategic and creative teams to produce content that was both user-friendly and forward thinking to maximize campaign success.
+Created front-end applications for web and email. All delivered products were responsive and mobile optimized. Main objectives were to work with strategic and creative teams to produce content that was both user-friendly and forward thinking to maximize campaign success.
 
 ### UI Engineer (2014)
 

@@ -10,13 +10,12 @@ export default theme => css`
         transition: background 1s;
 
         @media print {
-            background: none;
+            background: none !important;
         }
     }
 
     h1, h2, h3, h4, h5, h6 {
         font-family: ${theme.font_secondary};
-        line-height: 1em;
     }
 
     *,

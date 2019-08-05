@@ -69,8 +69,7 @@ export default theme => css`
       }
 
       @media print {
-        right: 2rem;
-        left: auto;
+        display: none;
       }
 
       @media screen and (max-width: ${theme.breakpoint_header}) {
@@ -86,10 +85,7 @@ export default theme => css`
 
 
       @media print {
-        right: 1.5rem;
-        left: auto;
-        text-align: right;
-        color: #111;
+        display: none;
       }
       
       h1 {
@@ -103,7 +99,7 @@ export default theme => css`
       }
 
       @media screen and (max-width: ${theme.breakpoint_header}) {
-        top: .5rem;
+        top: .75rem;
         right: 1.5rem;
         
         h1 {
