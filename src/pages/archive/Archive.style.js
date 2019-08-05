@@ -2,8 +2,6 @@ import { css } from '@emotion/core';
 
 import prismStyles from '@styles/prism';
 
-import { transparentize } from 'polished';
-
 export default theme => css`
     ${prismStyles}
 
@@ -58,7 +56,7 @@ export default theme => css`
 
         &__body {
             font-family: ${theme.font_mono};
-            background: ${transparentize(.9, '#111')};
+            background: ${theme.gist_bg};
             padding: 1rem;
             border-radius: .5rem;
             overflow: auto;

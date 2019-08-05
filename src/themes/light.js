@@ -28,3 +28,5 @@ export const color_exp_button_bg = rgba(color_primary, .7);
 export const color_exp_button_bg_hover = rgba(color_primary, 1);
 export const color_canvas_loader_1 = lighten(.05, color_primary);
 export const color_canvas_loader_2 = color_text;
+
+export const gist_bg = rgba('#111', .1);
