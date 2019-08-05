@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Canvas from '@components/canvas/Canvas';
 
 const r = Math.random;

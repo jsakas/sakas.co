@@ -21,7 +21,7 @@ class ProjectView extends Component {
   }
 
   render() {
-    let { project, next, prev } = this.state;
+    let { project } = this.state;
     let { transitionState } = this.props;
 
     let classList = [

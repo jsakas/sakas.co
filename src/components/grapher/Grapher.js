@@ -7,9 +7,6 @@ import withStyles from '@utils/withStyles';
 
 import compose from '@utils/compose';
 
-const COLOR_PRIMARY = 'rgb(203, 54, 98, .8)';
-const COLOR_SECONDARY = 'rgb(143, 82, 128, .9)';
-
 const drawAxis = (canvas, context, theme) => {
   let w = canvas.width;
   let h = canvas.height;
