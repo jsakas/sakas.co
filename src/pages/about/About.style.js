@@ -59,19 +59,19 @@ export default theme => css`
         position: relative;
 
         span {
-        margin: .5rem;
+            margin: .5rem;
         }
     }
 
     @keyframes intro {
         0% {
-        opacity: 0;
-        top: -20px;
+            opacity: 0;
+            top: -20px;
         }
 
         100% {
-        opacity: 1;
-        top: 0px;
+            opacity: 1;
+            top: 0px;
         }
     }
 
@@ -85,13 +85,13 @@ export default theme => css`
 
     @keyframes intro-2 {
         0% {
-        opacity: 0;
-        bottom: -20px;
+            opacity: 0;
+            bottom: -20px;
         }
 
         100% {
-        opacity: 1;
-        bottom: 0px;
+            opacity: 1;
+            bottom: 0px;
         }
     }
 
@@ -104,6 +104,7 @@ export default theme => css`
             color: ${theme.color_primary};
             font-size: 2.5rem;
             margin: .2rem 0;
+            line-height: 1em;
         }
 
         ul {
