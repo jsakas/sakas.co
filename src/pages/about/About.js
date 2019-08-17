@@ -8,6 +8,8 @@ import Headshot from '@components/headshot';
 import HeadshotImage from '@images/hs_mesh.png';
 import HeadshotMesh from '@images/hs_mesh.svg';
 
+import Copy from './About.md';
+
 class About extends Component {
   render() {
     return (
@@ -28,9 +30,7 @@ class About extends Component {
             </span>
           </div>
           <div className="About__body">
-            <p>
-              Jon Sakas is a freelance web developer from Denver, CO. 
-            </p>
+            <Copy />
           </div>
         </div>
       </div>

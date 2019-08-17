@@ -13,8 +13,6 @@ export default () => css`
       &__img {
         width: 100%;
         height: auto;
-        position: absolute;
-        top: 0;
         transform-origin: center;
       }
 
@@ -24,6 +22,9 @@ export default () => css`
 
       &__img {
         opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     }
 

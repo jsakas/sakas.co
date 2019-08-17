@@ -10,39 +10,50 @@ export default class Headshot extends Component {
   }
 
     animate = () => {
-      const D1 = 0;
-      const T1 = 2;
-      const T2 = 1;
+      const { D1, I1, T1, T2, yoyo, repeat, paused } = this.props;
+
       let angles = document.getElementById('headshot-svg');
       let image = document.getElementById('headshot-img');
       let paths = Array.from(angles.getElementsByTagName('path'));
 
-      let imageTl = new TimelineMax({ paused: false, yoyo: false, repeat: 0 });
-      imageTl.delay(T1 + D1 + (paths.length * .01)).to(image, 1, {
-        opacity: 1,
-      });
-
-      paths.forEach((path, i) => {
-        let tl = new TimelineMax({ paused: false, yoyo: false, repeat: 0 });
-
-        tl.delay(D1).from(path, T1, {
-          transformOrigin: 'center',
-          opacity: 0,
-          delay: i * .01,
+      if (image) {
+        let imageTl = new TimelineMax({ paused, yoyo, repeat });
+        imageTl.delay(T1 + D1 + (paths.length * .01)).to(image, 1, {
+          opacity: 1,
         });
-            
-        tl.to(path, T2, {
-          delay: T1 + (paths.length * .01),
-          opacity: 0,
-        });
+      }
 
-      });
+      if (angles) {
+
+        
+        paths.forEach((path, i) => {
+          let tl = new TimelineMax({ paused, yoyo, repeat });
+          
+          tl.delay(D1).from(path, T1, {
+            transformOrigin: 'center',
+            opacity: 0,
+            scale: 0,
+            y: 25 - (Math.random() * 50), 
+            x: 25 - (Math.random() * 50),
+            rotation: 90 - (Math.random() * 180),
+            delay: i * I1,
+          });
+          
+          // tl.to(path, T2, {
+          //   delay: T1 + (paths.length * I1),
+          //   // opacity: 0,
+          //   // scale: 0,
+          // });
+          
+        });
+      }
     }
 
     render() {
       const {
         imageUrl,
         HeadshotMesh,
+        D1, I1, T1, T2,
         ...extra
       } = this.props;
 
@@ -50,12 +61,23 @@ export default class Headshot extends Component {
         <Fragment>
           <Global styles={styles} />
           <div className="Headshot" {...extra}>
-            <img src={imageUrl} className="Headshot__img" id="headshot-img" />
-            <HeadshotMesh className="Headshot__svg" id="headshot-svg" />
+            {imageUrl && <img src={imageUrl} className="Headshot__img" id="headshot-img" />}
+            {HeadshotMesh && <HeadshotMesh className="Headshot__svg" id="headshot-svg" />}
           </div>
         </Fragment>
       );
     }
 }
 
+Headshot.defaultProps = {
+  imageUrl: null,
+  HeadshotMesh: null,
+  paused: false,
+  yoyo: false,
+  repeat: 0,
+  D1: 0,
+  I1: .01,
+  T1: 2,
+  T2: 1,
+}
 
