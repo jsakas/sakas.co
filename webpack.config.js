@@ -1,10 +1,16 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const WebpackStats = require('webpack-visualizer-plugin');
 const { DefinePlugin } = require('webpack');
 
+const { APP_ENV } = process.env;
+const production = (APP_ENV === 'production');
+
+const faviconConfig = require('./favicon.json');
 
 module.exports = {
   mode: process.env.WEBPACK_ENV == 'production' ? 'production' : 'development',
@@ -28,6 +34,9 @@ module.exports = {
     publicPath: '/static/',
   },
   plugins: [
+    new DefinePlugin({
+      'APP_ENV': JSON.stringify(process.env.APP_ENV),
+    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'html', 'base.html'),
       filename: '../index.html',
@@ -37,17 +46,24 @@ module.exports = {
       body: ['main'],
       alwaysWriteToDisk: true,
     }),
-    new DefinePlugin({
-      'APP_ENV': JSON.stringify(process.env.APP_ENV),
+    new WebappWebpackPlugin({
+      logo: path.resolve(__dirname, 'src', 'images', 'icon.png'),
+      publicPath: '/static/',
+      cache: true,
+      inject: 'force',
+      favicons: faviconConfig,
     }),
     new HtmlWebpackHarddiskPlugin(),
     new ExtractCssChunks({
       filename: '[hash].css'
     }),
+    production &&
+    new HtmlBeautifyPlugin(),
+    production &&
     new WebpackStats({
       filename: './bundle.html',
     }),
-  ],
+  ].filter(o => o),
   resolve: {
     alias: {
       '@audio': path.resolve(__dirname, 'src', 'audio'),

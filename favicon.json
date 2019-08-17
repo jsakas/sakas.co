@@ -1,0 +1,21 @@
+{
+    "appName": "Jon Sakas",
+    "appShortName": "Jon Sakas",
+    "appDescription": "The homepage of Jon Sakas",
+    "developerName": "Jon Sakas",
+    "developerURL": "https://jon.sakas.co",
+    "lang": "en-US",
+    "background": "#fff",
+    "theme_color": "#fff",
+    "appleStatusBarStyle": "black-translucent",
+    "icons": {
+        "android": true,
+        "appleIcon": true,
+        "appleStartup": true,
+        "coast": true,
+        "favicons": true,
+        "firefox": true,
+        "windows": true,
+        "yandex": true
+    }
+}
