@@ -22,7 +22,7 @@ class About extends Component {
               HeadshotMesh={HeadshotMesh}
             />
             <span className="About__headline">
-              <h1>I&apos;m Jon</h1>
+              <h1>Jon Sakas</h1>
               <ul>
                 <li>Developer</li>
                 <li>Designer</li>

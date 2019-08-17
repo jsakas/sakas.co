@@ -85,12 +85,25 @@ class App extends Component {
                     }}
                   </Transition>
 
-                  <Transition key={'logo'} timeout={1000}>
+                  <Transition key={`${getBaseRoute(history.location)}--logo`} timeout={2000}>
                     {(state) => {
                       return (
-                        <div className={`App__logo App__logo-transition App__logo-transition--${state}`}>
-                          jon.sakas
-                        </div>
+                        <Switch location={location}>
+                          {Object.keys(ROUTES).filter(route => ROUTES[route].showLogo).map((route) => {
+                            return (
+                              <Route
+                                exact
+                                key={location}
+                                path={ROUTES[route].path}
+                                render={() => (
+                                  <div className={`App__logo App__logo-transition App__logo-transition--${state}`}>
+                                    jon.sakas
+                                  </div>
+                                )}
+                              />
+                            );
+                          })}
+                        </Switch>
                       );
                     }}
                   </Transition>

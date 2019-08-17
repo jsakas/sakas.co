@@ -77,6 +77,39 @@ export default theme => css`
       }
     }
 
+    &__logo-transition {
+      transform-origin: left center;
+
+      &--entering {
+        ${animateOnce('logo-enter', '1s')}
+        transform-origin: right center;
+      }
+      
+      &--exiting {
+        ${animateOnce('logo-exit', '1s')}
+      }
+
+      @keyframes logo-enter {
+        0% {
+          opacity: 0;
+        }
+        
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes logo-exit {
+        0% {
+          opacity: 1;
+        }
+        
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+
     &__title {
       position: absolute;
       top: 5.5rem;
