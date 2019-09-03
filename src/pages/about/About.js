@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './About.scss';
 
+import Copy from './About.md';
+
 export default class About extends Component {
   render() {
     return (
@@ -19,11 +21,7 @@ export default class About extends Component {
             </span>
           </div>
           <div className="About__body">
-            <p>
-            Jon Sakas is a Creative Technologist from Denver, CO. He is currently working 
-            as the Engineering Manager at <a href="https://www.beatport.com" rel="noopener noreferrer" target="_blank">Beatport</a>.
-            He is passionate about building a more musicial web.
-            </p>
+            <Copy />
           </div>
         </div>
       </div>

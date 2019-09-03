@@ -3,6 +3,10 @@
 
 html, body {
   background: $color-background;
+
+  @media print {
+    background: unset;
+  }
 }
 
 .App {
