@@ -18,6 +18,7 @@ export default () => css`
 
       &__svg {
         overflow: visible;
+        z-index: 1;
       }
 
       &__img {
@@ -25,6 +26,7 @@ export default () => css`
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
       }
     }
 

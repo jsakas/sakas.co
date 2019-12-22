@@ -1,53 +1,39 @@
-import React, { Component } from 'react';
-import { TransitionGroup, Transition } from 'react-transition-group';
+import React, { Component, Fragment } from 'react';
+import { Global } from '@emotion/core';
+import styles from './Loader.style.js';
 
-import style from './Loader.style';
-import withStyles from '@utils/withStyles';
-
-const LoaderIcon = () => {
+export const LoaderIcon = () => {
   return (
-    <div className="LoaderIcon">
-      <div className="LoaderIcon__planet" />
-      <div className="LoaderIcon__planet" />
-      <div className="LoaderIcon__planet" />
-      <div className="LoaderIcon__planet" />
-    </div>
+    <div className="LoaderIcon"></div>
   );
 };
 
 class Loader extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      status: 'started',
+    };
+  }
+
+  complete = (x) => new Promise(resolve => {
+    const timedResolver = () => setTimeout(() => resolve(x), 250);
+    this.setState({
+      status: 'complete',
+    }, timedResolver);
+  })
+
   render() {
-    let className = 'Loader__children';
-    className += this.props.loading ? ' Loader__children--loading' : ' Loader__children--loaded';
     return (
-      <div className="Loader">
-
-        <TransitionGroup key="loader" component={null}>
-          {this.props.loading && (
-            <Transition key="icon" timeout={1000}>
-              {(state) => {
-                return (
-                  <div className={`Loader__icon Loader__icon--${state}`}>
-                    <LoaderIcon />
-                  </div>
-                );
-              }}
-            </Transition>
-          )}
-        </TransitionGroup>
-
-        <div key="loader-children" className={className}>
-          {this.props.children}
-        </div>
-
-      </div>
-    );
+      <Fragment>
+        <Global styles={styles} />
+        <svg className={`Loader Loader--${this.state.status}`} width="50px" height="50px" viewBox="0 0 50 50">
+          <polygon points="25 0 50 50 1 50"></polygon>
+        </svg>
+      </Fragment>
+    );       
   }
 }
 
-Loader.defaultProps = {
-  loading: false,
-  children: null,
-};
-
-export default withStyles(style)(Loader);
+export default Loader;

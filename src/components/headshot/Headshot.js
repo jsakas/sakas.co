@@ -24,7 +24,10 @@ export default class Headshot extends Component {
       }
 
       if (angles) {
-
+        let anglesTL = new TimelineMax({ paused, yoyo, repeat });
+        anglesTL.delay(T1 + D1 + (paths.length * .01) + 1).to(angles, 1, {
+          opacity: 0,
+        });
         
         paths.forEach((path, i) => {
           let tl = new TimelineMax({ paused, yoyo, repeat });
@@ -39,11 +42,11 @@ export default class Headshot extends Component {
             delay: i * I1,
           });
           
-          // tl.to(path, T2, {
-          //   delay: T1 + (paths.length * I1),
-          //   // opacity: 0,
-          //   // scale: 0,
-          // });
+          tl.to(path, T2, {
+            delay: T1 + (paths.length * I1),
+            opacity: 0,
+            scale: 0,
+          });
           
         });
       }

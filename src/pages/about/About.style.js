@@ -42,8 +42,8 @@ export default theme => css`
         }
 
         &__avatar {
-            width: 8rem;
-            height: 8rem;
+            width: 12rem;
+            height: 12rem;
             margin-right: 1rem;
             position: relative;
         }
@@ -92,10 +92,11 @@ export default theme => css`
         &__headline {
             display: inline-block;
             font-family: ${theme.font_secondary};
+            position: relative;
             
             h1 {
                 color: ${theme.color_primary};
-                font-size: 2.5rem;
+                font-size: 4.5rem;
                 margin: .2rem 0;
                 line-height: 1em;
             }
@@ -107,8 +108,8 @@ export default theme => css`
             }
             
             li {
-                font-size: 1.5rem;
-                line-height: 1.5rem;
+                font-size: 2.5rem;
+                line-height: 1em;
                 margin: .2rem 0;
                 padding: 0;
                 list-style-type: none;
@@ -121,15 +122,15 @@ export default theme => css`
             animation-duration: 1s;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
-            max-width: 25rem;
+            max-width: 35rem;
         }
 
         p {
             font-family: ${theme.font_primary};
             text-align: center;
             width: 100%;
-            font-size: .9rem;
-            line-height: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.5em;
             font-weight: 300;
         }
 

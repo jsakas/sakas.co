@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { rgba } from 'polished';
+import { rgba, lighten } from 'polished';
 
 export default theme => css`
     .Resume {
@@ -66,11 +66,12 @@ export default theme => css`
         }
         
         h1 {
-            color: rgba(#fff, .8);
-            font-family: ${theme.font_primary};
+            color: ${rgba(theme.color_primary, .9)};
+            font-family: ${theme.font_secondary};
             font-weight: 600;
             letter-spacing: 1px;
             margin-top: 3rem;
+            margin-bottom: .5rem;
             font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: .2rem;

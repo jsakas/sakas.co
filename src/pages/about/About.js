@@ -20,6 +20,8 @@ class About extends Component {
               className="About__avatar"
               imageUrl={HeadshotImage}
               HeadshotMesh={HeadshotMesh}
+              yoyo={false}
+              repeat={0}
             />
             <span className="About__headline">
               <h1>Jon Sakas</h1>
