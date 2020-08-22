@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { rgba, lighten } from 'polished';
+import { rgba } from 'polished';
 
 export default theme => css`
     .Resume {

@@ -56,7 +56,6 @@ export default class Headshot extends Component {
       const {
         imageUrl,
         HeadshotMesh,
-        D1, I1, T1, T2,
         ...extra
       } = this.props;
 
@@ -82,5 +81,5 @@ Headshot.defaultProps = {
   I1: .01,
   T1: 2,
   T2: 1,
-}
+};
 

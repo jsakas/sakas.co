@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Prism from 'prismjs';
 
+import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-php';
 
 import style from './Archive.style';
 import withStyles from '@utils/withStyles';
