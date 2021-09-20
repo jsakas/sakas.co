@@ -35,7 +35,7 @@
     "markdown-to-react-loader": "1.0.1",
     "node-sass": "4.12.0",
     "path-to-regexp": "3.0.0",
-    "prismjs": "1.16.0",
+    "prismjs": "1.25.0",
     "raw-body": "2.4.0",
     "sass-loader": "7.1.0",
     "webpack": "4.30.0",
